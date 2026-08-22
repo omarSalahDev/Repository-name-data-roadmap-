@@ -897,6 +897,81 @@ with tab1:
                 </a>
             </div>
             """, unsafe_allow_html=True)
+
+
+# --- Phase 10: Advanced Insights & Data Ethics (Bonus) ---
+    with st.expander("📁 Phase 10: Read: Advanced Insights & Data Ethics (اضغط للقراءة الكاملة)", expanded=False):
+        st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; font-family: sans-serif; font-size: 16px; line-height: 2.1; padding: 25px; background-color: #1a1a1a; border-radius: 12px; border: 1px solid #333; color: #e0e0e0;">
+        
+        <h2 style="direction: rtl; text-align: right; color: #ff4b4b; font-size: 24px; font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">
+            🚀 التكات المخفية: كواليس البيانات، أخلاقيات الذكاء الاصطناعي، وقرارات الملايين!
+        </h2>
+        
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            في الدرس العاشر والأخير من رحلتنا النظرية، هنقفل الدائرة ونعرف الأسرار اللي مش بتتقال في الكورسات العادية..<br>
+            <i>"إزاي البيانات بتوصلنا أصلاً؟ وإيه الخطورة لو استخدمناها غلط؟ وإزاي الشركات الكبيرة مش بتخمن في قراراتها أبداً؟"</i>
+        </p>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            ⚙️ 1. كواليس رحلة البيانات (<span dir="ltr">ETL / ELT Pipelines</span>)
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            عمرك سالت نفسك: البيانات الخام اللي في التطبيق بتوصل إزاي لشاشات التحليل بتاعتك؟ الحكاية بتعدى على 3 محطات أساسية:
+        </p>
+        <ul style="direction: rtl; text-align: right; margin-bottom: 20px; padding-right: 20px;">
+            <li style="margin-bottom: 6px;"><b>Extract (استخراج):</b> سحب الداتا من قواعد بيانات التطبيقات، السيرفرات، ومواقع الإنترنت.</li>
+            <li style="margin-bottom: 6px;"><b>Transform (تحويل وتنظيف):</b> تنقية الداتا، توحيد العملات وتنسيق التواريخ (ودي أكتر مرحلة بياخد فيها المحلل وقته).</li>
+            <li style="margin-bottom: 6px;"><b>Load (تحميل):</b> تخزين الداتا النهئية النظيفة في مستودعات مركزية زي <span dir="ltr">Data Warehouse</span> عشان المحللين يسحبوها بسهولة.</li>
+        </ul>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            ⚖️ 2. أخلاقيات البيانات والتحيز الملعون (<span dir="ltr">Data Ethics & Bias</span>)
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            مش كل بيانات متاح للشركات جمعها بسبب قوانين الخصوصية العالمية الصارمة زي الـ <span dir="ltr">GDPR</span>.. والأخطر هو <b>التحيز في البيانات (<span dir="ltr">Data Bias</span>)</b>!<br>
+            لو شركة عملت موديل ذكاء اصطناعي يوافق أو يرفض القروض بناءً على "تاريخ العملاء القدامى"، وكان التاريخ ده فيه تمييز ضد فئة معينة.. الموديل هيكرر نفس الظلم وبشكل تلقائي! المحترف الحقيقي مش بس ذكي برمجياً، ده شخص مسؤول وأخلاقي في معالجة البيانات.
+        </p>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🧪 3. إزاي الشركات الكبرى بتقرر بدون تخمين؟ (<span dir="ltr">A/B Testing</span>)
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            لما <span dir="ltr">Netflix</span> تحب تغير لون زرار التشغيل، أو <span dir="ltr">Amazon</span> تحب تغير مكان سلة الشراء.. مش بيعتمدوا على الإحساس!<br>
+            بيلجاؤا لـ <b><span dir="ltr">A/B Testing</span></b>: بيقسموا المستخدمين نصين، النص (أ) يشوف التصميم القديم والنص (ب) يشوف التصميم الجديد، وبيسيبوا الأرقام والبيانات الحقيقية تحكم مين كسب بالمللي!
+        </p>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🏁 خط النهاية: الانطلاق نحو عالم التطبيق العملي
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 20px;">
+            بكده نكون قفلنا 100% من الصورة الكبيرة، المفاهيم الأساسية، الأدوات، الوظائف، وحتى التكات المتقدمة لعالم البيانات.<br>
+            أنت جاهز تماماً دلوقتي عشان تفتح برامجك وتكتب أول كود، وتبني أول تقرير، وتنفذ أول مشروع حقيقي!
+        </p>
+        
+        <p style="direction: rtl; text-align: right; background: rgba(255, 153, 0, 0.1); padding: 12px; border-radius: 6px; border-right: 4px solid #ff9933; margin-bottom: 0;">
+            <b>💡 نصيحة ختامية للسلسلة:</b> العلم النظري هو البوصلة، لكن التطبيق العملي هو اللي بيحرك السفينة. لا تقف مكانك في القراءة، واجعل يدك دائماً على لوحة المفاتيح تطبق كل فكرة بتتعلمها!
+        </p>
+        
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="https://www.linkedin.com" target="_blank" style="background-color: #0a66c2; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
+                    💬 ناقش ختام السلسلة على لينكد إن
+                </a>
+            </div>
+            """, unsafe_allow_html=True)
+
     
     other_phases = {
       
