@@ -32,15 +32,15 @@ Phase = {
 }
 
 # 4. تصميم الواجهة الرئيسية
-st.markdown("<h1 class='title'> DataLab | by Omar Saleh</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subheader'>مرجعك الشامل وخريطتك العملية من تحليل البيانات إلى علوم البيانات والذكاء الاصطناعي</p>", unsafe_allow_html=True)
+st.markdown("<h1 class='title'>⚡ DataLab | by Omar Saleh</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subheader'>مرجعك الشامل وخريطتك العملية من تحليل البيانات إلى علوم البيانات والذكاء الاصطناعي 🚀</p>", unsafe_allow_html=True)
 st.divider()
 
 # عرض الأزرار بشكل تفاعلي ومرتب
 for ph, info in Phase.items():
     col1, col2 = st.columns([1, 4])
     with col1:
-        st.button(f"ph {ph}", disabled=True)
+        st.button(f"Phase {ph}", disabled=True)
     with col2:
         if info["link"]:
             st.link_button(f"Read: {info['title']}", url=info["link"])
@@ -48,4 +48,4 @@ for ph, info in Phase.items():
             st.button(f"{info['title']} - قريباً ⏳", disabled=True)
 
 st.divider()
-st.caption(Engineered & Maintained by Omar Saleh)
+st.caption("Engineered & Maintained by Omar Saleh")
