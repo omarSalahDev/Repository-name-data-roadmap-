@@ -209,6 +209,105 @@ with tab1:
                 </a>
             </div>
             """, unsafe_allow_html=True)
+
+# --- Phase 03: Think Like a Data Analyst ---
+    with st.expander("📁 Phase 03: Read: Think Like a Data Analyst (اضغط للقراءة الكاملة)", expanded=False):
+        st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; font-family: sans-serif; font-size: 16px; line-height: 2.1; padding: 25px; background-color: #1a1a1a; border-radius: 12px; border: 1px solid #333; color: #e0e0e0;">
+        
+        <h2 style="direction: rtl; text-align: right; color: #ff4b4b; font-size: 24px; font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">
+            🍔 لو شفت شخص أكل 20 برجر في وجبة واحدة.. تفتكر عقلك هيفكر إزاي؟
+        </h2>
+        
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            والإجابة هتقولك: أنت بتفكر كشخص عادي.. ولا كمحلل بيانات؟ 🤔<br>
+            الشخص العادي هيقف مصدوم ويقول: <i>"يا ساتر! إزاي قدر ياكل 20 برجر مرة واحدة؟!"</i> وينتهي الموضوع عنده هنا..
+        </p>
+        
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px; background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px; border-right: 4px solid #ff4b4b;">
+            <b>أما محلل البيانات (<span dir="ltr" style="color: #4da6ff;">Data Analyst</span>):</b> عقله في اللحظة دي بيشتغل بأسئلة مختلفة تماماً:<br>
+            • هل ده معدل أكل طبيعي للشخص ده؟<br>
+            • "يا ترى عمره كام؟ وزنه كام؟ وهل بيمارس رياضة عنيفة؟"<br>
+            • "طب هل الرقم ده مجرد حالة فردية شاذة (<span dir="ltr" style="color: #ff9933;">Outlier</span>) ولا المنيو بتاع المطعم كبر بزيادة؟ 😂"
+        </p>
+        
+        <p style="direction: rtl; text-align: right; margin-bottom: 20px;">
+            وهنا يكمن الدرس الثالث والأهم في رحلتنا: الفرق بين الشخص العادي والمحلل مش الأدوات اللي بيستخدمها.. ولكن الفرق في <b>طريقة التفكير والسياق (<span dir="ltr">Context</span>)</b>!
+        </p>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🔍 أهم مهارة لأي <span dir="ltr">Data Analyst</span>: "اسأل ليه؟"
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            في المثل التقني الشهير بنقول:<br>
+            <span dir="ltr" style="display: block; background: rgba(0, 0, 0, 0.3); padding: 10px; border-radius: 6px; margin: 8px 0; color: #ff9933; text-align: center; font-weight: bold;">"A good question is worth more than a thousand charts."</span>
+            (السؤال الذكي قيمته أعلى من ألف رسم بياني).
+        </p>
+        <p style="direction: rtl; text-align: right; margin-bottom: 20px;">
+            المحلل الشاطر مش شغلته يحفظ معادلات <span dir="ltr">Excel</span> أو أوامر <span dir="ltr">SQL</span> وخلاص.. ولكن شغلته يطرح الأسئلة الصح، لأنك لو سألت السؤال الصح، البيانات هتساعدك توصل للإجابة!
+        </p>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🔄 رحلة المحلل: دورة حياة تحليل البيانات (<span dir="ltr">Data Analysis Workflow</span>)
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">علشان تحل أي مشكلة بيزنس من الصفر، بتعدي بـ 5 مراحل متتالية:</p>
+        
+        <div style="direction: rtl; text-align: right; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <p style="margin-bottom: 5px;"><b>1. طرح الأسئلة (<span dir="ltr" style="color: #4da6ff;">Ask</span>):</b></p>
+            <p style="margin-bottom: 0; opacity: 0.9;">كل رحلة بتبدأ بسؤال بيزنس واضح. مثلاً المدير بيدخل يقولك: <i>"ليه المبيعات وقعت في فرع الإسكندرية الشهر ده؟"</i> (من غير سؤال واضح، تحليلك هيبقى عشوائي وتايه).</p>
+        </div>
+
+        <div style="direction: rtl; text-align: right; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <p style="margin-bottom: 5px;"><b>2. تنظيف البيانات (<span dir="ltr" style="color: #4da6ff;">Data Wrangling</span>):</b></p>
+            <p style="margin-bottom: 0; opacity: 0.9;">في مشاريع كتير، تنظيف البيانات ممكن يستهلك الجزء الأكبر من وقتك! يعني بتبدأ تجمع الداتا وتشيل الأخطاء وتعالج القيم المفقودة (<span dir="ltr">Missing Values</span>) وتوحد الصيغ علشان الداتا تبقى جاهزة ونضيفة.</p>
+        </div>
+
+        <div style="direction: rtl; text-align: right; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <p style="margin-bottom: 5px;"><b>3. استكشاف البيانات (<span dir="ltr" style="color: #4da6ff;">Exploratory Data Analysis - EDA</span>):</b></p>
+            <p style="margin-bottom: 0; opacity: 0.9;">قلب شغل المحلل! هنا بتبدأ تبص على الأرقام وتكتشف الأنماط (<span dir="ltr">Patterns</span>) والعلاقات بين المتغيرات والنقاط الشاذة.. هنا البيانات بتبدأ "تتكلم".</p>
+        </div>
+
+        <div style="direction: rtl; text-align: right; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <p style="margin-bottom: 5px;"><b>4. النمذجة (<span dir="ltr" style="color: #4da6ff;">Modeling & Prediction</span>):</b></p>
+            <p style="margin-bottom: 0; opacity: 0.9;">لو المشكلة محتاجة تنبؤ للمستقبل، بنبدأ نبني نموذج (<span dir="ltr">Model</span>) يتعلم من بيانات الماضي عشان يتوقع إيه اللي هيحصل الشهر الجاي.</p>
+        </div>
+
+        <div style="direction: rtl; text-align: right; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+            <p style="margin-bottom: 5px;"><b>5. العرض والقصة (<span dir="ltr" style="color: #4da6ff;">Presentation & Storytelling</span>):</b></p>
+            <p style="margin-bottom: 0; opacity: 0.9;">أهم مرحلة بيغفل عنها كتير! لو عملت تحليل عبقري وما عرفتش تشرحه لمديرك بلغة بسيطة وقصة واضحة عن طريق أدوات زي (<span dir="ltr">Power BI</span> أو <span dir="ltr">Excel Dashboards</span>).. يبقى تحليلك ملوش قيمة!</p>
+        </div>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            📊 المستويات الأربعة للتحليل (<span dir="ltr">Types of Analytics</span>)
+        </h3>
+        <ul style="direction: rtl; text-align: right; margin-bottom: 20px; padding-right: 20px;">
+            <li style="margin-bottom: 8px;"><b>التحليل الوصفي (<span dir="ltr">Descriptive</span>):</b> "إيه اللي حصل؟" (مبيعات الشهر اللي فات كام؟)</li>
+            <li style="margin-bottom: 8px;"><b>التحليل التشخيصي (<span dir="ltr">Diagnostic</span>):</b> "ليه ده حصل؟" (ليه المبيعات قلت في الفرع ده بالذات؟)</li>
+            <li style="margin-bottom: 8px;"><b>التحليل التنبؤي (<span dir="ltr">Predictive</span>):</b> "إيه اللي هيحصل في المستقبل؟" (متوقع نبيع كام الشهر الجاي؟)</li>
+            <li style="margin-bottom: 8px;"><b>التحليل التوجيهي (<span dir="ltr">Prescriptive</span>):</b> "إيه القرار المفروض ناخده دلوقتي؟" (هل نزود خصومات ولا نغير المنتج؟)</li>
+        </ul>
+        
+        <p style="direction: rtl; text-align: right; background: rgba(255, 153, 0, 0.1); padding: 12px; border-radius: 6px; border-right: 4px solid #ff9933; margin-bottom: 0;">
+            <b>سؤال للنقاش:</b> تفتكر إيه أكتر مرحلة في الـ 5 مراحل بتاخد وقت من وجهة نظرك؟ شاركنا برأيك في التعليقات! 👇
+        </p>
+        
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="https://www.linkedin.com" target="_blank" style="background-color: #0a66c2; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
+                    💬 ناقش هذا الدرس على لينكد إن
+                </a>
+            </div>
+            """, unsafe_allow_html=True)
+
     
     # باقي المراحل (من 3 لـ 9)
     other_phases = {
