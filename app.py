@@ -22,7 +22,7 @@ Phase = {
         "title": "Data Science Fundamentals", 
         "link": "https://linkedin.com/posts/omarsaleh-cs_%D8%A3%D9%83%D8%A8%D8%B1-%D8%A3%D8%B3%D8%B7%D9%88%D8%B1%D8%A9-%D9%81%D9%8A-%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D9%84%D9%88-%D9%81%D8%A7%D9%83%D8%B1-activity-7492472508844101632-zK5l?rcm=ACoAAFfGkf4Bchnn1vdJPOkg2UryBOqvABwrOGk"
     },
-    "03": {"title": "Think Like a Data Analyst", "link": None},
+    "03": {"title": "Think Like a Data Analyst", "https://lnkd.in/p/eJ-j8eSV": None},
     "04": {"title": "Data Ecosystem", "link": None},
     "05": {"title": "Data Analytics Toolbox", "link": None},
     "06": {"title": "Big Data", "link": None},
