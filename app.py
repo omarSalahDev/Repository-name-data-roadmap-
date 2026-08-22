@@ -35,17 +35,16 @@ Phase = {
 # 4. تصميم الواجهة الرئيسية
 st.markdown("<h1 class='title'>⚡ DataLab | by Omar Saleh</h1>", unsafe_allow_html=True)
 st.markdown("""
-    <div dir="rtl" style="text-align: center; font-size: 17px; font-weight: 600; line-height: 1.6; color: #222;">
+    <div dir="rtl" style="text-align: center; font-size: 17px; font-weight: 600; line-height: 1.6;">
     بوابتك المرجعية المتكاملة لعالم الـ Data (مفتوحة ومجانية بالكامل 100%) 🧭 مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ Data Analysis، مروراً بمكتبات الـ Python والرياضة، وصولاً لخوارزميات الـ Machine Learning.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى Portfolio وCV ينافس في السوق ✨
     </div>
     """, unsafe_allow_html=True)
 
 st.markdown("""
-    <div dir="rtl" style="text-align: center; color: #666; font-size: 14px; margin-top: 10px;">
-     !اضغط على أي مرحلة لفتح الشرح المباشر على لينكد إن.. وتابع معانا باقي المحطات خطوة بخطوة
+    <div dir="rtl" style="text-align: center; font-size: 14px; opacity: 0.8; margin-top: 10px;">
+    اضغط على أي مرحلة لفتح الشرح المباشر على لينكد إن.. وتابع معانا باقي المحطات خطوة بخطوة!
     </div>
     """, unsafe_allow_html=True)
-st.divider()
 
 # عرض الأزرار بشكل تفاعلي ومرتب
 for ph, info in Phase.items():
