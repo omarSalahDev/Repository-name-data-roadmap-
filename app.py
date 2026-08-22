@@ -38,70 +38,91 @@ tab1, tab2, tab3 = st.tabs(["🧭 Data Roadmap", "🐍 Python & Tools", "💼 Po
 # --- Tab 1: Roadmap (9 Phases with In-App Reading) ---
 with tab1:
     st.markdown("""
-        <div dir="rtl" style="text-align: center; font-size: 13.5px; margin-top: 15px; margin-bottom: 20px; opacity: 0.75;">
-        👇 اضغط على أي مرحلة لقراءة الشرح الكامل والدرس جوه المنصة مباشرة!
+        <div dir="rtl" style="text-align: center; font-size: 14px; margin-top: 15px; margin-bottom: 25px; opacity: 0.8;">
+        ✨ اختر المرحلة المطلوبة واستمتع بقراءة الشرح والدروس المبسطة مباشرة داخل منصة DataLab
         </div>
         """, unsafe_allow_html=True)
 
-    # --- Phase 01: Understanding Data (Full Article View) ---
+    # --- Phase 01: Understanding Data (Clean & Professional Notion Style) ---
     with st.expander("📁 Phase 01: Read: Understanding Data (اضغط للقراءة الكاملة)", expanded=False):
         st.markdown("""
-        <div dir="rtl" style="font-size: 16px; line-height: 1.9; padding: 10px;">
+        <div dir="rtl" style="font-family: sans-serif; font-size: 16px; line-height: 2.1; padding: 25px; background-color: #1a1a1a; border-radius: 12px; border: 1px solid #333; color: #e0e0e0;">
         
-        <h2 style="color: #ff4b4b; font-size: 24px; font-weight: 800; margin-bottom: 15px;">
+        <h2 style="color: #ff4b4b; font-size: 24px; font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">
             🪑 قصة كرسي قديم.. أظهرت سر أغلى مجال في العالم!
         </h2>
         
-        <p>تخيل معايا إنك شفت كرسي خشب قديم ومكسور في الشارع، غالباً مش هتدفع فيه جنيه..<br>
-        لكن لو حد جه وحكى لك قصة الكرسي ده وقال لك إن ده الكرسي اللي كان بيقعد عليه عالم مشهور وهو بيكتب أفكاره، قيمته في لحظة هتنط لآلاف الدولارات!</p>
+        <p style="margin-bottom: 15px;">
+            تخيل معايا إنك شفت كرسي خشب قديم ومكسور في الشارع، غالباً مش هتدفع فيه جنيه..<br>
+            لكن لو حد جه وحكى لك قصة الكرسي ده وقال لك إن ده الكرسي اللي كان بيقعد عليه عالم مشهور وهو بيكتب أفكاره، قيمته في لحظة هتنط لآلاف الدولارات!
+        </p>
         
-        <p><b>السؤال هنا: هل الكرسي اتغير؟</b><br>
-        لأ، الكرسي هو هو.. اللي اتغير هو <b>"المعلومة"</b> اللي ارتبطت بيه!</p>
+        <p style="margin-bottom: 15px; background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px; border-right: 4px solid #ff4b4b;">
+            <b>السؤال هنا: هل الكرسي اتغير؟</b><br>
+            لأ، الكرسي هو هو.. اللي اتغير هو <b>"المعلومة"</b> اللي ارتبطت بيه!
+        </p>
         
-        <p>وده بالصدفة أول وأهم درس في عالم البيانات:<br>
-        البيانات (<span dir="ltr">Data</span>) لوحدها زي الكرسي القديم مالهاش قيمة.. لكن لما نفهمها ونحطها في السياق الصح، تتحول لـ (<span dir="ltr">Information</span>) ومنها بناخد قرار (<span dir="ltr">Decision</span>) بيساوي ملايين!</p>
+        <p style="margin-bottom: 20px;">
+            وده بالصدفة أول وأهم درس في عالم البيانات:<br>
+            البيانات (<span dir="ltr" style="color: #4da6ff;">Data</span>) لوحدها زي الكرسي القديم مالهاش قيمة.. لكن لما نفهمها ونحطها في السياق الصح، تتحول لـ (<span dir="ltr" style="color: #4da6ff;">Information</span>) ومنها بناخد قرار (<span dir="ltr" style="color: #4da6ff;">Decision</span>) بيساوي ملايين!
+        </p>
         
-        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
         
-        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px;">
+        <h3 style="color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
             📺 هو الموضوع ده قريب مننا للدرجادي؟
         </h3>
-        <p>أكيد! يعني لما تفتح يوتيوب أو نتفليكس أو أمازون وتلاقيه بيقولك <i>"مقترح لك بناءً على اهتمامك"</i>.. هو مش بيخمن ولا بيقرأ الفنجان!<br>
-        هو بيشوف بيانات ملايين المستخدمين، يدرس سلوكهم ويتوقع إيه اللي هيعجبك.. سواء في ترتيب منشورات فيسبوك، كشف المعاملات البنكية المشبوهة، أو التنبؤ بأسعار العقارات. البيانات هي المحرك الأساسي لكل ده.</p>
+        <p style="margin-bottom: 20px;">
+            أكيد! يعني لما تفتح يوتيوب أو نتفليكس أو أمازون وتلاقيه بيقولك <i>"مقترح لك بناءً على اهتمامك"</i>.. هو مش بيخمن ولا بيقرأ الفنجان!<br>
+            هو بيشوف بيانات ملايين المستخدمين، يدرس سلوكهم ويتوقع إيه اللي هيعجبك.. سواء في ترتيب منشورات فيسبوك، كشف المعاملات البنكية المشبوهة، أو التنبؤ بأسعار العقارات. البيانات هي المحرك الأساسي لكل ده.
+        </p>
         
-        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
         
-        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px;">
-            🔍 إيه الفرق بين Data Analysis و Data Science؟ (لغز بيلخبط ناس كتير)
+        <h3 style="color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🔍 إيه الفرق بين <span dir="ltr">Data Analysis</span> و <span dir="ltr">Data Science</span>؟
         </h3>
-        <p>تخيل شركة باعت مليون منتج الشهر اللي فات:</p>
-        <ul>
-            <li><b>1. تحليل البيانات (<span dir="ltr">Data Analysis</span>):</b> هنا المدير بيدخل يسألك: <i>"إيه أكثر منتج اتباع؟ وليه المبيعات وقعت في فرع القاهرة؟"</i> دورك هنا بتحلل اللي حصل في الماضي (قرار ➔ استنتاجات ➔ تحليل ➔ بيانات). والأدوات الأساسية هي: (<span dir="ltr">Excel - SQL - Power BI - Python</span>).</li>
-            <li><b>2. علم البيانات (<span dir="ltr">Data Science</span>):</b> هنا الدور أكبر.. أنت مش بس بتشوف الماضي، أنت بتبني نموذج (<span dir="ltr">Model</span>) يتعلم من بيانات الماضي علشان يتوقع المستقبل ويقولك ننتج إيه السنة الجاية! وعشان كده بيسموه "الخلاط" لأنه مزيج بين البرمجة، الإحصاء، والرياضيات، والـ Machine Learning.</li>
-        </ul>
+        <p style="margin-bottom: 15px;">تخيل شركة باعت مليون منتج الشهر اللي فات:</p>
         
-        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        <div style="background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <p style="margin-bottom: 8px;"><b>1. تحليل البيانات (<span dir="ltr" style="color: #4da6ff;">Data Analysis</span>):</b></p>
+            <p style="margin-bottom: 0; opacity: 0.9;">هنا المدير بيدخل يسألك: <i>"إيه أكثر منتج اتباع؟ وليه المبيعات وقعت في فرع القاهرة؟"</i> دورك هنا بتحلل اللي حصل في الماضي (قرار ➔ استنتاجات ➔ تحليل ➔ بيانات). والأدوات الأساسية هي: (<span dir="ltr" style="color: #ff9933;">Excel - SQL - Power BI - Python</span>).</p>
+        </div>
+
+        <div style="background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+            <p style="margin-bottom: 8px;"><b>2. علم البيانات (<span dir="ltr" style="color: #4da6ff;">Data Science</span>):</b></p>
+            <p style="margin-bottom: 0; opacity: 0.9;">هنا الدور أكبر.. أنت مش بس بتشوف الماضي، أنت بتبني نموذج (<span dir="ltr" style="color: #ff9933;">Model</span>) يتعلم من بيانات الماضي علشان يتوقع المستقبل ويقولك ننتج إيه السنة الجاية! وعشان كده بيسموه "الخلاط" لأنه مزيج بين البرمجة، الإحصاء، والرياضيات، والـ Machine Learning.</p>
+        </div>
         
-        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px;">
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
             🚀 ابدأ منين لو تايه بين المنصات؟
         </h3>
-        <ul>
-            <li><b>Kaggle:</b> الأفضل للتطبيق العملي والمسابقات.</li>
-            <li><b>DataCamp & Dataquest:</b> ممتازان لتعلم SQL و Python بالتطبيق المباشر.</li>
-            <li><b>365 Data Science:</b> منهج منظم بيبدأ معاك من الصفر.</li>
+        <ul style="margin-bottom: 20px; padding-right: 20px;">
+            <li style="margin-bottom: 8px;"><b>Kaggle:</b> الأفضل للتطبيق العملي والمسابقات.</li>
+            <li style="margin-bottom: 8px;"><b>DataCamp & Dataquest:</b> ممتازان لتعلم SQL و Python بالتطبيق المباشر.</li>
+            <li style="margin-bottom: 8px;"><b>365 Data Science:</b> منهج منظم بيبدأ معاك من الصفر.</li>
         </ul>
-        <p><i>(نصيحة: ما تشتتش نفسك، اختار منصة واحدة وركز عليها).</i></p>
+        <p style="background: rgba(255, 153, 0, 0.1); padding: 10px; border-radius: 6px; border-left: 4px solid #ff9933;">
+            <b>نصيحة ذهبية:</b> ما تشتتش نفسك، اختار منصة واحدة وركز عليها ولاتشتت انتباهك بكثرة المصادر!
+        </p>
         
         </div>
         """, unsafe_allow_html=True)
         
-        # زرار لمشاركة النقاش على لينكد إن
-        st.link_button("💬 شارك برأيك أو ناقش هذا الدرس على لينكد إن", 
-                       url="https://www.linkedin.com/posts/omarsaleh-cs_%D9%82%D8%B5%D8%A9-%D9%83%D8%B1%D8%B3%D9%8A-%D9%82%D8%AF%D9%8A%D9%85-%D8%A3%D8%B8%D9%87%D8%B1%D8%AA-%D8%B3%D8%B1-%D8%A3%D8%BA%D9%84%D9%89-%D9%85%D8%AC%D8%A7%D9%84-%D9%81%D9%8A-%D8%A7%D9%8 فإن-activity-7491739030548664320-wMk4")
+        # زرار آمن ومنسق لمشاركة النقاش
+        st.markdown("""
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="https://www.linkedin.com" target="_blank" style="background-color: #0a66c2; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
+                    💬 ناقش هذا الدرس على لينكد إن
+                </a>
+            </div>
+            """, unsafe_allow_html=True)
 
-    # --- Phase 02: Data Science Fundamentals (Placeholder for next article) ---
+    # --- Phase 02: Data Science Fundamentals ---
     with st.expander("📁 Phase 02: Read: Data Science Fundamentals (قريباً)", expanded=False):
-        st.markdown("<div dir='rtl' style='padding: 10px;'>جاري تجهيز المقال الثاني بنفس التنسيق الفخم.. انتظرونا قريباً! ✨</div>", unsafe_allow_html=True)
+        st.markdown("<div dir='rtl' style='padding: 15px; color: #888;'>جاري تجهيز المقال الثاني بنفس التنسيق الفخم.. انتظرونا قريباً! ✨</div>", unsafe_allow_html=True)
 
     # باقي المراحل (من 3 لـ 9)
     other_phases = {
