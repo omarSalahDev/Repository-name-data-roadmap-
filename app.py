@@ -121,6 +121,97 @@ with tab1:
             </div>
             """, unsafe_allow_html=True)
 
+    # --- Phase 02: Data Science Fundamentals ---
+    with st.expander("📁 Phase 02: Read: Data Science Fundamentals (اضغط للقراءة الكاملة)", expanded=False):
+        st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; font-family: sans-serif; font-size: 16px; line-height: 2.1; padding: 25px; background-color: #1a1a1a; border-radius: 12px; border: 1px solid #333; color: #e0e0e0;">
+        
+        <h2 style="direction: rtl; text-align: right; color: #ff4b4b; font-size: 24px; font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">
+            💻 أكبر أسطورة في عالم البيانات: ما هو الـ <span dir="ltr">Data Science</span> فعلياً؟
+        </h2>
+        
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            لو فاكر إن وظيفة عالم البيانات (<span dir="ltr" style="color: #4da6ff;">Data Scientist</span>) إنه يقعد على اللاب توب يكتب أكواد معقدة وخلاص.. فالبوست ده معمول علشان يغير فكرتك تماماً!<br>
+            في الدرس الثاني من سلسلتنا، تعالوا نجاوب على سؤال أعمق: إيه هو الـ <span dir="ltr">Data Science</span> فعلياً؟ وإزاي البيزنس الكبير بيعتمد عليه عشان يكسب ملايين؟
+        </p>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🔬 أولاً: يعني إيه "علم" البيانات؟
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            تخيل لو حد سألك: يعني إيه علم الأحياء (<span dir="ltr">Biology</span>)؟<br>
+            هتقول له: هو علم دراسة الكائنات الحية.. لكن الباحث مش بيقف يتفرج على الكائن الحي وخلاص!<br>
+            هو بيحاول يفهم: ليه بيتحرك كده؟ إيه الأسباب؟ إيه النتائج؟ وإزاي نستفيد من الفهم ده؟
+        </p>
+        <p style="direction: rtl; text-align: right; margin-bottom: 20px; background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px; border-right: 4px solid #ff4b4b;">
+            وده بالصدفة اللي بيعمله الـ <span dir="ltr" style="color: #4da6ff;">Data Scientist</span>:<br>
+            هو مش بيجمع أرقام وخلاص، ولكن بيجمع البيانات عشان يحولها لـ معرفة (<span dir="ltr">Knowledge</span>) ويديك في الآخر حاجة اسمها <span dir="ltr" style="color: #ff9933;">Insight</span>.
+        </p>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            💡 كلمة السر في المجال: هي إيه الـ Insight دي أصلاً؟
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            الـ <span dir="ltr" style="color: #ff9933;">Insight</span> مش مجرد رقم ولا معلومة مجردة.. الـ Insight هي الفكرة الذكية اللي مستخبية جوة الأرقام وبتاخد بناءً عليها قرار يغير اللعبة!
+        </p>
+        <div style="direction: rtl; text-align: right; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <p style="margin-bottom: 8px;"><b>مثال عملي:</b></p>
+            <p style="margin-bottom: 0; opacity: 0.9;">لو تحليل البيانات أظهر إن 70% من عملاء السوبرماركت بيشتروا منتج معين يوم الجمعة بالليل..<br>
+            الرقم ده لوحده عادي.. لكن الـ <span dir="ltr" style="color: #ff9933;">Insight</span> هنا هي: <i>"لازم نزود مخزون المنتج ده ونعمل عليه عرض يوم الجمعة!"</i></p>
+        </div>
+        <p style="direction: rtl; text-align: right; margin-bottom: 20px; font-weight: bold; color: #4da6ff;">
+            بالتالي الدورة الحقيقية لشغلك هي: Data ➔ Information ➔ Insight ➔ Decision
+        </p>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            ⏳ فزورة: هل الـ Data Science علم جديد ولا قديم؟
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            <b>الإجابة: نعم ولا.. طب إزاي؟!</b>
+        </p>
+        <ul style="direction: rtl; text-align: right; margin-bottom: 20px; padding-right: 20px;">
+            <li style="margin-bottom: 8px;"><b>لا:</b> لأن جذوره قديمة جداً ومبنية على الإحصاء والرياضيات من زمان.</li>
+            <li style="margin-bottom: 8px;"><b>نعم (كاسم وانتشار):</b> لأن انفجار الإنترنت، الموبايلات والسحابة الرقمية (<span dir="ltr">Cloud Computing</span>) خلى الشركات تطبع مليارات البيانات يومياً وظهرت حاجة ماسة لـ "خلاط" يجمع الإحصاء بالبرمجة بالـ <span dir="ltr">Machine Learning</span> عشان يتعامل مع الحجم المثير ده!</li>
+        </ul>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🚕 أمثلة من الواقع: أوبر، جيميل، ويوتيوب!
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            <b>أوبر مش شركة مواصلات.. ولكن هي شركة بيانات!</b><br>
+            تطبيق زي Uber مش مجرد أبلكيشن بياخدك من مكان لمكان.. أوبر بيحلل فوراً: أماكن السائقين، أماكن العملاء، نسبة الإلغاء، وحالة الزحمة.. عشان يجاوب على أسئلة لحظية زي: <i>"هل المنطقة دي محتاجة سواقين أكتر دلوقتي؟ هل نرفع السعر مؤقتاً (Surge Pricing)؟"</i> الهدف مش جمع البيانات، ولكن الهدف هو تحسين القرار ورفع أرباح الشركة.
+        </p>
+        <p style="direction: rtl; text-align: right; margin-bottom: 20px;">
+            <b>وده نفس اللي بيحصل في:</b>
+            <br>• <b>Gmail:</b> لما يقرر إن الرسالة دي <span dir="ltr">Spam</span> من غير ما إنسان يقرأها (بناءً على نموذج تصنيف ذكي).
+            <br>• <b>YouTube & Netflix:</b> لما بيقترحوا عليك الفيلم أو الفيديو اللي هيعجبك بالضبط عن طريق الـ <span dir="ltr">Domain Knowledge</span> والبيانات السابقة.
+        </p>
+        
+        <p style="direction: rtl; text-align: right; background: rgba(255, 153, 0, 0.1); padding: 12px; border-radius: 6px; border-right: 4px solid #ff9933; margin-bottom: 0;">
+            <b>خلاصة القول:</b> المجال مش صعب ولكنه مش عشوائي.. لما تتعلمه بالترتيب الصح وتأسس نفسك في تحليل البيانات (<span dir="ltr">Data Analysis</span>) الأول، كل قطعة بازل هتركب في مكانها الصح.
+        </p>
+        
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # زرار مشاركة لينكد إن الخاص بالمرحلة الثانية
+        st.markdown("""
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="https://www.linkedin.com" target="_blank" style="background-color: #0a66c2; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
+                    💬 ناقش هذا الدرس على لينكد إن
+                </a>
+            </div>
+            """, unsafe_allow_html=True)
+    ```
+    
     # باقي المراحل (من 3 لـ 9)
     other_phases = {
         "03": "Think Like a Data Analyst",
