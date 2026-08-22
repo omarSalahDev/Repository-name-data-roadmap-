@@ -35,16 +35,27 @@ Phase = {
 
 # 4. تصميم الواجهة الرئيسية
 st.markdown("<h1 class='title'>⚡ DataLab | by Omar Saleh</h1>", unsafe_allow_html=True)
+# --- Header & Title ---
 st.markdown("""
-    <div dir="rtl" style="text-align: center; font-size: 16px; font-weight: 500; line-height: 1.9; color: #e5e7eb; max-width: 850px; margin: 0 auto; padding: 0 10px;">
-    بوابتك المرجعية المتكاملة لعالم الـ <span dir="ltr">Data</span> (<span dir="ltr">مفتوحة ومجانية بالكامل 100%</span>) 🧭 
+    <div style="text-align: center; padding: 10px 0;">
+        <h1 style="font-size: 38px; font-weight: 800; letter-spacing: -0.5px;">
+            ⚡ DataLab <span style="font-weight: 300; opacity: 0.6;">| by Omar Saleh</span>
+        </h1>
+    </div>
+    """, unsafe_allow_html=True)
+
+# --- Subtitle & Description (Fixed Bidi & Spacing) ---
+st.markdown("""
+    <div dir="rtl" style="text-align: center; font-size: 16px; font-weight: 500; line-height: 1.9; max-width: 850px; margin: 0 auto; padding: 0 10px;">
+    بوابتك المرجعية المتكاملة لعالم الـ <span dir="ltr">Data</span> (<span dir="ltr">100% مفتوحة ومجانية بالكامل</span>) 🧭 
     <br>مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ <span dir="ltr">Data Analysis</span>، مروراً بمكتبات الـ <span dir="ltr">Python</span> والرياضة، وصولاً لخوارزميات الـ <span dir="ltr">Machine Learning</span>.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى <span dir="ltr">Portfolio</span> و <span dir="ltr">CV</span> ينافس في السوق ✨
     </div>
     """, unsafe_allow_html=True)
 
+# --- Instruction with Clean Spacing ---
 st.markdown("""
-    <div dir="rtl" style="text-align: center; color: #9ca3af; font-size: 13.5px; margin-top: 14px; letter-spacing: 0.2px;">
-    اضغط على أي مرحلة لفتح الشرح المباشر على لينكد إن.. وتابع معانا باقي المحطات خطوة بخطوة!
+    <div dir="rtl" style="text-align: center; font-size: 13.5px; margin-top: 25px; margin-bottom: 25px; letter-spacing: 0.2px; opacity: 0.75;">
+    👇 اضغط على أي مرحلة لفتح الشرح المباشر على لينكد إن.. وتابع معانا باقي المحطات خطوة بخطوة!
     </div>
     """, unsafe_allow_html=True)
 
