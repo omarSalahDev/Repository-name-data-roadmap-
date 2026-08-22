@@ -34,7 +34,8 @@ Phase = {
 
 # 4. تصميم الواجهة الرئيسية
 st.markdown("<h1 class='title'>⚡ DataLab | by Omar Saleh</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subheader'>مرجعك الشامل وخريطتك العملية من تحليل البيانات إلى علوم البيانات والذكاء الاصطناعي </p>", unsafe_allow_html=True)
+st.markdown("<p class='subheader'>بوابتك المرجعية المتكاملة لعالم الـ Data (مفتوحة ومجانية بالكامل 100%) 🧭 مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ Data Analysis، مروراً بمكتبات الـ Python والرياضة، وصولاً لخوارزميات الـ Machine Learning.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى Portfolio وCV ينافس في السوق بأذن الله 🚀 </p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #777; font-size: 14px;'>اضغط على أي مرحلة لفتح الشرح المباشر على لينكد إن.. وتابع معانا باقي المحطات خطوة بخطوة!</p>", unsafe_allow_html=True)
 st.divider()
 
 # عرض الأزرار بشكل تفاعلي ومرتب
