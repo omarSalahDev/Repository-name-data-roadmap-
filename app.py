@@ -35,45 +35,89 @@ st.markdown("""
 # 5. نظام الأبواب (Tabs) لتنظيم المنصة واحترافيتها
 tab1, tab2, tab3 = st.tabs(["🧭 Data Roadmap", "🐍 Python & Tools", "💼 Portfolio & Projects"])
 
-# --- Tab 1: Roadmap (9 Phases) ---
+# --- Tab 1: Roadmap (9 Phases with In-App Reading) ---
 with tab1:
     st.markdown("""
-        <div dir="rtl" style="text-align: center; font-size: 13px; margin-top: 15px; margin-bottom: 20px; opacity: 0.75;">
-        👇 اضغط على أي مرحلة لفتح الشرح المباشر على لينكد إن.. وتابع معانا باقي المحطات خطوة بخطوة!
+        <div dir="rtl" style="text-align: center; font-size: 13.5px; margin-top: 15px; margin-bottom: 20px; opacity: 0.75;">
+        👇 اضغط على أي مرحلة لقراءة الشرح الكامل والدرس جوه المنصة مباشرة!
         </div>
         """, unsafe_allow_html=True)
 
-    Phase = {
-        "01": {
-            "title": "Understanding Data", 
-            "link": "https://www.linkedin.com/posts/omarsaleh-cs_%D9%82%D8%B5%D8%A9-%D9%83%D8%B1%D8%B3%D9%8A-%D9%82%D8%AF%D9%8A%D9%85-%D8%A3%D8%B8%D9%87%D8%B1%D8%AA-%D8%B3%D8%B1-%D8%A3%D8%BA%D9%84%D9%89-%D9%85%D8%AC%D8%A7%D9%84-%D9%81%D9%8A-%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85-activity-7491739030548664320-wMk4?utm_source=share&utm_medium=member_android&rcm=ACoAAFfGkf4Bchnn1vdJPOkg2UryBOqvABwrOGk"
-        },
-        "02": {
-            "title": "Data Science Fundamentals", 
-            "link": "https://linkedin.com/posts/omarsaleh-cs_%D8%A3%D9%83%D8%A8%D8%B1-%D8%A3%D8%B3%D8%B7%D9%88%D8%B1%D8%A9-%D9%81%D9%8A-%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D9%84%D9%88-%D9%81%D8%A7%D9%83%D8%B1-activity-7492472508844101632-zK5l?rcm=ACoAAFfGkf4Bchnn1vdJPOkg2UryBOqvABwrOGk"
-        },
-        "03": {
-            "title": "Think Like a Data Analyst",
-            "link": "https://lnkd.in/p/eJ-j8eSV"
-        },
-        "04": {"title": "Data Ecosystem", "link": None},
-        "05": {"title": "Data Analytics Toolbox", "link": None},
-        "06": {"title": "Big Data", "link": None},
-        "07": {"title": "Data Visualization", "link": None},
-        "08": {"title": "Machine Learning Basics", "link": None},
-        "09": {"title": "Data Career Roadmap", "link": None},
+    # --- Phase 01: Understanding Data (Full Article View) ---
+    with st.expander("📁 Phase 01: Read: Understanding Data (اضغط للقراءة الكاملة)", expanded=False):
+        st.markdown("""
+        <div dir="rtl" style="font-size: 16px; line-height: 1.9; padding: 10px;">
+        
+        <h2 style="color: #ff4b4b; font-size: 24px; font-weight: 800; margin-bottom: 15px;">
+            🪑 قصة كرسي قديم.. أظهرت سر أغلى مجال في العالم!
+        </h2>
+        
+        <p>تخيل معايا إنك شفت كرسي خشب قديم ومكسور في الشارع، غالباً مش هتدفع فيه جنيه..<br>
+        لكن لو حد جه وحكى لك قصة الكرسي ده وقال لك إن ده الكرسي اللي كان بيقعد عليه عالم مشهور وهو بيكتب أفكاره، قيمته في لحظة هتنط لآلاف الدولارات!</p>
+        
+        <p><b>السؤال هنا: هل الكرسي اتغير؟</b><br>
+        لأ، الكرسي هو هو.. اللي اتغير هو <b>"المعلومة"</b> اللي ارتبطت بيه!</p>
+        
+        <p>وده بالصدفة أول وأهم درس في عالم البيانات:<br>
+        البيانات (<span dir="ltr">Data</span>) لوحدها زي الكرسي القديم مالهاش قيمة.. لكن لما نفهمها ونحطها في السياق الصح، تتحول لـ (<span dir="ltr">Information</span>) ومنها بناخد قرار (<span dir="ltr">Decision</span>) بيساوي ملايين!</p>
+        
+        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        
+        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px;">
+            📺 هو الموضوع ده قريب مننا للدرجادي؟
+        </h3>
+        <p>أكيد! يعني لما تفتح يوتيوب أو نتفليكس أو أمازون وتلاقيه بيقولك <i>"مقترح لك بناءً على اهتمامك"</i>.. هو مش بيخمن ولا بيقرأ الفنجان!<br>
+        هو بيشوف بيانات ملايين المستخدمين، يدرس سلوكهم ويتوقع إيه اللي هيعجبك.. سواء في ترتيب منشورات فيسبوك، كشف المعاملات البنكية المشبوهة، أو التنبؤ بأسعار العقارات. البيانات هي المحرك الأساسي لكل ده.</p>
+        
+        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        
+        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px;">
+            🔍 إيه الفرق بين Data Analysis و Data Science؟ (لغز بيلخبط ناس كتير)
+        </h3>
+        <p>تخيل شركة باعت مليون منتج الشهر اللي فات:</p>
+        <ul>
+            <li><b>1. تحليل البيانات (<span dir="ltr">Data Analysis</span>):</b> هنا المدير بيدخل يسألك: <i>"إيه أكثر منتج اتباع؟ وليه المبيعات وقعت في فرع القاهرة؟"</i> دورك هنا بتحلل اللي حصل في الماضي (قرار ➔ استنتاجات ➔ تحليل ➔ بيانات). والأدوات الأساسية هي: (<span dir="ltr">Excel - SQL - Power BI - Python</span>).</li>
+            <li><b>2. علم البيانات (<span dir="ltr">Data Science</span>):</b> هنا الدور أكبر.. أنت مش بس بتشوف الماضي، أنت بتبني نموذج (<span dir="ltr">Model</span>) يتعلم من بيانات الماضي علشان يتوقع المستقبل ويقولك ننتج إيه السنة الجاية! وعشان كده بيسموه "الخلاط" لأنه مزيج بين البرمجة، الإحصاء، والرياضيات، والـ Machine Learning.</li>
+        </ul>
+        
+        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        
+        <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px;">
+            🚀 ابدأ منين لو تايه بين المنصات؟
+        </h3>
+        <ul>
+            <li><b>Kaggle:</b> الأفضل للتطبيق العملي والمسابقات.</li>
+            <li><b>DataCamp & Dataquest:</b> ممتازان لتعلم SQL و Python بالتطبيق المباشر.</li>
+            <li><b>365 Data Science:</b> منهج منظم بيبدأ معاك من الصفر.</li>
+        </ul>
+        <p><i>(نصيحة: ما تشتتش نفسك، اختار منصة واحدة وركز عليها).</i></p>
+        
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # زرار لمشاركة النقاش على لينكد إن
+        st.link_button("💬 شارك برأيك أو ناقش هذا الدرس على لينكد إن", 
+                       url="https://www.linkedin.com/posts/omarsaleh-cs_%D9%82%D8%B5%D8%A9-%D9%83%D8%B1%D8%B3%D9%8A-%D9%82%D8%AF%D9%8A%D9%85-%D8%A3%D8%B8%D9%87%D8%B1%D8%AA-%D8%B3%D8%B1-%D8%A3%D8%BA%D9%84%D9%89-%D9%85%D8%AC%D8%A7%D9%84-%D9%81%D9%8A-%D8%A7%D9%8 فإن-activity-7491739030548664320-wMk4")
+
+    # --- Phase 02: Data Science Fundamentals (Placeholder for next article) ---
+    with st.expander("📁 Phase 02: Read: Data Science Fundamentals (قريباً)", expanded=False):
+        st.markdown("<div dir='rtl' style='padding: 10px;'>جاري تجهيز المقال الثاني بنفس التنسيق الفخم.. انتظرونا قريباً! ✨</div>", unsafe_allow_html=True)
+
+    # باقي المراحل (من 3 لـ 9)
+    other_phases = {
+        "03": "Think Like a Data Analyst",
+        "04": "Data Ecosystem", 
+        "05": "Data Analytics Toolbox", 
+        "06": "Big Data", 
+        "07": "Data Visualization", 
+        "08": "Machine Learning Basics", 
+        "09": "Data Career Roadmap"
     }
-
-    for ph, info in Phase.items():
-        col1, col2 = st.columns([1, 4])
-        with col1:
-            st.button(f"Phase {ph}", disabled=True, key=f"phase_btn_{ph}")
-        with col2:
-            if info["link"]:
-                st.link_button(f"Read: {info['title']}", url=info["link"])
-            else:
-                st.button(f"{info['title']} - قريباً ⏳", disabled=True, key=f"soon_btn_{ph}")
-
+    
+    for ph, title in other_phases.items():
+        with st.expander(f"📁 Phase {ph}: {title} - قريباً ⏳", expanded=False):
+            st.markdown(f"<div dir='rtl' style='padding: 10px; opacity: 0.8;'>هذا الفصل قيد التجهيز وسيتم إطلاقه ضمن سلسلة DataLab التعليمية.</div>", unsafe_allow_html=True)
+   
 # --- Tab 2: Python & Tools (Future Content) ---
 with tab2:
     st.markdown("""
