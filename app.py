@@ -35,13 +35,14 @@ Phase = {
 # 4. تصميم الواجهة الرئيسية
 st.markdown("<h1 class='title'>⚡ DataLab | by Omar Saleh</h1>", unsafe_allow_html=True)
 st.markdown("""
-    <div dir="rtl" style="text-align: center; font-size: 17px; font-weight: 600; line-height: 1.6;">
-    بوابتك المرجعية المتكاملة لعالم الـ Data (مفتوحة ومجانية بالكامل 100%) 🧭 مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ Data Analysis، مروراً بمكتبات الـ Python والرياضة، وصولاً لخوارزميات الـ Machine Learning.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى Portfolio وCV ينافس في السوق ✨
+    <div dir="rtl" style="text-align: center; font-size: 16px; font-weight: 500; line-height: 1.9; color: #e5e7eb; max-width: 850px; margin: 0 auto; padding: 0 10px;">
+    بوابتك المرجعية المتكاملة لعالم الـ <span dir="ltr">Data</span> (<span dir="ltr">مفتوحة ومجانية بالكامل 100%</span>) 🧭 
+    <br>مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ <span dir="ltr">Data Analysis</span>، مروراً بمكتبات الـ <span dir="ltr">Python</span> والرياضة، وصولاً لخوارزميات الـ <span dir="ltr">Machine Learning</span>.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى <span dir="ltr">Portfolio</span> و <span dir="ltr">CV</span> ينافس في السوق ✨
     </div>
     """, unsafe_allow_html=True)
 
 st.markdown("""
-    <div dir="rtl" style="text-align: center; font-size: 14px; opacity: 0.8; margin-top: 10px;">
+    <div dir="rtl" style="text-align: center; color: #9ca3af; font-size: 13.5px; margin-top: 14px; letter-spacing: 0.2px;">
     اضغط على أي مرحلة لفتح الشرح المباشر على لينكد إن.. وتابع معانا باقي المحطات خطوة بخطوة!
     </div>
     """, unsafe_allow_html=True)
