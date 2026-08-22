@@ -46,7 +46,7 @@ st.markdown("""
 # --- Subtitle & Description (Fixed Bidi & Spacing) ---
 st.markdown("""
     <div dir="rtl" style="text-align: center; font-size: 16px; font-weight: 500; line-height: 1.9; max-width: 850px; margin: 0 auto; padding: 0 10px;">
-    بوابتك المرجعية المتكاملة لعالم الـ <span dir="ltr">Data Scientist</span> (<span dir="ltr">100% مفتوحة ومجانية بالكامل</span>) 🧭 
+    بوابتك المرجعية المتكاملة لمجال الـ <span dir="ltr">Data Scientist</span> (<span dir="ltr">100% مفتوحة ومجانية بالكامل</span>) 🧭 
     <br>مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ <span dir="ltr">Data Analysis</span>، مروراً بمكتبات الـ <span dir="ltr">Python</span> والرياضة، وصولاً لخوارزميات الـ <span dir="ltr">Machine Learning</span>.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى <span dir="ltr">Portfolio</span> و <span dir="ltr">CV</span> ينافس في السوق ✨
     </div>
     """, unsafe_allow_html=True)
