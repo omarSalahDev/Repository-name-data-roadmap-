@@ -85,15 +85,42 @@ with tab2:
 
 # --- Tab 3: Portfolio & Projects ---
 with tab3:
+   # --- Tab 3: Portfolio & Projects (Professional Showcase) ---
+with tab3:
     st.markdown("""
-        <div dir="rtl" style="text-align: center; padding: 25px 10px;">
-        <h3>💼 Portfolio & Featured Projects</h3>
-        <p>استكشف مشاريعي وأعمالي التقنية في عالم البيانات:</p>
+        <div dir="rtl" style="text-align: center; padding: 20px 10px;">
+        <h3>💼 Featured Projects & Prototypes</h3>
+        <p style="opacity: 0.8; font-size: 14px;">أبرز المشاريع التقنية والحلول اللي ببنيها في رحلتي لعالم البيانات:</p>
         </div>
         """, unsafe_allow_html=True)
-    st.link_button("🌐 View Personal Portfolio", url="https://omarsalahdev.github.io/portfolio/")
-    st.link_button("📂 GitHub Profile & Repositories", url="https://github.com/omarSalahDev")
 
+    # مشروع 1: Novyra (المشروع الكبير)
+    with st.container():
+        st.markdown("""
+            <div dir="rtl" style="padding: 15px; border: 1px solid #333; border-radius: 10px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="margin-bottom: 5px;"> منصة Novyra (قيد Entwicklung / Prototype)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            رؤيتنا المبتكرة لحل فجوة سوق العمل، دعم الخريجين والعائدين من الجيش، وتقديم نظام تتبع ذكي للمهارات والمسارات المهنية في البنوك والجهات الحكومية.
+            </p>
+            </div>
+            """, unsafe_allow_html=True)
+
+    # مشروع 2: Data Analytics Portfolio
+    with st.container():
+        st.markdown("""
+            <div dir="rtl" style="padding: 15px; border: 1px solid #333; border-radius: 10px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="margin-bottom: 5px;">📊 Data Analysis Portfolio & Dashboards</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            مجموعة من التحليلات البرمجية ومشاريع أدوات تحليل البيانات (Excel, SQL, Power BI) المعروضة بشكل كامل على منصتي الشخصية وجيت هب.
+            </p>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        col_p1, col_p2 = st.columns(2)
+        with col_p1:
+            st.link_button("🌐 زيارة البورتفوليو الشامل", url="https://omarsalahdev.github.io/portfolio/")
+        with col_p2:
+            st.link_button("📂 تصفح أكواد GitHub", url="https://github.com/omarSalahDev")
 # 6. الفوتر الاحترافي (Footer) مع الروابط والإيميل الجامعي
 st.divider()
 st.markdown("""
