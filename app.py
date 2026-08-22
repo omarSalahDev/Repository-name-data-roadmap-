@@ -294,7 +294,7 @@ with tab1:
         </ul>
         
         <p style="direction: rtl; text-align: right; background: rgba(255, 153, 0, 0.1); padding: 12px; border-radius: 6px; border-right: 4px solid #ff9933; margin-bottom: 0;">
-            <b>سؤال للنقاش:</b> تفتكر إيه أكتر مرحلة في الـ 5 مراحل بتاخد وقت من وجهة نظرك؟ شاركنا برأيك في التعليقات! 👇
+            <b>💡 نصيحة ذهبية:</b> لا تكن مجرد "مُنفّذ" يحفظ الأكواد والمعادلات، بل كن "باحثاً عن الحقيقة" يفهم السياق ويسأل السؤال الصح قبل فتح أي أداة. تذكر دائماً: الأدوات تتغير وتتطور، لكن عقلية المحلِّل هي الأساس الذي لا غنى عنه!
         </p>
         
         </div>
@@ -302,12 +302,11 @@ with tab1:
         
         st.markdown("""
             <div style="text-align: center; margin-top: 15px;">
-                <a href="https://www.linkedin.com" target="_blank" style="background-color: #0a66c2; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
+                <a href="[https://www.linkedin.com](https://www.linkedin.com)" target="_blank" style="background-color: #0a66c2; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
                     💬 ناقش هذا الدرس على لينكد إن
                 </a>
             </div>
             """, unsafe_allow_html=True)
-
     
     # باقي المراحل (من 3 لـ 9)
     other_phases = {
