@@ -307,11 +307,107 @@ with tab1:
                 </a>
             </div>
             """, unsafe_allow_html=True)
+
+# --- Phase 04: Data Ecosystem ---
+    with st.expander("📁 Phase 04: Read: Data Ecosystem (اضغط للقراءة الكاملة)", expanded=False):
+        st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; font-family: sans-serif; font-size: 16px; line-height: 2.1; padding: 25px; background-color: #1a1a1a; border-radius: 12px; border: 1px solid #333; color: #e0e0e0;">
+        
+        <h2 style="direction: rtl; text-align: right; color: #ff4b4b; font-size: 24px; font-weight: 800; margin-bottom: 20px; border-bottom: 2px solid #333; padding-bottom: 10px;">
+            🗺️ لو حاسس إنك تايه بين مصطلحات <span dir="ltr">(AI - Machine Learning - BI)</span>.. البوست ده ليك!
+        </h2>
+        
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            أول ما تنوي تدخل عالم البيانات، بتلاقي نفسك غرقان في بحر مصطلحات وبتقول لنفسك:<br>
+            <i>"هو أنا المفروض أتعلم ذكاء اصطناعي ولا داتا ساينس؟ ولا أطلع <span dir="ltr" style="color: #4da6ff;">Data Engineer</span>؟ هو إيه الفرق بين كل ده أصلاً؟!"</i><br>
+            في الدرس الرابع من سلسلتنا، تعالوا نفك الخيوط دي سوا، ونرسم الخريطة الكاملة لـ <span dir="ltr">Data Science</span> وعلاقته بباقي المجالات!
+        </p>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🎼 أولاً: الـ <span dir="ltr">Data Science</span> ليس أداة.. بل "قائد المايسترو"!
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            عالم البيانات مش برنامج، ولا لغة برمجة، ولا معادلة إحصائية.. الـ <span dir="ltr" style="color: #4da6ff;">Data Science</span> هو "المظلة الكبيرة" اللي بتجمع تحتها تخصصات مختلفة، وكل تخصص ليه دور محدد بيخدم نفس الهدف: <b>(حل مشاكل البيزنس باستخدام البيانات)</b>.
+        </p>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            عشان تتخيل الفريق بيشتغل إزاي.. تخيل إننا بنفتح مطعم فاخر: 🍽️
+        </p>
+        
+        <div style="direction: rtl; text-align: right; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <p style="margin-bottom: 5px; color: #4da6ff; font-weight: bold;">• الـ Data Engineer (مهندس البيانات):</p>
+            <p style="margin-bottom: 0; opacity: 0.9;">ده الشخص اللي بيجهز المطبخ وشبكات المياه والغاز ويوصل الخضار طازة ومغسول! هو اللي بيعمل البنية التحتية، قواعد البيانات، وخطوط نقل البيانات (<span dir="ltr">Data Pipelines</span>). من غيره، بقية الفريق مش هيلاقي داتا يشتغل عليها.</p>
+        </div>
+
+        <div style="direction: rtl; text-align: right; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <p style="margin-bottom: 5px; color: #4da6ff; font-weight: bold;">• الـ Data Analyst & BI Developer (محلل البيانات وذكاء الأعمال):</p>
+            <p style="margin-bottom: 0; opacity: 0.9;">ده "الشيف" اللي بيمسك البيانات المجهزة، يطبخها، ويطلع منها تقارير ولوحات عرض (<span dir="ltr">Dashboards</span>) بتشرح أداء المطعم: <i>"إيه أكثر أكلة أتباعت؟ والمبيعات زادت ولا قلت مقارنة بالشهر اللي فات؟"</i>.</p>
+        </div>
+
+        <div style="direction: rtl; text-align: right; background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+            <p style="margin-bottom: 5px; color: #4da6ff; font-weight: bold;">• الـ Data Scientist (عالم البيانات):</p>
+            <p style="margin-bottom: 0; opacity: 0.9;">ده بقى "الماستر شيف" اللي بيمسك البيانات، يتوقع إيه الأكلة الجديدة اللي الزبون هيطلبها الشتاء الجاي، ويبني أفكار ونماذج ذكية تساعد المطعم يتوسع ويكسب ملايين!</p>
+        </div>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🤖 ثانياً: شجرة الذكاء الاصطناعي <span dir="ltr">(AI vs ML vs Deep Learning)</span>
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 15px;">
+            كتير بيلخبطوا بينهم وفاكرينهم حاجة واحدة، لكن العلاقات بينهم زي الدمى الروسية (جوة بعض):
+        </p>
+        <ul style="direction: rtl; text-align: right; margin-bottom: 20px; padding-right: 20px;">
+            <li style="margin-bottom: 10px;"><b>الذكاء الاصطناعي (<span dir="ltr" style="color: #ff9933;">Artificial Intelligence - AI</span>):</b> الشجرة الكبيرة.. أي نظام بيحاكي الذكاء البشري (زي القيادة الذاتية، الترجمة، فهم الكلام).</li>
+            <li style="margin-bottom: 10px;"><b>تعلم الآلة (<span dir="ltr" style="color: #ff9933;">Machine Learning - ML</span>):</b> فرع جوه الـ AI.. بدل ما تكتب شروط بنفسك للكمبيوتر، بتديه بيانات كتير وهو بيتعلم الأنماط لوحده عشان يتوقع القادم (زي نظام كشف الـ <span dir="ltr">Spam</span> في <span dir="ltr">Gmail</span>).</li>
+            <li style="margin-bottom: 10px;"><b>التعلم العميق (<span dir="ltr" style="color: #ff9933;">Deep Learning</span>):</b> فرع جوه الـ ML.. قائم على شبكات عصبية ضخمة (<span dir="ltr">Neural Networks</span>) بتتعلم أنماط معقدة جداً، وده اللي فتح الباب لتطبيقات زي <span dir="ltr">ChatGPT</span> والتعرف على الوجوه!</li>
+        </ul>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            📌 مصطلحات تانية بتسمعها كتير
+        </h3>
+        <ul style="direction: rtl; text-align: right; margin-bottom: 20px; padding-right: 20px;">
+            <li style="margin-bottom: 8px;"><b>Business Intelligence (BI):</b> مراقبة وتقييم أداء الشركة في الماضي والحاضر من خلال تقارير و<span dir="ltr">Dashboards</span> في <span dir="ltr">Power BI</span> أو <span dir="ltr">Tableau</span>.</li>
+            <li style="margin-bottom: 8px;"><b>Big Data:</b> لما حجم البيانات يبقى ضخم جداً وسريع جداً (زي بيانات فيسبوك والبنوك) لدرجة إن الأدوات العادية مش قادرة تتعامل معاه.</li>
+            <li style="margin-bottom: 8px;"><b>Data Mining:</b> عملية التنقيب القديمة لاكتشاف الأنماط والعلاقات المخفية جوة الداتا.</li>
+        </ul>
+        
+        <hr style="border: 0.5px solid #444; margin: 25px 0;">
+        
+        <h3 style="direction: rtl; text-align: right; color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 12px;">
+            🎯 كيف يفكر المبتدئ وكيف يفكر المحترف؟
+        </h3>
+        <p style="direction: rtl; text-align: right; margin-bottom: 10px;">
+            • <b>المبتدئ يسأل:</b> <i>"أنا أتعلم AI ولا Data Science ولا Machine Learning الأول؟"</i><br>
+            • <b>المحترف يسأل:</b> <i>"إيه المشكلة اللي بحاول أحلها في الشغل؟ وإيه التخصص أو الأداة الأنسب لحلها؟"</i>
+        </p>
+        <p style="direction: rtl; text-align: right; margin-bottom: 20px;">
+            علشان كده في الشركات الحقيقية، التخصصات دي مش بتتنافس.. التخصصات دي بتتكامل مع بعضها!
+        </p>
+        
+        <p style="direction: rtl; text-align: right; background: rgba(255, 153, 0, 0.1); padding: 12px; border-radius: 6px; border-right: 4px solid #ff9933; margin-bottom: 0;">
+            <b>💡 نصيحة ذهبية:</b> لا تبدد وقتك في محاولة تعلم كل شيء دفعة واحدة. خطوتك الأولى والأساسية دايماً هي البدء بتحليل البيانات (<span dir="ltr">Data Analysis</span>)، فهي حجر الأساس الذي سيفهمك كيف تدور عجلة البيانات قبل الغوص في الفروع المعقدة!
+        </p>
+        
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+            <div style="text-align: center; margin-top: 15px;">
+                <a href="https://www.linkedin.com" target="_blank" style="background-color: #0a66c2; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
+                    💬 ناقش هذا الدرس على لينكد إن
+                </a>
+            </div>
+            """, unsafe_allow_html=True)
+
+
     
     # باقي المراحل (من 3 لـ 9)
     other_phases = {
-        "03": "Think Like a Data Analyst",
-        "04": "Data Ecosystem", 
+        
         "05": "Data Analytics Toolbox", 
         "06": "Big Data", 
         "07": "Data Visualization", 
