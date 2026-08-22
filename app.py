@@ -27,8 +27,8 @@ chapters = {
 }
 
 # 3. واجهة المستخدم
-st.markdown("<h1 class='title'>🚀 Data Analytics Roadmap</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subheader'>رحلتي في عالم البيانات من الصفر حتى الاحتراف</p>", unsafe_allow_html=True)
+st.markdown("<h1 class='title'> Data Analytics Roadmap</h1>", unsafe_allow_html=True)
+st.markdown("<p class='subheader'>رحلتي في مجال عالم البيانات من الصفر حتى الاحتراف</p>", unsafe_allow_html=True)
 st.divider()
 
 # عرض الأزرار
