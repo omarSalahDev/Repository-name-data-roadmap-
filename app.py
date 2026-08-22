@@ -83,9 +83,7 @@ with tab2:
         </div>
         """, unsafe_allow_html=True)
 
-# --- Tab 3: Portfolio & Projects ---
-with tab3:
-   # --- Tab 3: Portfolio & Projects (Professional Showcase) ---
+# --- Tab 3: Portfolio & Projects (Professional Showcase) ---
 with tab3:
     st.markdown("""
         <div dir="rtl" style="text-align: center; padding: 20px 10px;">
@@ -98,7 +96,7 @@ with tab3:
     with st.container():
         st.markdown("""
             <div dir="rtl" style="padding: 15px; border: 1px solid #333; border-radius: 10px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
-            <h4 style="margin-bottom: 5px;"> منصة Novyra (قيد Entwicklung / Prototype)</h4>
+            <h4 style="margin-bottom: 5px;">🚀 منصة Novyra (قيد التطوير / Prototype)</h4>
             <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
             رؤيتنا المبتكرة لحل فجوة سوق العمل، دعم الخريجين والعائدين من الجيش، وتقديم نظام تتبع ذكي للمهارات والمسارات المهنية في البنوك والجهات الحكومية.
             </p>
@@ -121,6 +119,7 @@ with tab3:
             st.link_button("🌐 زيارة البورتفوليو الشامل", url="https://omarsalahdev.github.io/portfolio/")
         with col_p2:
             st.link_button("📂 تصفح أكواد GitHub", url="https://github.com/omarSalahDev")
+
 # 6. الفوتر الاحترافي (Footer) مع الروابط والإيميل الجامعي
 st.divider()
 st.markdown("""
