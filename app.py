@@ -54,7 +54,7 @@ st.markdown("""
 # --- Instruction with Clean Spacing ---
 st.markdown("""
     <div dir="rtl" style="text-align: center; font-size: 13.5px; margin-top: 25px; margin-bottom: 25px; letter-spacing: 0.2px; opacity: 0.75;">
-    👇 اضغط على أي مرحلة لفتح الشرح المباشر على لينكد إن.. وتابع معانا باقي المحطات خطوة بخطوة!
+     اضغط على أي مرحلة لفتح الشرح المباشر على لينكد إن..👇 وتابع معانا باقي المحطات خطوة بخطوة!
     </div>
     """, unsafe_allow_html=True)
 
