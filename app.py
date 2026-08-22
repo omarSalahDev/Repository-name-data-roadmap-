@@ -33,7 +33,7 @@ Phase = {
 
 # 4. تصميم الواجهة الرئيسية
 st.markdown("<h1 class='title'>⚡ DataLab | by Omar Saleh</h1>", unsafe_allow_html=True)
-st.markdown("<p class='subheader'>مرجعك الشامل وخريطتك العملية من تحليل البيانات إلى علوم البيانات والذكاء الاصطناعي 🚀</p>", unsafe_allow_html=True)
+st.markdown("<p class='subheader'>مرجعك الشامل وخريطتك العملية من تحليل البيانات إلى علوم البيانات والذكاء الاصطناعي </p>", unsafe_allow_html=True)
 st.divider()
 
 # عرض الأزرار بشكل تفاعلي ومرتب
