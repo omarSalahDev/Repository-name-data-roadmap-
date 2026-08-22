@@ -121,7 +121,7 @@ with tab1:
             </div>
             """, unsafe_allow_html=True)
 
-    # --- Phase 02: Data Science Fundamentals ---
+ # --- Phase 02: Data Science Fundamentals ---
     with st.expander("📁 Phase 02: Read: Data Science Fundamentals (اضغط للقراءة الكاملة)", expanded=False):
         st.markdown("""
         <div dir="rtl" style="direction: rtl; text-align: right; font-family: sans-serif; font-size: 16px; line-height: 2.1; padding: 25px; background-color: #1a1a1a; border-radius: 12px; border: 1px solid #333; color: #e0e0e0;">
@@ -202,7 +202,6 @@ with tab1:
         </div>
         """, unsafe_allow_html=True)
         
-        # زرار مشاركة لينكد إن الخاص بالمرحلة الثانية
         st.markdown("""
             <div style="text-align: center; margin-top: 15px;">
                 <a href="https://www.linkedin.com" target="_blank" style="background-color: #0a66c2; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
@@ -210,7 +209,6 @@ with tab1:
                 </a>
             </div>
             """, unsafe_allow_html=True)
-    ```
     
     # باقي المراحل (من 3 لـ 9)
     other_phases = {
