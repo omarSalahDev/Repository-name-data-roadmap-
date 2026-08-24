@@ -12,12 +12,15 @@ def render_python_tab():
     # -------------------------------------------------------------
     # 📚 جدول المحطات والدروس (هنا تقدر تضيف المحطات تباعاً بكل سهولة)
     # -------------------------------------------------------------
-   lessons_registry = {
+    lessons_registry = {
         "المحطة 1: قبل ما نبدأ + أول برنامج print()": render_python_lesson_1,
-        "المحطة 2: Data Types (أنواع البيانات في Python)": render_python_lesson_2,  # زود السطر ده
+        "المحطة 2: Data Types (أنواع البيانات في Python)": render_python_lesson_2,
         "المحطة 3: العمليات الحسابية والمنطقية": lambda: render_placeholder_lesson(3, "العمليات الحسابية والمنطقية"),
-        # ... باقي المحطات
+        "المحطة 4: الشروط والتحكم (If Statements)": lambda: render_placeholder_lesson(4, "الشروط والتحكم"),
+        "المحطة 5: الحلقات التكرارية (Loops: For & While)": lambda: render_placeholder_lesson(5, "الحلقات التكرارية"),
+        # مكملين لحد 25 محطة بنفس الترتيب السهل ده!
     }
+
     # اختيار المحطة عبر قائمة منسدلة أنيقة
     selected_lesson_title = st.selectbox(
         label="اختر المحطة الدراسية:",
