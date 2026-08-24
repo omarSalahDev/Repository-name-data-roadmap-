@@ -1,4 +1,5 @@
 import streamlit as st
+from python_tools import render_python_tab  # استدعاء ملف بايثون الجديد
 
 # 1. إعدادات الصفحة (Apple & Notion Minimalist Style)
 st.set_page_config(
@@ -24,7 +25,7 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# 4. الوصف التفصيلي (مع عزل النصوص والنسب المئوية لضبط الاتجاهات)
+# 4. الوصف التفصيلي
 st.markdown("""
     <div dir="rtl" style="text-align: center; font-size: 15.5px; font-weight: 500; line-height: 1.8; max-width: 820px; margin: 0 auto; padding: 0 10px;">
     بوابتك المرجعية المتكاملة لعالم الـ <span dir="ltr">Data</span> (<span dir="ltr">100% مفتوحة ومجانية بالكامل</span>) 🧭 
@@ -32,10 +33,9 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# 5. نظام الأبواب (Tabs) لتنظيم المنصة واحترافيتها
+# 5. نظام الأبواب (Tabs)
 tab1, tab2, tab3 = st.tabs(["🧭 Data Roadmap", "🐍 Python & Tools", "💼 Portfolio & Projects"])
 
-# --- Tab 1: Roadmap (9 Phases with In-App Reading) ---
 # --- Tab 1: Roadmap (9 Phases with In-App Reading) ---
 with tab1:
     st.markdown("""
@@ -983,14 +983,9 @@ with tab1:
    
 # --- Tab 2: Python & Tools (Future Content) ---
 with tab2:
-    st.markdown("""
-        <div dir="rtl" style="text-align: center; padding: 40px 10px; opacity: 0.8;">
-        <h3>🐍 Python, Libraries & Advanced Math</h3>
-        <p>المحطة القادمة بعد الانتهاء من أساسيات تحليل البيانات.. انتظروا المحتوى العملي والمكتبات الخرافية قريباً جداً! ✨</p>
-        </div>
-        """, unsafe_allow_html=True)
+    # تشغيل محتوى ملف بايثون المنفصل
+    render_python_tab()
 
-# --- Tab 3: Portfolio & Projects (Professional Showcase) ---
 with tab3:
     st.markdown("""
         <div dir="rtl" style="text-align: center; padding: 20px 10px;">
@@ -999,18 +994,7 @@ with tab3:
         </div>
         """, unsafe_allow_html=True)
 
-    # مشروع 1: Novyra (المشروع الكبير)
-    with st.container():
-        st.markdown("""
-            <div dir="rtl" style="padding: 15px; border: 1px solid #333; border-radius: 10px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
-            <h4 style="margin-bottom: 5px;">🚀 منصة Novyra (قيد التطوير / Prototype)</h4>
-            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
-            رؤيتنا المبتكرة لحل فجوة سوق العمل، دعم الخريجين والعائدين من الجيش، وتقديم نظام تتبع ذكي للمهارات والمسارات المهنية في البنوك والجهات الحكومية.
-            </p>
-            </div>
-            """, unsafe_allow_html=True)
 
-    # مشروع 2: Data Analytics Portfolio
     with st.container():
         st.markdown("""
             <div dir="rtl" style="padding: 15px; border: 1px solid #333; border-radius: 10px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
@@ -1026,15 +1010,3 @@ with tab3:
             st.link_button("🌐 زيارة البورتفوليو الشامل", url="https://omarsalahdev.github.io/portfolio/")
         with col_p2:
             st.link_button("📂 تصفح أكواد GitHub", url="https://github.com/omarSalahDev")
-
-# 6. الفوتر الاحترافي (Footer) مع الروابط والإيميل الجامعي
-st.divider()
-st.markdown("""
-    <div style="text-align: center; font-size: 13px; opacity: 0.75; line-height: 1.8;">
-    Built with 🤍 by <b>Omar Saleh</b><br>
-    <a href="https://www.linkedin.com/in/omarsaleh-cs" target="_blank" style="text-decoration: none; margin: 0 8px; color: inherit;">LinkedIn</a> | 
-    <a href="https://github.com/omarSalahDev" target="_blank" style="text-decoration: none; margin: 0 8px; color: inherit;">GitHub</a> | 
-    <a href="https://omarsalahdev.github.io/portfolio/" target="_blank" style="text-decoration: none; margin: 0 8px; color: inherit;">Portfolio</a> | 
-    <a href="mailto:2401601@student.eelu.edu.eg" style="text-decoration: none; margin: 0 8px; color: inherit;">Email</a>
-    </div>
-    """, unsafe_allow_html=True)
