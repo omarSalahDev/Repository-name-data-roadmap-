@@ -301,7 +301,499 @@ def render_python_lesson_2():
         </div>
         """, unsafe_allow_html=True)
 
+def render_python_lesson_3():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">📦 المحطة 3: Lists — ليه نستخدم List بدل ما نعمل 100 متغير؟</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            لحد دلوقتي اتعلمنا إزاي نخزن قيمة واحدة في متغير، زي:<br>
+            <code style="color: #61afef;" dir="ltr">name = "Omar"</code><br>
+            طيب... لو عندك أسماء أول 5 عملاء سجلوا في الموقع؟ (<code style="color: #98c379;" dir="ltr">Ahmed, Sara, Omar, Nada, Ali</code>).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
+    # معضلة المتغيرات المتعددة مقابل القوائم
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 20px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #e06c75; margin-bottom: 10px;">❌ هل الطريقة التقليدية عملية؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 12px;">
+            لو فكرت تعمل لكل عميل متغير منفصل:<br>
+            <code style="color: #e06c75;" dir="ltr">customer1 = "Ahmed"</code><br>
+            <code style="color: #e06c75;" dir="ltr">customer2 = "Sara"</code><br>
+            ... وهكذا. ينفع؟ <strong>آه ينفع، بس هل ده عملي؟ إطلاقاً!</strong> تخيل لو عندك 50,000 عميل، مستحيل تعمل 50 ألف متغير.
+            </p>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            علشان كده Python وفرت حاجة اسمها <strong>List</strong>؛ مكان تقدر تخزن فيه أكتر من قيمة داخل متغير واحد.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # إنشاء الـ List
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 8px;">📝 إنشاء List</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 12px;">
+            بتكتبها بين أقواس مربعة <code style="color: #e5c07b;" dir="ltr">[]</code>. إليك أمثلة متنوعة لأنواع البيانات اللي ممكن تخزنها:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# 1. قائمة أسماء (Text)
+customers = ["Ahmed", "Sara", "Omar", "Nada", "Ali"]
+
+# 2. قائمة أرقام (Numbers/Sales)
+sales = [1200, 950, 1800, 2200]
+
+# 3. قائمة قيم منطقية (Booleans)
+status = [True, False, True]""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 15px; border-radius: 8px; margin-bottom: 20px; background: rgba(97, 175, 239, 0.05); border: 1px solid rgba(97, 175, 239, 0.15);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> هل الـ List ينفع تحتوي على أرقام ونصوص مع بعض؟<br>
+            ✅ <strong>الإجابة:</strong> أيوه، زي: <code style="color: #98c379;" dir="ltr">data = ["Ahmed", 25, True]</code>. لكن في شغلك، حاول تخلي البيانات من نفس النوع كلما أمكن؛ لأن ده بيسهل التعامل معها لاحقاً.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الوصول لعنصر معين (Index)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 8px;">🔍 الوصول لعنصر معين (Index)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            كل عنصر في الـ List ليه رقم (Index)، والعد في بايثون دايماً <strong>بيبدأ من 0</strong> مش من 1!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""customers = ["Ahmed", "Sara", "Omar", "Nada"]
+# Ahmed -> Index 0
+# Sara  -> Index 1
+# Omar  -> Index 2
+# Nada  -> Index 3
+
+print(customers[0])  # الناتج: Ahmed
+print(customers[2])  # الناتج: Omar""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(255,255,255,0.03);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">numbers = [10, 20, 30]</code> ونفذت <code style="color: #e5c07b;" dir="ltr">print(numbers[1])</code> إيه الناتج؟<br>
+            ✅ <strong>الإجابة:</strong> <code style="color: #98c379;" dir="ltr">20</code> (لأن العنصر الأول هو 0 والثاني هو 1).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # تعديل وإضافة وحذف البيانات
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e5c07b; margin-bottom: 10px;">✏️ تعديل وإدارة محتوى الـ List</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            القوائم في بايثون قابلة للتعديل (Mutable)، وده بيعطيك مرونة كاملة في معالجة البيانات:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# 1. تعديل عنصر معين بالـ Index
+customers = ["Ahmed", "Sara", "Omar"]
+customers[1] = "Mona"
+print(customers)  # الناتج: ['Ahmed', 'Mona', 'Omar'] (Sara اتغيرت لـ Mona)
+
+# 2. إضافة عنصر جديد في الآخر باستخدام append()
+customers.append("Omar")
+print(customers)  # الناتج: ['Ahmed', 'Mona', 'Omar', 'Omar']
+
+# 3. حذف آخر عنصر باستخدام pop()
+customers.pop()
+print(customers)  # الناتج: ['Ahmed', 'Mona', 'Omar']
+# أو حذف عنصر بـ Index محدد، مثل customers.pop(0) لحذف الأول.
+
+# 4. معرفة عدد العناصر باستخدام len()
+print(len(customers))  # الناتج: 3""", language="python")
+
+    # ترتيب وعكس ودمج القوائم
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">🔠 ترتيب، عكس، ودمج البيانات</h4>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# 1. ترتيب الأرقام أو النصوص (sort())
+numbers = [8, 2, 10, 1]
+numbers.sort()
+print(numbers)  # الناتج: [1, 2, 8, 10]
+
+# 2. عكس الترتيب (reverse())
+numbers.reverse()
+print(numbers)  # الناتج: [10, 8, 2, 1]
+
+# 3. دمج قائمتين (Concatenation)
+group1 = ["Ahmed", "Sara"]
+group2 = ["Omar", "Nada"]
+students = group1 + group2
+print(students)  # الناتج: ['Ahmed', 'Sara', 'Omar', 'Nada']""", language="python")
+
+    # القوائم المتداخلة والـ type والأخطاء الشائعة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">📦 تفاصيل متقدمة وأشهر الأخطاء</h4>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# 1. القوائم داخل القوائم (Nested Lists) - شكل هتشوفه كتير قبل الجداول في Pandas:
+data = [
+    ["Ahmed", 95],
+    ["Sara", 88],
+    ["Omar", 91]
+]
+
+# 2. معرفة نوع البيانات (type())
+print(type(customers))  # الناتج: <class 'list'>
+
+# ⚠️ أشهر الأخطاء (IndexError):
+# لو الـ List فيها 3 عناصر بس، وطلبت customers[5]، هيطلع Error. 
+# لازم تتأكد دايماً إن الـ Index موجود ضمن نطاق القائمة!""", language="python")
+
+    # Pro-Tip / Data Analysis Connection
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; background-color: rgba(229, 192, 123, 0.04);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">💼 هستخدم Lists فين في Data Analysis؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            في شغل تحليل البيانات، الـ Lists بتمثّل العمود الفقري لجمع البيانات الأولية؛ زي: أسماء العملاء، أسعار المنتجات، المدن، درجات الطلاب، ونتائج المبيعات.
+            </p>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            💡 <strong>معلومة من كواليس علم البيانات:</strong> لما نبدأ نشتغل بـ <strong>Pandas</strong>، هتكتشف إن فكرة الـ Series والـ DataFrame مبنية في الأساس على تطويرات لمفهوم الـ Lists والـ Dictionaries دي، بس بطريقة مخصصة لتحليل ملايين الصفوف بسرعة البرق!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+def render_python_lesson_4():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">📦 المحطة 4: Tuples — إمتى أستخدم Tuple بدل List؟</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            لحد دلوقتي اتعلمنا الـ Lists وعرفنا إنها بتخلينا نخزن أكتر من قيمة ونضيف ونحذف ونعدل براحتنا. لكن... هل كل البيانات ينفع تتغير؟ <strong>الإجابة: لأ!</strong>
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # مفهوم الثبات (Immutability) مقابل المتغيرات
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 20px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #61afef; margin-bottom: 10px;">🔒 البيانات الثابتة تحتاج Tuple</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            تخيل عندك بيانات ثابته مش المفروض تتغير أثناء تشغيل البرنامج؛ زي:<br>
+            • أيام الأسبوع، شهور السنة.<br>
+            • إحداثيات موقع جغرافية.<br>
+            • ألوان شعار الشركة الأساسية.
+            </p>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            هنا بيجي دور الـ <strong>Tuple</strong>؛ هي شبه الـ List جداً، لكن الفرق الجوهري إنها <strong>لا يمكن تعديلها بعد إنشائها</strong>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # إنشاء الـ Tuple
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 8px;">📝 إنشاء Tuple</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            الـ Tuple بتتكتب بين أقواس عادية <code style="color: #e5c07b;" dir="ltr">()</code> بدل الأقواس المربعة <code style="color: #e5c07b;" dir="ltr">[]</code>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# أمثلة لإنشاء Tuples
+days = ("Saturday", "Sunday", "Monday")
+numbers = (10, 20, 30, 40)""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 15px; border-radius: 8px; margin-bottom: 20px; background: rgba(152, 195, 121, 0.05); border: 1px solid rgba(152, 195, 121, 0.15);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> الكود ده List ولا Tuple؟<br>
+            <code style="color: #e5c07b;" dir="ltr">cities = ("Cairo", "Alexandria", "Giza")</code><br>
+            ✅ <strong>الإجابة:</strong> <code style="color: #98c379;" dir="ltr">Tuple</code> (لأنها مكتوبة بين أقواس عادية <code style="color: #e5c07b;" dir="ltr">()</code>).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الوصول للعناصر (Index)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">🔍 الوصول للعناصر (Index)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            الوصول للعناصر بيتم بنفس طريقة الـ List تماماً، حيث يبدأ العد من 0.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""cities = ("Cairo", "Alexandria", "Giza")
+
+print(cities[0])  # الناتج: Cairo
+print(cities[2])  # الناتج: Giza""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(255,255,255,0.03);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">numbers = (5, 10, 15)</code> ونفذت <code style="color: #e5c07b;" dir="ltr">print(numbers[1])</code> إيه الناتج؟<br>
+            ✅ <strong>الإجابة:</strong> <code style="color: #98c379;" dir="ltr">10</code>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # أهم فرق: Immutable
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; margin-bottom: 20px; background-color: rgba(229, 192, 123, 0.04);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">⚠️ أهم فرق بين Tuple و List</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            لو جربت تعدل عنصر في الـ Tuple بالشكل ده:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""cities = ("Cairo", "Alexandria")
+cities[0] = "Giza"  # ❌ هيطلع Error!""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 15px; border-radius: 8px; margin-bottom: 20px; background: rgba(224, 108, 117, 0.05); border: 1px solid rgba(224, 108, 117, 0.15);">
+            <p style="font-size: 13.5px; margin: 0;">
+            ❌ <strong>ليه بيحصل خطأ؟</strong> لأن الـ Tuple تصنف كـ <strong>Immutable</strong> (غير قابلة للتغيير). بعد ما تنشئها، مينفعش تغير، تحذف، أو تضيف عناصر جديدة. وده أهم فرق بيخلينا نختارها بدل الـ List.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # دوال البحث والعد
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">🔢 البحث عن عنصر والعد (index() & count())</h4>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# 1. معرفة مكان عنصر معين باستخدام index()
+cities = ("Cairo", "Alexandria", "Giza")
+print(cities.index("Alexandria"))  # الناتج: 1 (لأنها في الـ Index رقم 1)
+
+# 2. عدّ تكرار عنصر باستخدام count()
+numbers = (10, 20, 10, 30, 10)
+print(numbers.count(10))  # الناتج: 3 (لأن الرقم 10 تكرر 3 مرات)""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(255,255,255,0.03);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">letters = ("A", "B", "A", "C")</code> ونفذت <code style="color: #e5c07b;" dir="ltr">print(letters.count("A"))</code> إيه الناتج؟<br>
+            ✅ <strong>الإجابة:</strong> <code style="color: #98c379;" dir="ltr">2</code>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # مقارنة حاسمة بين List و Tuple
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 20px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background-color: rgba(255,255,255,0.02); margin-bottom: 20px;">
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">📌 مقارنة حاسمة: Tuple ولا List؟</h3>
+            <table style="width: 100%; text-align: right; border-collapse: collapse; font-size: 14px;">
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <th style="padding: 10px;">الميزة</th>
+                    <th style="padding: 10px;">List</th>
+                    <th style="padding: 10px;">Tuple</th>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 10px;">الشكل (Syntax)</td>
+                    <td style="padding: 10px;" dir="ltr">[]</td>
+                    <td style="padding: 10px;" dir="ltr">()</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 10px;">إمكانية التعديل</td>
+                    <td style="padding: 10px;">ينفع تعدلها (Mutable)</td>
+                    <td style="padding: 10px;">لا يمكن تعديلها (Immutable)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 10px;">الإضافة والحذف</td>
+                    <td style="padding: 10px;">متاحة (append, pop)</td>
+                    <td style="padding: 10px;">غير متاحة نهائياً</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px;">الاستخدام الأبرز</td>
+                    <td style="padding: 10px;">بيانات متغيرة ومتجددة</td>
+                    <td style="padding: 10px;">للبيانات الثابتة والحماية</td>
+                </tr>
+            </table>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Pro-Tip / Data Analysis Connection
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; background-color: rgba(229, 192, 123, 0.04);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">💼 هستخدم Tuples فين في Data Analysis؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            في تحليل البيانات، صح إنك مش هتستخدم الـ Tuples بنفس كتافة الـ Lists، لكنها بتظهر في مواقف حاسمة جداً؛ زي إحداثيات الجغرافيا للمتاجر (<code style="color: #98c379;" dir="ltr">Latitude, Longitude</code>)، أو القيم الثابتة في إعدادات ملفات الـ Configuration.
+            </p>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            💡 <strong>معلومة من كواليس بايثون:</strong> كود الـ Tuples أسرع في التنفيذ وأقل استهلاكاً للذاكرة مقارنة بالـ Lists، وده لأن بايثون عارفة إن محتواها مش هيتغير أبداً فبتوفر في تخصيص الذاكرة (Memory Allocation).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+def render_python_lesson_5():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">🗂️ المحطة 5: Dictionaries — لما كل قيمة يكون ليها اسم</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            تخيل إن عندك بيانات عميل واحد:<br>
+            <code style="color: #61afef;" dir="ltr">name = "Omar"</code><br>
+            <code style="color: #61afef;" dir="ltr">age = 21</code><br>
+            <code style="color: #61afef;" dir="ltr">city = "Alexandria"</code><br>
+            المشكلة إن كل معلومة موجودة في Variable منفصل. فلو عايزين نجمع بيانات العميل كلها في مكان واحد؟ هنا بيجي دور الـ <strong>Dictionary</strong>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # مفهوم Key → Value
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 20px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🔑 فكرة الـ Key-Value</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            الـ Dictionary بيخزن البيانات بنظام المفتاح والقيمة (<code style="color: #e5c07b;" dir="ltr">Key → Value</code>)؛ يعني كل معلومة ليها اسم دلالي بيميزها، وبنكتبه في بايثون باستخدام الأقواس المعقوصة <code style="color: #e5c07b;" dir="ltr">{}</code>:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""customer = {
+    "name": "Omar",
+    "age": 21,
+    "city": "Alexandria"
+}
+# "name" هو الـ Key و "Omar" هي الـ Value""", language="python")
+
+    # الوصول للبيانات باستخدام الـ Key
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">🔍 الوصول للبيانات باستخدام الـ Key</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            في الـ List كنا بنستخدم الـ Index، أما هنا فمش محتاج تحفظ رقم العنصر؛ بتستخدم الـ Key مباشرة:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""print(customer["name"])  # الناتج: Omar
+print(customer["city"])  # الناتج: Alexandria""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(255,255,255,0.03);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">product = {"name": "Laptop", "price": 25000}</code> ونفذت <code style="color: #e5c07b;" dir="ltr">print(product["price"])</code> إيه الناتج؟<br>
+            ✅ <strong>الإجابة:</strong> <code style="color: #98c379;" dir="ltr">25000</code> (لأننا طلبنا القيمة المرتبطة بالـ Key "price").
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Keys و Values
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">📋 استعراض الـ Keys والـ Values</h4>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""customer = {"name": "Omar", "age": 21}
+
+print(customer.keys())    # الناتج: استعراض المفاتيح (name, age)
+print(customer.values())  # الناتج: استعراض القيم (Omar, 21)""", language="python")
+
+    # إضافة وتعديل البيانات
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">➕ إضافة، تغيير، وتحديث البيانات</h4>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# 1. إضافة بيانات جديدة
+customer["city"] = "Alexandria"
+
+# 2. تغيير قيمة موجودة (Replace)
+customer["age"] = 22  # العمر اتغير من 21 لـ 22
+
+# 3. استخدام دالة update() لتحديث أو إضافة عدة قيم دفعة واحدة
+customer.update({
+    "age": 22,
+    "city": "Cairo",
+    "job": "Data Analyst"  # لو الـ Key مش موجود، هتضيفه تلقائياً
+})""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(97, 175, 239, 0.05); border: 1px solid rgba(97, 175, 239, 0.15);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">product = {"name": "Laptop", "price": 20000}</code> ونفذت <code style="color: #e5c07b;" dir="ltr">product["price"] = 22000</code>، إيه قيمة price؟<br>
+            ✅ <strong>الإجابة:</strong> <code style="color: #98c379;" dir="ltr">22000</code> (تم عمل Replace للقيمة القديمة).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الحذف والمسح
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e06c75; margin-bottom: 10px;">🗑️ حذف ومسح البيانات</h4>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# 1. حذف Key معين باستخدام pop()
+customer.pop("age")
+
+# 2. حذف آخر Key-Value pair باستخدام popitem()
+customer.popitem()
+
+# 3. تفريغ الـ Dictionary بالكامل مع الاحتفاظ به كـ Object فارغ باستخدام clear()
+customer.clear()  # الناتج: {}""", language="python")
+
+    # مقارنة حاسمة: List ولا Dictionary؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 20px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background-color: rgba(255,255,255,0.02); margin-bottom: 20px;">
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">🧠 مقارنة حاسمة: List ولا Dictionary؟</h3>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 12px;">
+            • لو عندك عناصر متتابعة بتتعامل معها بالـ Index (زي <code style="color: #98c379;" dir="ltr">products = ["Laptop", "Mouse", "Keyboard"]</code>) استخدم <strong>List</strong>.<br>
+            • لو عندك بيانات كل جزء فيها ليه اسم ومعنى واضح (زي بيانات منتج أو عميل متكاملة) استخدم <strong>Dictionary</strong>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # أشهر الأخطاء
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(224, 108, 117, 0.3); border-radius: 12px; margin-bottom: 20px; background-color: rgba(224, 108, 117, 0.04);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #e06c75; margin-bottom: 8px;">⚠️ أشهر الأخطاء (KeyError)</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            لو كتبت <code style="color: #e06c75;" dir="ltr">print(customer["phone"])</code> وكلمة phone مش موجودة كـ Key أساساً، بايثون هتطلع لك خطأ يسمى <code style="color: #e06c75;" dir="ltr">KeyError</code>. علشان كده لازم تتأكد إن المفتاح موجود، أو تستخدم طرق أكثر أماناً زي دالة <code style="color: #98c379;" dir="ltr">get()</code>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Pro-Tip / Data Analysis Connection
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; background-color: rgba(229, 192, 123, 0.04);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">💼 هستخدم Dictionaries فين في Data Analysis؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            تخيل بيانات منتج بالشكل ده:<br>
+            <code style="color: #98c379;" dir="ltr">product = {"product_name": "Laptop", "category": "Electronics", "price": 25000, "stock": 15}</code><br>
+            هذا الشكل يتطابق تماماً مع هيكل ملفات الـ JSON ونتائج الـ APIs في مشاريع الـ Data Analysis الحقيقية.
+            </p>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            💡 <strong>معلومة من كواليس علم البيانات:</strong> مكتبة Pandas العملاقة في تحليل البيانات تتعامل مع الجداول (DataFrames) في الأساس باعتبارها مجموعة من الـ Dictionaries المترابطة (Columns as Keys & Rows as Values)، وفهمك للـ Dictionaries هو المفتاح السحري لربط بايثون بقواعد البيانات والويب APIs!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # اختبار سريع (آخر سؤال في المنشور)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 15px; border-radius: 8px; margin-bottom: 10px; background: rgba(152, 195, 121, 0.05); border: 1px solid rgba(152, 195, 121, 0.15);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>آخر اختبار:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">student = {"name": "Ahmed", "grade": 85}</code> وعايز تغير الدرجة إلى 95، إيه الصح؟<br>
+            ✅ <strong>الإجابة الصحيحة هي (A):</strong> <code style="color: #98c379;" dir="ltr">student["grade"] = 95</code> لأننا بنوصل للـ Key ونغير الـ Value مباشرة.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
 
 # =============================================================
 # 🚧 دالة مؤقتة للمحطات الباقية
