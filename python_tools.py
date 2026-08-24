@@ -10,15 +10,16 @@ def render_python_tab():
         """, unsafe_allow_html=True)
 
     # -------------------------------------------------------------
-    # 📚 جدول المحطات والدروس (هنا تقدر تضيف المحطات تباعاً بكل سهولة)
+    # 📚 جدول المحطات والدروس
     # -------------------------------------------------------------
-   lessons_registry = {
+    lessons_registry = {
         "المحطة 1: قبل ما نبدأ + أول برنامج print()": render_python_lesson_1,
         "المحطة 2: Data Types (أنواع البيانات في Python)": render_python_lesson_2,
         "المحطة 3: Lists (القوائم وكيفية إدارتها)": render_python_lesson_3,
         "المحطة 4: Tuples (البيانات الثابتة ومقارنتها بالـ Lists)": render_python_lesson_4,
-        "المحطة 5: Dictionaries (المفاتيح والقيم والتعامل مع البيانات)": render_python_lesson_5,  # السطر الجديد
+        "المحطة 5: Dictionaries (المفاتيح والقيم والتعامل مع البيانات)": render_python_lesson_5,
         "المحطة 6: الشروط والتحكم (If Statements)": lambda: render_placeholder_lesson(6, "الشروط والتحكم"),
+        # مكملين لحد 25 محطة بنفس الترتيب
     }
 
     # اختيار المحطة عبر قائمة منسدلة أنيقة
@@ -32,7 +33,6 @@ def render_python_tab():
 
     # تشغيل الدالة الخاصة بالمحطة المختارة
     lessons_registry[selected_lesson_title]()
-
 
 # =============================================================
 # 🚀 تفاصيل المحطة الأولى
