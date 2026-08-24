@@ -18,8 +18,11 @@ def render_python_tab():
         "المحطة 3: Lists (القوائم وكيفية إدارتها)": render_python_lesson_3,
         "المحطة 4: Tuples (البيانات الثابتة ومقارنتها بالـ Lists)": render_python_lesson_4,
         "المحطة 5: Dictionaries (المفاتيح والقيم والتعامل مع البيانات)": render_python_lesson_5,
-        "المحطة 6: الشروط والتحكم (If Statements)": lambda: render_placeholder_lesson(6, "الشروط والتحكم"),
-        # مكملين لحد 25 محطة بنفس الترتيب
+        "المحطة 6: Sets (المجموعات والقيم الفريدة وعمليات الـ Union والـ Difference)": render_python_lesson_6,
+        "المحطة 7: Python Logic (المنطق وشروط الاتخاذ والقرار If, Elif, Else)": render_python_lesson_7,
+        "المحطة 8: While Loop (الحلقات التكرارية والتحكم بـ break و continue)": render_python_lesson_8,
+        "المحطة 9: For Loop (التكرار الذكي على العناصر والتعامل مع القواميس)": render_python_lesson_9,  # السطر الجديد
+        "المحطة 10: الدوال (Functions)": lambda: render_placeholder_lesson(10, "الدوال Functions"),
     }
 
     # اختيار المحطة عبر قائمة منسدلة أنيقة
@@ -791,6 +794,496 @@ customer.clear()  # الناتج: {}""", language="python")
             <p style="font-size: 13.5px; margin: 0;">
             🎮 <strong>آخر اختبار:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">student = {"name": "Ahmed", "grade": 85}</code> وعايز تغير الدرجة إلى 95، إيه الصح؟<br>
             ✅ <strong>الإجابة الصحيحة هي (A):</strong> <code style="color: #98c379;" dir="ltr">student["grade"] = 95</code> لأننا بنوصل للـ Key ونغير الـ Value مباشرة.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+def render_python_lesson_6():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">🧩 المحطة 6: Sets — لما التكرار مش مهم</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            تخيل إن عندك قائمتين من العملاء:<br>
+            القائمة الأولى: <code style="color: #61afef;" dir="ltr">customers_a = ["Ahmed", "Sara", "Omar", "Ahmed"]</code><br>
+            والقائمة الثانية: <code style="color: #61afef;" dir="ltr">customers_b = ["Omar", "Ali", "Sara", "Ali"]</code><br>
+            لو سألتك: <strong>كام عميل مختلف عندي؟</strong> هنا هتبدأ تواجه مشكلة التكرار، وهنا بيجي دور الـ <strong>Set</strong>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # يعني إيه Set؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 20px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🎯 يعني إيه Set؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            الـ Set هي نوع من أنواع البيانات في Python بتخزن مجموعة من القيم <strong>من غير تكرار</strong>، وبنكتبها باستخدام الأقواس المعقوصة <code style="color: #e5c07b;" dir="ltr">{}</code>:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""customers = {"Ahmed", "Sara", "Omar", "Ahmed"}
+# Python هتحتفظ بالقيم المختلفة فقط:
+# {"Ahmed", "Sara", "Omar"}""", language="python")
+
+    # نقطة مهمة جداً (مش List)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(224, 108, 117, 0.3); border-radius: 12px; margin-bottom: 20px; background-color: rgba(224, 108, 117, 0.04);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #e06c75; margin-bottom: 8px;">⚠️ نقطة مهمة جداً</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            الـ Set <strong>مش List</strong>؛ يعني متتعاملش معاها على أساس إن كل عنصر له Index ثابت (زي <code style="color: #e06c75;" dir="ltr">customers[0]</code>)، لأن الـ Set مش معمولة للوصول للعناصر عن طريق Index.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ليه أحتتاجها كـ Data Analyst (Unique Values)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; background-color: rgba(229, 192, 123, 0.04); margin-bottom: 20px;">
+            <h4 style="font-size: 16px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">💼 طب ليه ممكن أحتاجها كـ Data Analyst؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            لو عندك بيانات عملاء متكررة وعايز تعرف القيم الفريدة (<strong style="color: #98c379;">Unique Values</strong>)، تقدر تحولها فوراً لـ Set:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""customers = ["Ahmed", "Sara", "Ahmed", "Omar", "Sara"]
+unique_customers = set(customers)
+
+print(unique_customers)  # هتلاقي التكرار اختفى!""", language="python")
+
+    # Union — إيه الموجود في المجموعتين مع بعض؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">🔗 Union — إيه الموجود في المجموعتين مع بعض؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            لما تحب تجمع كل الأشخاص أو العناصر الموجودة في مجموعتين بدون تكرار، بتستخدم دالة <code style="color: #e5c07b;" dir="ltr">union()</code>:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""team_a = {"Ahmed", "Sara", "Omar"}
+team_b = {"Omar", "Ali", "Sara"}
+
+all_members = team_a.union(team_b)
+print(all_members)  # يدمج المجموعتين ويتخلص من التكرار""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(255,255,255,0.03);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">a = {"Python", "SQL"}</code> و <code style="color: #e5c07b;" dir="ltr">b = {"Python", "Power BI"}</code>، إيه العناصر الموجودة في المجموعتين مع بعض؟<br>
+            ✅ <strong>الإجابة:</strong> <code style="color: #98c379;" dir="ltr">Python, SQL, Power BI</code> (لأن union() بتجمع العناصر المختلفة).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Difference — إيه الموجود هنا ومش موجود هناك؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">➖ Difference — إيه الموجود هنا ومش موجود هناك؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            من أهم أفكار الـ Sets؛ لمعرفة العناصر الموجودة في مجموعة ومش موجودة في الأخرى باستخدام <code style="color: #e5c07b;" dir="ltr">difference()</code>:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""python_students = {"Ahmed", "Sara", "Omar"}
+sql_students = {"Sara", "Omar", "Ali"}
+
+# مين بيتعلم Python ومش بيتعلم SQL؟
+print(python_students.difference(sql_students))  # الناتج: {"Ahmed"}""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(198, 120, 221, 0.05); border: 1px solid rgba(198, 120, 221, 0.15);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🔄 <strong>خلاصة الاتجاه:</strong> <code style="color: #e5c07b;" dir="ltr">python_students.difference(sql_students)</code> مش زي العكس! الأولى بتسأل (إيه في بايثون ومش في إس كيو إل؟)، ودي غلطة شائعة جداً لازم تاخد بالك منها.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الحذف (remove و pop)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e06c75; margin-bottom: 10px;">🗑️ حذف العناصر: remove() مقابل pop()</h4>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""skills = {"Python", "SQL", "Power BI"}
+
+# 1. حذف عنصر معين بـ remove() (ولو مش موجود بتطلع KeyError)
+skills.remove("SQL")
+
+# 2. حذف عنصر عشوائي بـ pop() (الـ Set غير مرتبة، فمتفترضش إنه آخر عنصر!)
+skills.pop()""", language="python")
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(255,255,255,0.03);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">skills = {"Python", "SQL", "Excel"}</code> وعايز تحذف "SQL" تحديداً، تستخدم إيه؟<br>
+            ✅ <strong>الإجابة (A):</strong> <code style="color: #98c379;" dir="ltr">skills.remove("SQL")</code> لأن remove() بتحدد العنصر المطلوب بدقة.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # مقارنة شاملة: List ولا Dictionary ولا Set؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 20px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background-color: rgba(255,255,255,0.02); margin-bottom: 20px;">
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px;">🧠 مقارنة شاملة: أستخدم إيه ومتى؟</h3>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.7; margin-bottom: 0;">
+            📋 <strong>List:</strong> لما يكون ترتيب العناصر مهم أو محتاج تعدل وتتعامل مع العناصر بالـ Index (<code style="color: #98c379;" dir="ltr">["Ahmed", "Sara", "Omar"]</code>).<br>
+            🗂️ <strong>Dictionary:</strong> لما كل قيمة مرتبطة بـ Key وتعبر عن سمات لكيان واحد (<code style="color: #98c379;" dir="ltr">{"name": "Ahmed", "age": 22}</code>).<br>
+            🧩 <strong>Set:</strong> لما يكون هدفك الأساسي التعامل مع قيم فريدة وفحص مجموعات العناصر بدون تكرار (<code style="color: #98c379;" dir="ltr">{"Ahmed", "Sara", "Omar"}</code>).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # تطبيق عملي في Data Analysis (LinkedIn vs GitHub)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(97, 175, 239, 0.3); border-radius: 12px; background-color: rgba(97, 175, 239, 0.04);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #61afef; margin-bottom: 8px;">💼 مثال حقيقي من Data Analysis</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            تخيل عندك مستخدمين على منصتين:<br>
+            <code style="color: #e5c07b;" dir="ltr">linkedin = {"Ahmed", "Sara", "Omar", "Ali"}</code><br>
+            <code style="color: #e5c07b;" dir="ltr">github = {"Omar", "Ali", "Mona"}</code><br>
+            • لمعرفة الناس الموجودة على LinkedIn ومش موجودة على GitHub: <code style="color: #98c379;" dir="ltr">linkedin.difference(github)</code> ➔ الناتج: <code style="color: #98c379;" dir="ltr">{"Ahmed", "Sara"}</code><br>
+            • لمعرفة كل الأشخاص الموجودين على أي منصة (دَمج وظيفي): <code style="color: #98c379;" dir="ltr">linkedin.union(github)</code>
+            </p>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            وده بيوضحلك ليه عمليات مجموعات البيانات موجودة وأساسية في تحليل البيانات!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+def render_python_lesson_7():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">🧠 المحطة 7: Python Logic — إزاي نخلي البرنامج يفكر وياخد قرار؟</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            لحد دلوقتي بايثون كانت بتنفذ الأوامر حرفياً زيمّا بنقولها. لكن تخيل إنك عايز البرنامج <strong>ياخد قرار بنفسه</strong> (زي: لو درجة الطالب أكبر من أو تساوي 50 يبقى ناجح، وإلا فراسب). هنا بندخل في عالم الـ Logic و Decision Making.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Comparison Operators
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">🔍 أول حاجة: Comparison Operators (المقارنات)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            قبل ما بايثون تاخد قرار، لازم تعرف تقارن بين قيمتين وترجع نتيجة منطقية (<code style="color: #98c379;" dir="ltr">True</code> أو <code style="color: #e06c75;" dir="ltr">False</code>):
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""age = 21
+print(age > 18)  # الناتج: True (لأن 21 فعلًا أكبر من 18)""", language="python")
+
+    # جدول مختصر لعلامات المقارنة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 15px; border-radius: 10px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); margin-bottom: 15px;">
+            <p style="font-size: 13.5px; line-height: 1.8; margin: 0;">
+            • <code style="color: #e5c07b;" dir="ltr">==</code> (يساوي) &nbsp;|&nbsp; 
+            • <code style="color: #e5c07b;" dir="ltr">!=</code> (لا يساوي)<br>
+            • <code style="color: #e5c07b;" dir="ltr">></code> (أكبر من) &nbsp;|&nbsp; 
+            • <code style="color: #e5c07b;" dir="ltr"><</code> (أصغر من)<br>
+            • <code style="color: #e5c07b;" dir="ltr">>=</code> (أكبر من أو يساوي) &nbsp;|&nbsp; 
+            • <code style="color: #e5c07b;" dir="ltr"><=</code> (أصغر من أو يساوي)
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # تحذير الفرق بين = و ==
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 15px; border: 1px solid rgba(224, 108, 117, 0.3); border-radius: 10px; margin-bottom: 20px; background-color: rgba(224, 108, 117, 0.04);">
+            <h4 style="font-size: 15px; font-weight: 700; color: #e06c75; margin-bottom: 6px;">⚠️ خلي بالك جدًا: الفرق بين = و ==</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; margin: 0;">
+            • <code style="color: #61afef;" dir="ltr">=</code> دي Assignment (وضع قيمة في Variable مثل <code style="color: #61afef;" dir="ltr">score = 85</code>).<br>
+            • <code style="color: #e5c07b;" dir="ltr">==</code> دي Comparison (مقارنة هل القيمة تساوي الأخرى مثل <code style="color: #e5c07b;" dir="ltr">score == 85</code>).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Logical Operators (and, or, not)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🧩 ربط الشروط: and، or، و not</h4>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# 1. and (لازم كل الشروط تتحقق)
+math = 80
+python = 90
+print(math >= 50 and python >= 50)  # True
+
+# 2. or (كفاية شرط واحد يتحقق)
+experience = 0
+certificate = True
+print(experience > 1 or certificate == True)  # True
+
+# 3. not (عكس النتيجة)
+is_student = True
+print(not is_student)  # False""", language="python")
+
+    # Algorithms & Decision Making
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">🧭 Decision Making: الـ Algorithms و If Statements</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            الـ Algorithm هو مجموعة خطوات مرتبة لحل مشكلة. وباستخدام جمل الشروط (<code style="color: #e5c07b;" dir="ltr">if</code>, <code style="color: #e5c07b;" dir="ltr">elif</code>, <code style="color: #e5c07b;" dir="ltr">else</code>) بنحول الخطوات دي لكود ذكي:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""score = 82
+
+if score >= 90:
+    print("Excellent")
+elif score >= 75:
+    print("Very Good")
+elif score >= 50:
+    print("Passed")
+else:
+    print("Failed")
+# الناتج: Very Good (بايثون بتبدأ من فوق لأول شرط صح وتتوقف عنده)""", language="python")
+
+    # تنبيه الـ Indentation والأخطاء الشائعة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 15px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 10px; margin-bottom: 20px; background-color: rgba(229, 192, 123, 0.04);">
+            <h4 style="font-size: 15px; font-weight: 700; color: #e5c07b; margin-bottom: 6px;">⚠️ أشهر الأخطاء وأهمية الـ Indentation (المسافة البادئة)</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            1. استخدام <code style="color: #e06c75;" dir="ltr">=</code> بدل <code style="color: #e5c07b;" dir="ltr">==</code> في المقارنة.<br>
+            2. نسيان النقطتين <code style="color: #e5c07b;" dir="ltr">:</code> في نهاية جملة الشرط.<br>
+            3. مشكلة الـ Indentation: المسافة قبل الكود تحت الـ <code style="color: #e5c07b;" dir="ltr">if</code> مش مجرد شكل جمالي؛ دي اللي بتحدد الأكواد التابعة للشرط.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # تطبيق عملي في Data Analysis
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(97, 175, 239, 0.3); border-radius: 12px; background-color: rgba(97, 175, 239, 0.04);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #61afef; margin-bottom: 8px;">💼 تطبيق عملي في Data Analysis</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            تخيل تصنيف أداء الموظفين أو المبيعات:<br>
+            <code style="color: #e5c07b;" dir="ltr">sales = 120000</code><br>
+            <code style="color: #98c379;" dir="ltr">if sales >= 150000: print("Excellent")</code><br>
+            <code style="color: #98c379;" dir="ltr">elif sales >= 100000: print("Good") ...</code>
+            </p>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            إحنا بنتعلم طريقة التفكير الشرطي دي مش بس لبرامج عادية، دي اللي هتستخدمها بعدين على آلاف أو ملايين الصفوف في تحليل البيانات باستخدام Pandas!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+def render_python_lesson_8():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">🔁 المحطة 8: While Loop — إزاي نخلي Python تكرر الشغل لوحدها؟</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            تخيل إن عندك 50,000 عميل وعايز تطبع أسماءهم؛ هل هتكتب <code style="color: #61afef;" dir="ltr">print()</code> خمسين ألف مرة؟ طبعًا لأ! هنا بيجي مفهوم الـ <strong>Loop</strong> (الحلقات التكرارية) وبأشهر أنواعها: <code style="color: #e5c07b;" dir="ltr">while</code>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # يعني إيه while؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🧠 يعني إيه while؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            كلمة while بمعناها البسيط: <strong>طول ما الشرط صحيح... كمل تكرار</strong>. وبايثون بتقييم الشرط في كل مرة قبل تنفيذ الكود جواها:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""count = 1
+
+while count <= 5:
+    print(count)
+    count += 1  # ضروري لتغيير قيمة الشرط
+
+# الناتج: 1, 2, 3, 4, 5""", language="python")
+
+    # تحذير الـ Infinite Loop
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 15px; border: 1px solid rgba(224, 108, 117, 0.3); border-radius: 10px; margin-bottom: 20px; background-color: rgba(224, 108, 117, 0.04);">
+            <h4 style="font-size: 15px; font-weight: 700; color: #e06c75; margin-bottom: 6px;">⚠️ أهم حاجة في while: تجنب الـ Infinite Loop</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            لازم يكون فيه حاجة جوه الكود بتغير الشرط (زي <code style="color: #e06c75;" dir="ltr">count += 1</code>)؛ لو نسيتها، الشرط هيضل دايمًا True والبرنامج هيفضل شغال للأبد في ما يسمى بـ <strong style="color: #e06c75;">Infinite Loop</strong>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 12px; border-radius: 8px; margin-bottom: 20px; background: rgba(255,255,255,0.03);">
+            <p style="font-size: 13.5px; margin: 0;">
+            🎮 <strong>سؤال سريع:</strong> لو عندك <code style="color: #e5c07b;" dir="ltr">x = 1</code> وتنفذت الـ while loop لحد <code style="color: #e5c07b;" dir="ltr">x <= 3</code> مع <code style="color: #e5c07b;" dir="ltr">x += 1</code>، الناتج بيكون: <code style="color: #98c379;" dir="ltr">1, 2, 3</code>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # break و continue
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">🛑 التحكم في اللوب: break مقابل continue</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            • <code style="color: #e06c75;" dir="ltr">break</code>: تنهي وتخرج من الـ Loop بالكامل فور تحقق الشرط.<br>
+            • <code style="color: #e5c07b;" dir="ltr">continue</code>: بتتخطى التكرار الحالي (الدورة دي بس) وتنتقل للدورة اللي بعدها.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# مثال باستخدام break عند الوصول للقيمة 5
+count = 1
+while count <= 10:
+    if count == 5:
+        break
+    print(count)
+    count += 1
+# الناتج: 1, 2, 3, 4 (وخرجت فوراً)
+
+# مثال باستخدام continue لتخطى القيمة 3
+c = 0
+while c < 5:
+    c += 1
+    if c == 3:
+        continue
+    print(c)
+# الناتج: 1, 2, 4, 5 (تم تخطي 3)""", language="python")
+
+    # while ... else
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">🔄 ميزة while ... else</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin: 0;">
+            جملة الـ <code style="color: #e5c07b;" dir="ltr">else</code> مع الـ while بتتنفذ لما اللوب تخلص بشكل طبيعي تماماً، لكن لو خرجنا منها باستخدام <code style="color: #e06c75;" dir="ltr">break</code> فالـ else مش هتتنفذ.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # مثال شامل وتطبيق في Data Analysis
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(97, 175, 239, 0.3); border-radius: 12px; background-color: rgba(97, 175, 239, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 16px; font-weight: 700; color: #61afef; margin-bottom: 8px;">💼 مثال يجمع كل الأفكار (البحث في بيانات الدرجات)</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            تخيل إنك بتدور على أول درجة أقل من 50 في القائمة لتوقيف البحث:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""scores = [80, 75, 90, 45, 88]
+index = 0
+
+while index < len(scores):
+    if scores[index] < 50:
+        print("Found a failed score:", scores[index])
+        break
+    index += 1
+# النتيجة: هتقف عند 45 وتطبع الرسالة""", language="python")
+
+    # رأي من كواليس تحليل البيانات
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; background-color: rgba(229, 192, 123, 0.04);">
+            <h4 style="font-size: 16px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">💡 رأي من كواليس Data Analysis</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            هل هستخدم <code style="color: #e5c07b;" dir="ltr">while</code> كتير في تحليل البيانات؟ الصراحة، مش بنفس أهمية الـ <code style="color: #e5c07b;" dir="ltr">for</code> ومكتبة <code style="color: #98c379;" dir="ltr">Pandas</code>. بس فهمها ضروري جداً علشان تستوعب <strong>طريقة التفكير البرمجي الأساسية، والـ Loops، والتحكم بالشروط (break/continue)</strong> قبل ما تدخل في الأدوات المتقدمة.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+def render_python_lesson_9():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">🔁 المحطة 9: For Loop — خلّي Python تعدّي على البيانات بدل ما تكرر الكود بنفسك</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            لما يكون عندك 10,000 عنصر، مش هينفع تكتب <code style="color: #61afef;" dir="ltr">print()</code> لكل واحد! هنا بتجي الـ <strong>For Loop</strong> عشان تقول لبايثون: <em>"خدي كل عنصر من المجموعة، واعملي عليه نفس العملية."</em>
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # أساسيات الـ For Loop
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🧠 يعني إيه For Loop؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            <code style="color: #e5c07b;" dir="ltr">for name in names:</code> معناها: لكل عنصر موجود في القائمة، حطّه مؤقتًا في متغير <code style="color: #61afef;" dir="ltr">name</code> ونفذ الكود تحته.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""names = ["Ahmed", "Sara", "Omar", "Mona"]
+
+for name in names:
+    print(name)
+
+# الناتج: Ahmed, Sara, Omar, Mona""", language="python")
+
+    # Break & Continue
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">🛑 التحكم في اللوب: break مقابل continue</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            • <code style="color: #e06c75;" dir="ltr">break</code>: توقف وتخرج فورًا من الـ Loop.<br>
+            • <code style="color: #e5c07b;" dir="ltr">continue</code>: تتخطى العنصر الحالي وتكمل باقي العناصر.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# تطبيق عملي في تصفية الدرجات (استبعاد أقل من 50)
+scores = [85, 90, 45, 78, 30, 95]
+
+for score in scores:
+    if score < 50:
+        continue
+    print(score)
+# الناتج: 85, 90, 78, 95""", language="python")
+
+    # For Loop مع Dictionary
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">🗂️ For Loop مع Dictionary (الربط الأهم)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            الـ Dictionary لوحدها بترجع الـ <strong>Keys</strong>، لكن بنقدر نستخدم <code style="color: #e5c07b;" dir="ltr">.values()</code> أو <code style="color: #e5c07b;" dir="ltr">.items()</code> لاستخراج المفتاح والقيمة معًا:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""student = {"name": "Omar", "age": 21, "grade": 90}
+
+# استخراج الـ Keys والـ Values معًا باستخدام .items()
+for key, value in student.items():
+    print(key, value)""", language="python")
+
+    # مثال عملي متقدم
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(97, 175, 239, 0.3); border-radius: 12px; background-color: rgba(97, 175, 239, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 16px; font-weight: 700; color: #61afef; margin-bottom: 8px;">💼 مثال عملي: تصفية المنتجات حسب السعر</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            هنا جمعنا كذا مفهوم مع بعض (Dictionary + For Loop + items() + If Condition) بطريقة قريبة جدًا لشغل الـ Data Analysis:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""products = {
+    "Laptop": 25000,
+    "Mouse": 500,
+    "Keyboard": 1200
+}
+
+for product, price in products.items():
+    if price > 1000:
+        print(product, price)
+# الناتج: Laptop 25000 و Keyboard 1200""", language="python")
+
+    # تنبيه ذهني
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 15px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 10px; background-color: rgba(229, 192, 123, 0.04);">
+            <h4 style="font-size: 15px; font-weight: 700; color: #e5c07b; margin-bottom: 6px;">🧠 نقطة مهمة جداً في الفهم:</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            • متكتبش <code style="color: #e06c75;" dir="ltr">for key, value in product:</code> لأن الـ Dictionary وحدها بترجع المفاتيح بس، واستخدم دايمًا <code style="color: #e5c07b;" dir="ltr">.items()</code>.<br>
+            • الـ For Loop مش مجرد "كرر عدد مرات"، هي <strong>مرور ذكي وتنقل بين عناصر البيانات</strong> (Iteration).
             </p>
         </div>
         """, unsafe_allow_html=True)
