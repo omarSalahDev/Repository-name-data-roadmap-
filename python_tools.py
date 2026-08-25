@@ -92,9 +92,9 @@ def render_python_lesson_1():
     # الدرس الأول: أمر الطباعة print()
     st.markdown("""
         <div dir="rtl" style="direction: rtl; text-align: right;">
-            <h2 style="font-weight: 800; font-size: 20px; color: #fff; margin-bottom: 10px; margin-top: 30px;">🖨️ الدرس الأول: أمر الطباعة print()</h2>
+            <h2 style="font-weight: 800; font-size: 20px; color: #fff; margin-bottom: 10px; margin-top: 30px;">🖨️ الدرس الأول: أمر الطباعة () print</h2>
             <p style="opacity: 0.85; font-size: 14px; line-height: 1.7; margin-bottom: 15px;">
-            تخيل... الكمبيوتر مش هيعرف يعرض أي حاجة إلا لو طلبت منه بوضوح. وده بالضبط دور الدالة <code style="color: #61afef;">print()</code>.<br>
+            تخيل... الكمبيوتر مش هيعرف يعرض أي حاجة إلا لو طلبت منه بوضوح. وده بالضبط دور الدالة <code style="color: #61afef;">() print</code>.<br>
             هي بتقول للكمبيوتر ببساطة: <strong>"اعرض اللي بين القوسين على الشاشة."</strong>
             </p>
         </div>
