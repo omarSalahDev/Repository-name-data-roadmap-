@@ -17,12 +17,17 @@ def render_python_tab():
         "المحطة 2: Data Types (أنواع البيانات في Python)": render_python_lesson_2,
         "المحطة 3: Lists (القوائم وكيفية إدارتها)": render_python_lesson_3,
         "المحطة 4: Tuples (البيانات الثابتة ومقارنتها بالـ Lists)": render_python_lesson_4,
-        "المحطة 5: Dictionaries (المفاتيح والقيم والتعامل مع البيانات)": render_python_lesson_5,
+        "المحطة 5: الدكشنري Dictionaries (المفاتيح والقيم)": render_python_lesson_5,
         "المحطة 6: Sets (المجموعات والقيم الفريدة وعمليات الـ Union والـ Difference)": render_python_lesson_6,
-        "المحطة 7: Python Logic (المنطق وشروط الاتخاذ والقرار If, Elif, Else)": render_python_lesson_7,
-        "المحطة 8: While Loop (الحلقات التكرارية والتحكم بـ break و continue)": render_python_lesson_8,
-        "المحطة 9: For Loop (التكرار الذكي على العناصر والتعامل مع القواميس)": render_python_lesson_9,  # السطر الجديد
-        "المحطة 10: الدوال (Functions)": lambda: render_placeholder_lesson(10, "الدوال Functions"),
+        "المحطة 7: بايثون لوجيك Python Logic (المنطق وشروط الاتخاذ والقرار If, Elif, Else)": render_python_lesson_7,
+        "المحطة 8: وايل لوب While Loop (الحلقات التكرارية والتحكم بـ break و continue)": render_python_lesson_8,
+        "المحطة 9: فور لوب For Loop (التكرار الذكي على العناصر والتعامل مع القواميس)": render_python_lesson_9,
+        "المحطة 10: ملفات بايثون Files in Python (إزاي Python تقرأ وتكتب ملفات؟)": render_python_lesson_10,
+        "المحطة 11: الدوال Functions (ليه نكرر الكود وإحنا ممكن نكتبه مرة واحدة؟)": render_python_lesson_11,
+        "المحطة 12: لمدا Functions & Map & Filter (الاختصارات الذكية في بايثون)": render_python_lesson_12,
+        "المحطة 13: نطاق المتغيرات Global Scope (مين يشوف مين في الكود؟)": render_python_lesson_13,
+        "المحطة 14: البرمجة كائنية التوجه OOP (إيه هي الـ Classes والـ Objects؟)": render_python_lesson_14,  # المحطة الجديدة
+        "المحطة 15: باونداس Pandas (البداية الحقيقية لتحليل البيانات)": lambda: render_placeholder_lesson(15, "مكتبة Pandas"),
     }
 
     # اختيار المحطة عبر قائمة منسدلة أنيقة
@@ -1287,6 +1292,672 @@ for product, price in products.items():
             </p>
         </div>
         """, unsafe_allow_html=True)
+
+
+def render_python_lesson_10():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">📂 Files in Python — إزاي Python تقرأ وتكتب ملفات؟</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            لحد دلوقتي كل البيانات اللي اشتغلنا عليها كانت موجودة جوه الكود (زي <code style="color: #61afef;" dir="ltr">name = "Omar"</code>). لكن في الشغل الحقيقي، البيانات بتكون بره البرنامج في ملفات <strong style="color: #98c379;">CSV, Excel, TXT</strong> أو قواعد بيانات. وده أول سبب يخليك تتعلم التعامل مع الملفات.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # ليه أتعلم Files كـ Data Analyst؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">💼 ليه أتعلم Files كـ Data Analyst؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            تخيل إن مديرك بعتلك ملف اسمه <code style="color: #e5c07b;" dir="ltr">sales.txt</code> وفيه بيانات المبيعات، أو ملف فيه أسماء العملاء. أكيد مش هتروح تنسخ البيانات وتحطها بايدك جوه الكود! بايثون بتقدر تفتح الملف بنفسها وتقرأه في ثوانٍ.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # فتح وقراءة الملف
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">📖 فتح ملف (open()) وقراءته (read())</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            بنستخدم دالة <code style="color: #e5c07b;" dir="ltr">open()</code> لفتح الملف، ودالة <code style="color: #e5c07b;" dir="ltr">read()</code> لجلب كل محتواه.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# افتح الملف واقرأ محتواه
+file = open("notes.txt")
+content = file.read()
+print(content)
+
+# لو الملف فيه: Python \n SQL \n Power BI
+# الناتج هيكون نفس المحتوى بالضبط.""", language="python")
+
+    # إغلاق الملف close()
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e06c75; margin-bottom: 10px;">🔒 إغلاق الملف (close())</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            بعد ما تخلص شغلك مع الملف، من الأفضل تقفله بـ <code style="color: #e5c07b;" dir="ltr">file.close()</code> علشان توفر موارد الجهاز وتمنع مشاكل فتح الملف مرة تانية. ده أسلوب احترافي.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الكتابة داخل ملف
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">✍️ الكتابة داخل ملف</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            بايثون مش بس بتراقب وتقرأ، دي كمان بتكتب! باستخدام وضع الكتابة <code style="color: #e5c07b;" dir="ltr">"w"</code>:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""file = open("notes.txt", "w")
+file.write("Hello DataLab")
+file.close()
+
+# ⚠️ خلي بالك: وضع "w" معناه (امسح المحتوى القديم واكتب الجديد). 
+# لو كان الملف فيه بيانات قديمة واتفتح بـ "w"، هتتمسح ويتكتب مكانها الجديد فقط!""", language="python")
+
+    # File Path
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">📁 File Path (مسار الملف)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            • لو الملف موجود جنب البرنامج في نفس المجلد: <code style="color: #e5c07b;" dir="ltr">open("sales.txt")</code> يكفي.<br>
+            • لو الملف جوه مجلد فرعي (Folder): بنكتب المسار كاملاً مثل <code style="color: #e5c07b;" dir="ltr">open("Data/sales.txt")</code>.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # مثال عملي للبيانات
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(97, 175, 239, 0.3); border-radius: 12px; background-color: rgba(97, 175, 239, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 16px; font-weight: 700; color: #61afef; margin-bottom: 8px;">💼 مثال قريب من Data Analysis</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            قراءة ملف موظفين <code style="color: #e5c07b;" dir="ltr">employees.txt</code>:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""file = open("employees.txt")
+print(file.read())
+file.close()
+
+# بعد كده لما ندخل Pandas، هنقرأ ملفات CSV وExcel بنفس الفكرة بس بطريقة أسرع وأقوى بكثير!""", language="python")
+
+    # أشهر الأخطاء
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; background-color: rgba(229, 192, 123, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">⚠️ أشهر الأخطاء اللي وقع فيها المبتدئين:</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            1. <strong>خطأ في اسم الملف:</strong> كتابة <code style="color: #e06c75;" dir="ltr">employee.txt</code> بينما الحقيقي <code style="color: #e06c75;" dir="ltr">employees.txt</code> ويطلع لك خطأ <code style="color: #e06c75;" dir="ltr">FileNotFoundError</code>.<br>
+            2. <strong>نسيان close():</strong> بيسيب الملف مفتوح ويستهلك موارد الجهاز.<br>
+            3. <strong>استخدام وضع "w" بالخطأ:</strong> وبيؤدي لمسح البيانات القديمة تماماً.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الطريقة الاحترافية (With open)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(152, 195, 121, 0.3); border-radius: 12px; background-color: rgba(152, 195, 121, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 16px; font-weight: 700; color: #98c379; margin-bottom: 8px;">🧠 الطريقة الاحترافية (اللي هتشوفها في أغلب المشاريع)</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            بدل كتابة <code style="color: #e06c75;" dir="ltr">open()</code> و <code style="color: #e06c75;" dir="ltr">close()</code> منفصلين، بنستخدم الصيغة السحرية دي:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""with open("notes.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+# ليه؟ لأن أداة with بتقفل الملف تلقائياً حتى لو حصل Error في الكود! وده الأسلوب القياسي في الشركات.""", language="python")
+
+    # الختمة البروفيشنال (الزيتونة + من واقع الشركات الكبرى)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 20px; border: 2px dashed rgba(97, 175, 239, 0.4); border-radius: 12px; background: rgba(97, 175, 239, 0.02);">
+            <h4 style="font-size: 16px; font-weight: 800; color: #61afef; margin-bottom: 10px;">🍋 الزيتونة & ركن الشركات الكبرى</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.7; margin-bottom: 12px;">
+            • <strong>الزيتونة:</strong> التعامل مع الملفات هو جسر العبور بين الأكواد البسيطة وقواعد البيانات الضخمة. تذكر دائماً: افتح، اقرأ/اكتب، واقفل (أو استخدم <code style="color: #e5c07b;" dir="ltr">with open</code> وتريح دماغك).<br>
+            • <strong>من عالم شركات البرمجة والـ Data (مثل Netflix و Spotify):</strong> السيرفرات دي بتنتج ملايين السطور من ملفات اللوج (Log Files) كل ثانية. مهندسو البيانات وواضعي خطط التحليل بيستخدموا نفس مبادئ بايثون الأساسية دي (ولكن على نطاق أوسع بكتير عبر مكتبات زي Pandas و Spark) لقراءة الملفات دي وتصفيتها واستخراج سلوك المستخدمين اللحظي بناءً عليها!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+def render_python_lesson_11():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">⚙️ Functions — ليه نكرر الكود وإحنا ممكن نكتبه مرة واحدة؟</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            تخيل إن عندك برنامج بيحسب ضريبة أي منتج. كتبت الكود مرة، وبعد شوية احتجت تحسبه لمنتج تاني فنسخت الكود، وبعدين منتج تالت ورابع... بعد فترة هتلاقي الكود كله نسخ ولصق (Code Duplication)، وده من أسوأ الحاجات في البرمجة. عشان كده بايثون وفرت لينا الـ <strong>Functions</strong>!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # يعني إيه Function
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🧠 يعني إيه Function؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            الـ Function هي مجموعة أوامر بتديها اسم، ولما تحتاجها بتنادي عليها بدل ما تكتب الكود من جديد. فكر فيها كأنها <strong style="color: #61afef;">زرار</strong>: أول مرة تبنيه وتبرمجه، وبعد كده كل اللي عليك تضغط عليه (تنادي عليه) في أي وقت!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # أول Function واستدعاؤها
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">✍️ أول Function وكيفية استدعائها</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            بنستخدم الكلمة المفتاحية <code style="color: #e5c07b;" dir="ltr">def</code> لتعريف الدالة. لاحظ إن لمجرد كتابة الـ Function، ولا حاجة هتتطبع لحد ما تنادي عليها صراحةً!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# تعريف الـ Function
+def say_hello():
+    print("Hello DataLab")
+
+# استدعاء (Call) الـ Function لتشتغل
+say_hello()
+# الناتج: Hello DataLab""", language="python")
+
+    # Parameters & Arguments
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.02); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">📥 Parameters — إدخال بيانات للـ Function</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            مش منطقي نعمل Function لكل شخص عشان نقوله Hello. عشان كده بنخليها تستقبل متغير (Parameter):
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""def say_hello(name):
+    print("Hello", name)
+
+say_hello("Omar")   # الناتج: Hello Omar
+say_hello("Sara")   # الناتج: Hello Sara
+
+# 💡 مصطلحات سريعة:
+# name هنا اسمه: Parameter (المتغير المستقبِل)
+# "Omar" هنا اسمها: Argument (القيمة الحقيقية المرسلة)""", language="python")
+
+    # Return vs Print
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e5c07b; margin-bottom: 10px;">📤 Return — إرجاع نتيجة مش طباعتها وبس</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            أحيانًا مش عايز تطبع النتيجة على الشاشة، عايز ترجعها عشان تستخدمها في عمليات تانية:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""def add(x, y):
+    return x + y
+
+result = add(10, 5)
+print(result)
+# الناتج: 15
+
+# ليه Return مهمة؟ لأن معظم الـ Functions في بايثون ومكتبات تحليل البيانات بترجع قيمة (زي len(names) اللي بترجع عدد العناصر مش بتطبعه).""", language="python")
+
+    # Optional Parameters
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🎁 Optional Parameters (القيم الافتراضية)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            ممكن تحط قيمة افتراضية للـ Parameter لو المستخدم مدخلهاش:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""def greet(name="Guest"):
+    print("Hello", name)
+
+greet()         # الناتج: Hello Guest (لأنه خد القيمة الافتراضية)
+greet("Omar")   # الناتج: Hello Omar
+
+# مثال عملي لحساب الخصم:
+def final_price(price, discount=0):
+    return price - discount
+
+print(final_price(1000))       # الناتج: 1000
+print(final_price(1000, 200))  # الناتج: 800""", language="python")
+
+    # Functions calling functions
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">📚 الدوال المتداخلة (Function تستخدم Function تانية)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            عشان تخلي الكود منظم أكتر، تقدر تستخدم دالة جوه دالة:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""def full_name(first, last):
+    return first + " " + last
+
+def welcome(first, last):
+    print("Welcome", full_name(first, last))
+
+welcome("Omar", "Saleh")
+# الناتج: Welcome Omar Saleh""", language="python")
+
+    # *args & **kwargs
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">📦 المرونة المتقدمة: *args و **kwargs</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            • <code style="color: #e5c07b;" dir="ltr">*args</code>: لما تكون مش عارف عدد القيم اللي المستخدم هيدخلها (بترجعهم في شكل Tuple).<br>
+            • <code style="color: #e5c07b;" dir="ltr">**kwargs</code>: لما تحب تستقبل بيانات بالاسم (بترجعهم في شكل Dictionary).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# مثال على *args (جمع أي عدد من الأرقام):
+def total(*numbers):
+    result = 0
+    for number in numbers:
+        result += number
+    return result
+
+print(total(10, 20, 30, 40))  # الناتج: 100
+
+# مثال على **kwargs (بيانات بالاسم):
+def student(**info):
+    print(info)
+
+student(name="Omar", age=21, city="Alexandria")
+# الناتج: {'name': 'Omar', 'age': 21, 'city': 'Alexandria'}""", language="python")
+
+    # مثال قريب من Data Analysis
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(97, 175, 239, 0.3); border-radius: 12px; background-color: rgba(97, 175, 239, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 16px; font-weight: 700; color: #61afef; margin-bottom: 8px;">💼 مثال عملي قريب من Data Analysis</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin-bottom: 10px;">
+            بدل ما تحسب متوسط المبيعات يدوياً كل مرة، بتعمل Function جاهزة وتستدعيها وقت ما تحب:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""sales = [100, 200, 300]
+
+def average(numbers):
+    return sum(numbers) / len(numbers)
+
+print(average(sales))
+# وده نفس التفكير المنهجي اللي هتستخدمه لما تتعمق مع مكتبات زي Pandas!""", language="python")
+
+    # أشهر الأخطاء
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; background-color: rgba(229, 192, 123, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">⚠️ أشهر الأخطاء الشائعة:</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            1. <strong>نسيان استدعاء الدالة:</strong> تكتب الـ Function وتنسى تكتب اسمها تحت عشان تشتغل فمتحصلش أي حاجة.<br>
+            2. <strong>الخلط بين print و return:</strong> استخدام <code style="color: #e06c75;" dir="ltr">print</code> جوا الدالة بيطبعها بس ومش بيخليك تقدر تستخدم النتيجة في حسابات تانية، بينما <code style="color: #98c379;" dir="ltr">return</code> بتحفظ القيمة وترجعها.<br>
+            3. <strong>خبط ترتيب الـ Parameters:</strong> لما تبعت Arguments لازم تلتزم بنفس ترتيب المتغيرات المحددة في الـ Function.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الختمة البروفيشنال (الزيتونة + الـ Documentation)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 20px; border: 2px dashed rgba(97, 175, 239, 0.4); border-radius: 12px; background: rgba(97, 175, 239, 0.02);">
+            <h4 style="font-size: 16px; font-weight: 800; color: #61afef; margin-bottom: 10px;">🍋 الزيتونة لمحلل البيانات & ركن الـ Documentation</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.7; margin-bottom: 12px;">
+            • <strong>الزيتونة:</strong> الـ Function هي أداتك السحرية عشان متكتبش الكود مرتين. ركز على فهم <code style="color: #e5c07b;" dir="ltr">return</code> وكيفية تمرير القيم لأنها أساس كل الكود الجاي.<br>
+            • <strong>نظرة مستقبلية للمحللين:</strong> مش مطلوب منك تحفظ تفاصيل تفاصيل <code style="color: #e5c07b;" dir="ltr">*args</code> و <code style="color: #e5c07b;" dir="ltr">**kwargs</code> بالكامل دلوقتي، لكن المهم تكون فاهم فكرتهم لأنك هتشوفهم ككتل أساسية لما تفتح توثيق مكتبات ضخمة زي <strong>Pandas</strong> أو <strong>Matplotlib</strong> أو <strong>Scikit-learn</strong>. فهمك للموضوع هيخليك تقرأ الـ Documentation بكل ثقة وسهولة وكأنك مولود بتستخدمها!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+def render_python_lesson_12():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">⚡ Lambda — لما Function تكون صغيرة جدًا</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            لحد دلوقتي كنا بنكتب الـ Functions بالطريقة العادية (<code style="color: #61afef;" dir="ltr">def square(number): ...</code>). لكن لو الـ Function بسيطة جدًا ومش هنستخدمها إلا مرة واحدة، هل لازم نكتب كل السطور دي؟ هنا بايثون وفرت لينا الـ <strong>Lambda Function</strong>!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # يعني إيه Lambda؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🧠 يعني إيه Lambda؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            الـ Lambda هي Function صغنونة <strong>بدون اسم (Anonymous Function)</strong>. بدل ما نكتب دالة كاملة، بنختصرها في سطر واحد.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# الطريقة العادية:
+def square(number):
+    return number * number
+
+# طريقة الـ Lambda المختصرة:
+square = lambda number: number * number
+
+print(square(5))  # الناتج: 25
+
+# الهدف واحد: استقبال قيمة ← تنفيذ عملية ← إرجاع نتيجة.""", language="python")
+
+    # إمتى أستخدم Lambda؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e5c07b; margin-bottom: 10px;">⚠️ إمتى أستخدم Lambda؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6;">
+            • لو العملية <strong>قصيرة، وبسيطة، وهتستخدمها مرة واحدة</strong>.<br>
+            • أما لو الكود كبير وممتد، ارجع فورًا للـ Function العادية (<code style="color: #61afef;" dir="ltr">def</code>) عشان تقرأ الكود بسهولة بعدين.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # map()
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">🗺️ map() — نفذ نفس العملية على كل عنصر</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            تخيل عندك قائمة أسعار وعايز تضرب كل سعر في رقم معين، أو تحول عملات. بدل اللوب الطويلة، بنستخدم <code style="color: #e5c07b;" dir="ltr">map()</code> مع الـ Lambda:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# مثال على مبيعات بالدولار وعايز تحولها بالجنيه (ضرب في 50):
+sales = [100, 250, 80]
+
+sales_egp = list(
+    map(lambda x: x * 50, sales)
+)
+
+print(sales_egp)  # الناتج: [5000, 12500, 4000]
+# بايثون بتعدي على عنصر عنصر، تطبق عليه العملية، وتجمع النتائج تلقائياً.""", language="python")
+
+    # filter()
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">🔍 filter() — اختار اللي ينطبق عليه الشرط بس</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            مش دايماً عايز تعدل البيانات، أحيانًا عايز تفلتر وتختار جزء معين (زي درجات النجاح، أو الأسعار الكبيرة):
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# مثال: منتجات سعرها أكبر من 1000 بس
+prices = [200, 1500, 800, 5000]
+
+expensive = list(
+    filter(lambda x: x > 1000, prices)
+)
+
+print(expensive)  # الناتج: [1500, 5000]
+# filter بتسأل العنصر الشرط يتحقق؟ لو نعم بتبقيه، لو لا بتحذفه.""", language="python")
+
+    # مقارنة سريعة بين map و filter
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(97, 175, 239, 0.3); border-radius: 12px; background-color: rgba(97, 175, 239, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 16px; font-weight: 700; color: #61afef; margin-bottom: 8px;">🧠 الفرق السريع بين map() و filter()</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            • <code style="color: #e5c07b;" dir="ltr">map()</code>: <strong>تغير كل عنصر</strong> (طول القائمة بيضل ثابت).<br>
+            • <code style="color: #e5c07b;" dir="ltr">filter()</code>: <strong>تختار بعض العناصر</strong> بناء على شرط (طول القائمة ممكن يقل).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # أشهر الأخطاء
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; background-color: rgba(229, 192, 123, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">⚠️ أشهر الأخطاء اللي بيقع فيها المبتدئين:</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            1. <strong>نسيان دالة list():</strong> لو كتبت <code style="color: #e06c75;" dir="ltr">map(...)</code> لوحدها من غير <code style="color: #98c379;" dir="ltr">list()</code>، بايثون هترجع لك مكان في الذاكرة (Object) ومش هتطبع القائمة كأرقام واضحة.<br>
+            2. <strong>كتابة Lambda معقدة وطويلة:</strong> لو لقيت الـ Lambda فيها أكتر من شرط أو معقدة، عيب في حق كودك تكتبها سطر واحد؛ ارجع واكتب Function عادية بـ <code style="color: #61afef;" dir="ltr">def</code> عشان زمايلك (أو أنت بعد شهر) يفهموها بسهولة!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الختمة البروفيشنال (الزيتونة وعلاقتها بتحليل البيانات)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 20px; border: 2px dashed rgba(97, 175, 239, 0.4); border-radius: 12px; background: rgba(97, 175, 239, 0.02);">
+            <h4 style="font-size: 16px; font-weight: 800; color: #61afef; margin-bottom: 10px;">🍋 الزيتونة لمحلل البيانات & حقيقة الاستخدام</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.7; margin-bottom: 12px;">
+            • <strong>الزيتونة:</strong> الـ Lambda والـ Map/Filter أدوات ممتازة لعمليات التجهيز السريع للبيانات.<br>
+            • <strong>حقيقة في الشغل كـ Data Analyst:</strong> لو هتشتغل بـ <strong>Pandas</strong>، هتلاقي إن مكتبة Pandas فيها طرق أسرع وأسهل بكتير لمعالجة الأعمدة (Columns) وتطبيق الشروط من غير ما تعتمد على <code style="color: #e5c07b;" dir="ltr">map</code> و <code style="color: #e5c07b;" dir="ltr">filter</code> التقليدية. بس معرفتك بيهم أساسية جداً لأنك هتشوفهم ملايين المرات في أكواد GitHub، وفي قراءة الـ Documentation، وهيفهموك بعمق إزاي بايثون بتعالج البيانات عنصر عنصر تحت الكبوت!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+def render_python_lesson_13():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">🌍 Global Scope — نطاق المتغيرات ومين يشوف مين في البرمجة</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            لو المتغير اتعرف خارج أي Function تمامًا، بيبقى اسمه <strong>Global Variable</strong> (متغير عام). الفهم الصحيح لنطاق المتغيرات (Scope) بيحميك من أخطاء غريبة زي <code style="color: #e06c75;" dir="ltr">NameError</code> وبيخليك تقرأ أكواد الآخرين بثقة وسهولة.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Global Scope
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">🌍 Global Scope (المتغيرات العامة)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            أي Function تقدر تشوف وتقرأ المتغيرات المعرفة برّاها بكل سهولة:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""name = "Omar"
+
+def greet():
+    print(name)
+
+greet()  # الناتج: Omar
+# ليه؟ لأن الـ Function تقدر تشوف المتغيرات العامة المتاحة في النطاق الخارجي.""", language="python")
+
+    # Nested Functions
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🏠 Nested Functions (الدوال المتداخلة)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            في بايثون، تقدر تحط Function جُوَّا Function تانية عادي جداً:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""def outer():
+    def inner():
+        print("Hello")
+    inner()
+
+outer()  # الناتج: Hello
+
+# ليه نستخدمها؟ في الشغل العادي كـ Data Analyst نادرًا جداً هتكتب Nested Functions بنفسك، لكنك هتشوفها في المكتبات وأكواد المبرمجين المتقدمين، والمهم تعرف تقراها كويس.""", language="python")
+
+    # The global keyword
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">🌍 الكلمة السحرية global — تعديل المتغير العام من جوه الدالة</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            لو عندك متغير عام وحبيت تغير قيمته من داخل Function من غير استخدام كلمة <code style="color: #e5c07b;" dir="ltr">global</code>، بايثون هتعتبره متغير محلي جديد ومش هتغير الأصلي!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# المشكلة بدون global:
+count = 0
+
+def update():
+    count = 5  # ده بيعمل متغير محلي جديد ومش بيأثر على الـ count اللي بره!
+
+update()
+print(count)  # الناتج: 0 (متغير بره متأثرش)
+
+# الحل باستخدام global:
+count = 0
+
+def update():
+    global count
+    count = 5  # كده احنا بنقولها عدلي المتغير العام الأساسي
+
+update()
+print(count)  # الناتج: 5""", language="python")
+
+    # Best practices & Data Analysis perspective
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 12px; background-color: rgba(229, 192, 123, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #e5c07b; margin-bottom: 8px;">⚠️ هل أستخدم global كتير؟ وليه كـ Data Analyst تهمك؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            • <strong>الإجابة: لا.</strong> في البرمجة الاحترافية، استخدام <code style="color: #e5c07b;" dir="ltr">global</code> بشكل متكرر يعتبر عادة مش مفضلة لأنه بيخلي تتبع الأخطاء وتعديل الكود أصعب بكثير.<br>
+            • الأفضل دايمًا الاعتماد على الـ <code style="color: #98c379;" dir="ltr">return</code> في إرجاع القيم (زي لما تحسب متوسط الدرجات عن طريق دالة تأخذ البيانات وترجع النتيجة نظيفة من غير ما تغير متغيرات عامة عشوائياً).<br>
+            • <strong>في الشغل كـ Data Analyst:</strong> معرفتك بالنطاق هتفهمك ليه بعض المتغيرات مش ظاهرة، هتجنبك أخطاء <code style="color: #e06c75;" dir="ltr">NameError</code>، وتفهمك إزاي مكتبات بايثون بتنظم وتدير متغيراتها داخلياً.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الختمة البروفيشنال (الزيتونة)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 20px; border: 2px dashed rgba(97, 175, 239, 0.4); border-radius: 12px; background: rgba(97, 175, 239, 0.02);">
+            <h4 style="font-size: 16px; font-weight: 800; color: #61afef; margin-bottom: 10px;">🍋 الزيتونة الاحترافية</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.7; margin: 0;">
+            الـ Scope بيحدد "حياة وصلاحية" المتغيرات. القاعدة الذهبية لمحلل البيانات: <strong>نظّم بياناتك بالـ return والأدوات الواضحة، وبلاش تلخبط الكود بمتغيرات عامة مكشوفة في كل مكان عشان يفضل كودك بروفيشنال وسهل الصيانة.</strong>
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+def render_python_lesson_14():
+    # الهيدر الرئيسي للمحطة
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right;">
+            <h2 style="font-weight: 800; font-size: 22px; color: #fff; margin-bottom: 8px;">🏛️ Object-Oriented Programming (OOP) — ليه Python فيها Classes؟</h2>
+            <p style="opacity: 0.85; font-size: 14.5px; line-height: 1.7; margin-bottom: 20px;">
+            لحد دلوقتي كنا بنخزن البيانات في متغيرات عادية (زي <code style="color: #61afef;" dir="ltr">name = "Omar"</code>). لكن لو عندك 500 موظف، هل هتعمل 1000 متغير؟! أكيد لأ. هنا ظهر المفهوم الثوري: الـ <strong>Class</strong>، وهو عبارة عن قالب (Blueprint) نقدر نعمل منه عدد لا نهائي من الكائنات (Objects).
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # أول Class
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">🏠 أول Class وكيفية إنشاء Object</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            في البداية بنعمل القالب، وبعدين ننشئ منه الكائنات:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""class Student:
+    pass
+
+# لحد دلوقتي إحنا عملنا قالب فقط ومفيش طالب. علشان نعمل طالب (Object):
+student1 = Student()
+print(student1)  # هيطبع مكان في الذاكرة""", language="python")
+
+    # self و __init__
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #61afef; margin-bottom: 10px;">👤 دالة البناء (__init__) ومعنى self</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            عشان نخلي لكل طالب اسم وعمر خاص بيه، بنستخدم دالة البناء <code style="color: #e5c07b;" dir="ltr">__init__</code>، والـ <code style="color: #e5c07b;" dir="ltr">self</code> بتمثل الـ Object الحالي:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+# إنشاء طالب جديد بالبيانات:
+student1 = Student("Omar", 21)
+print(student1.name)  # الناتج: Omar""", language="python")
+
+    # Attributes (Instance & Class)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #c678dd; margin-bottom: 10px;">🎯 الـ Attributes (الخصائص)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            • <strong>Instance Attributes:</strong> بيانات خاصة بكل Object لوحده (زي <code style="color: #e5c07b;" dir="ltr">student1.name</code> و <code style="color: #e5c07b;" dir="ltr">student2.name</code>).<br>
+            • <strong>Class Attributes:</strong> قيمة ثابتة ومشتركة بين كل الكائنات المولودة من نفس الـ Class.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""class Student:
+    university = "EELU"  # Class Attribute مشترك للكل
+
+    def __init__(self, name):
+        self.name = name
+
+student1 = Student("Omar")
+print(student1.university)  # الناتج: EELU""", language="python")
+
+    # Methods & Inheritance
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #e5c07b; margin-bottom: 10px;">⚙️ الـ Methods والـ Inheritance (الوراثة)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            زي ما الـ Object عنده بيانات، ممكن يكون عنده وظائف (Methods). والـ Inheritance بتسمح لـ Class جديد ياخد خصائص Class قديم ويضيف عليها:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""# مثال على الوراثة (Inheritance):
+class Student:
+    pass
+
+class DataAnalyst(Student):
+    pass
+
+# الـ Data Analyst يُعتبر Student وزيادة، ودي فكرة الوراثة.""", language="python")
+
+    # Magic Methods (__str__)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; margin-bottom: 15px; background-color: rgba(255,255,255,0.02);">
+            <h4 style="font-size: 17px; font-weight: 700; color: #98c379; margin-bottom: 10px;">✨ الـ Magic Methods (مثل __str__)</h4>
+            <p style="font-size: 13.5px; opacity: 0.85; line-height: 1.6; margin-bottom: 10px;">
+            الدوال اللي بتبدأ وتنتهي بـ <code style="color: #e5c07b;" dir="ltr">__</code> بايثون بتنادي عليها تلقائياً. مثلاً دالة <code style="color: #e5c07b;" dir="ltr">__str__</code> بتحدد إيه اللي يظهر لما تطبع الـ Object:
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.code("""class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return self.name
+
+student1 = Student("Omar")
+print(student1)  # الناتج بدل الكلام الغريب هيبقى: Omar""", language="python")
+
+    # فين الـ OOP في Data Analysis؟
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 18px; border: 1px solid rgba(97, 175, 239, 0.3); border-radius: 12px; background-color: rgba(97, 175, 239, 0.04); margin-bottom: 15px;">
+            <h4 style="font-size: 16px; font-weight: 700; color: #61afef; margin-bottom: 8px;">💼 فين الـ OOP في شغل الـ Data Analysis؟</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.6; margin: 0;">
+            لما بتكتب:<br>
+            <code style="color: #e5c07b;" dir="ltr">import pandas as pd</code><br>
+            <code style="color: #e5c07b;" dir="ltr">df = pd.read_csv("sales.csv")</code><br>
+            الـ <code style="color: #61afef;" dir="ltr">df</code> ده عبارة عن <strong>Object</strong> جاهز! ولما بتكتب <code style="color: #61afef;" dir="ltr">df.head()</code> أنت بتنادي <strong>Method</strong>، ولما تكتب <code style="color: #61afef;" dir="ltr">df.columns</code> أنت بتقرأ <strong>Attribute</strong>. يعني باختصار: حتى لو مش هتكتب Classes بنفسك، أنت بتتعامل مع Objects كل ثانية!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # الختمة البروفيشنال (الزيتونة)
+    st.markdown("""
+        <div dir="rtl" style="direction: rtl; text-align: right; padding: 20px; border: 2px dashed rgba(97, 175, 239, 0.4); border-radius: 12px; background: rgba(97, 175, 239, 0.02);">
+            <h4 style="font-size: 16px; font-weight: 800; color: #61afef; margin-bottom: 10px;">🍋 الزيتونة لمحلل البيانات</h4>
+            <p style="font-size: 13.5px; opacity: 0.9; line-height: 1.7; margin: 0;">
+            متضيعش أسابيع تدرس تفاصيل الـ OOP المعقدة لو هدفك الأساسي هو <strong>Data Analysis</strong>. افهم الفكرة فقط (Class, Object, Attribute, Method, Inheritance) عشان تفهم البيئة اللي بتتعامل معاها، وبعدين ادخل فورًا على القوة الحقيقية: <strong>مكتبة Pandas</strong>!
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+    
 
 # =============================================================
 # 🚧 دالة مؤقتة للمحطات الباقية
