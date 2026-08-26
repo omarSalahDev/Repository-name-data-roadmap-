@@ -1,4 +1,5 @@
-import streamlit as st; from python_tools import render_python_tab
+import streamlit as st
+from python_tools import render_python_tab
 # 1. إعدادات الصفحة (Apple & Notion Minimalist Style)
 st.set_page_config(
     page_title="DataLab | by Omar Saleh", 
