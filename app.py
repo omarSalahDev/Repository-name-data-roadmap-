@@ -1,5 +1,6 @@
 import streamlit as st
-from python_tools import render_python_tab  # استدعاء ملف بايثون الجديد
+from python_tools import render_python_tab 
+# استدعاء ملف بايثون الجديد
 
 # 1. إعدادات الصفحة (Apple & Notion Minimalist Style)
 st.set_page_config(
