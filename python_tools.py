@@ -12,21 +12,21 @@ def render_python_tab():
     # -------------------------------------------------------------
     # 📚 جدول المحطات والدروس (مربوط بـ Lambda للأمان التام)
     # -------------------------------------------------------------
-    lessons_registry = {
-        "المحطة 1: قبل ما نبدأ + أول برنامج print()": lambda: render_python_lesson_1(),
-        "المحطة 2: Data Types (أنواع البيانات في Python)": lambda: render_python_lesson_2(),
-        "المحطة 3: Lists (القوائم وكيفية إدارتها)": lambda: render_python_lesson_3(),
-        "المحطة 4: Tuples (البيانات الثابتة ومقارنتها بالـ Lists)": lambda: render_python_lesson_4(),
-        "المحطة 5: الدكشنري Dictionaries (المفاتيح والقيم)": lambda: render_python_lesson_5(),
-        "المحطة 6: Sets (المجموعات والقيم الفريدة وعمليات الـ Union والـ Difference)": lambda: render_python_lesson_6(),
-        "المحطة 7: بايثون لوجيك Python Logic (المنطق وشروط الاتخاذ والقرار If, Elif, Else)": lambda: render_python_lesson_7(),
-        "المحطة 8: وايل لوب While Loop (الحلقات التكرارية والتحكم بـ break و continue)": lambda: render_python_lesson_8(),
-        "المحطة 9: فور لوب For Loop (التكرار الذكي على العناصر والتعامل مع القواميس)": lambda: render_python_lesson_9(),
-        "المحطة 10: ملفات بايثون Files in Python (إزاي Python تقرأ وتكتب ملفات؟)": lambda: render_python_lesson_10(),
-        "المحطة 11: الدوال Functions (ليه نكرر الكود وإحنا ممكن نكتبه مرة واحدة؟)": lambda: render_python_lesson_11(),
-        "المحطة 12: لمدا Functions & Map & Filter (الاختصارات الذكية في بايثون)": lambda: render_python_lesson_12(),
-        "المحطة 13: نطاق المتغيرات Global Scope (مين يشوف مين في الكود؟)": lambda: render_python_lesson_13(),
-        "المحطة 14: البرمجة كائنية التوجه OOP (إيه هي الـ Classes والـ Objects؟)": lambda: render_python_lesson_14(),
+   lessons_registry = {
+        "المحطة 1: قبل ما نبدأ + أول برنامج print()": render_python_lesson_1,
+        "المحطة 2: Data Types (أنواع البيانات في Python)": render_python_lesson_2,
+        "المحطة 3: Lists (القوائم وكيفية إدارتها)": render_python_lesson_3,
+        "المحطة 4: Tuples (البيانات الثابتة ومقارنتها بالـ Lists)": render_python_lesson_4,
+        "المحطة 5: الدكشنري Dictionaries (المفاتيح والقيم)": render_python_lesson_5,
+        "المحطة 6: Sets (المجموعات والقيم الفريدة وعمليات الـ Union والـ Difference)": render_python_lesson_6,
+        "المحطة 7: بايثون لوجيك Python Logic (المنطق وشروط الاتخاذ والقرار If, Elif, Else)": render_python_lesson_7,
+        "المحطة 8: وايل لوب While Loop (الحلقات التكرارية والتحكم بـ break و continue)": render_python_lesson_8,
+        "المحطة 9: فور لوب For Loop (التكرار الذكي على العناصر والتعامل مع القواميس)": render_python_lesson_9,
+        "المحطة 10: ملفات بايثون Files in Python (إزاي Python تقرأ وتكتب ملفات؟)": render_python_lesson_10,
+        "المحطة 11: الدوال Functions (ليه نكرر الكود وإحنا ممكن نكتبه مرة واحدة؟)": render_python_lesson_11,
+        "المحطة 12: لمدا Functions & Map & Filter (الاختصارات الذكية في بايثون)": render_python_lesson_12,
+        "المحطة 13: نطاق المتغيرات Global Scope (مين يشوف مين في الكود؟)": render_python_lesson_13,
+        "المحطة 14: البرمجة كائنية التوجه OOP (إيه هي الـ Classes والـ Objects؟)": render_python_lesson_14,
         "المحطة 15: باونداس Pandas (البداية الحقيقية لتحليل البيانات)": lambda: render_placeholder_lesson(15, "مكتبة Pandas"),
     }
 
