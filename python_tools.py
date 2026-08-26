@@ -1,4 +1,5 @@
 import streamlit as st
+from python_tools import render_python_tab  # استدعاء ملف بايثون الجديد
 
 def render_python_tab():
     # الهيدر الرئيسي للقسم بستايل Apple & Notion البراند
