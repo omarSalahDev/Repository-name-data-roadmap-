@@ -1,6 +1,5 @@
 import streamlit as st
-from python_tools import render_python_tab 
-# استدعاء ملف بايثون الجديد
+from python_tools import render_python_tab
 
 # 1. إعدادات الصفحة (Apple & Notion Minimalist Style)
 st.set_page_config(
@@ -26,16 +25,26 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# 4. الوصف التفصيلي
+# 4. الوصف التفصيلي (بعد تنظيف التاجات الزائدة)
 st.markdown("""
     <div dir="rtl" style="text-align: center; font-size: 15.5px; font-weight: 500; line-height: 1.8; max-width: 820px; margin: 0 auto; padding: 0 10px;">
-    بوابتك المرجعية المتكاملة لعالم الـ <span dir="ltr">Data</span> </span>) 🧭 
+    بوابتك المرجعية المتكاملة لعالم الـ <span dir="ltr">Data</span> 🧭 
     <br>مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ <span dir="ltr">Data Analysis</span>، مروراً بمكتبات الـ <span dir="ltr">Python</span> والرياضة، وصولاً لخوارزميات الـ <span dir="ltr">Machine Learning</span>.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى <span dir="ltr">Portfolio</span> و <span dir="ltr">CV</span> ينافس في السوق ✨
     </div>
     """, unsafe_allow_html=True)
 
-# 5. نظام الأبواب (Tabs)
+# 5. نظام الأبواب (Tabs) وتوزيع المحتوى داخلها
 tab1, tab2, tab3 = st.tabs(["🧭 Data Roadmap", "🐍 Python & Tools", "💼 Portfolio & Projects"])
+
+with tab1:
+    st.markdown("<div dir='rtl' style='text-align: center; padding: 20px;'>محتوى مسار البيانات (قريباً...)</div>", unsafe_allow_html=True)
+
+with tab2:
+    # هنا بقى الشغل كله! استدعاء دوال بايثون اللي في الملف الخارجي
+    render_python_tab()
+
+with tab3:
+    st.markdown("<div dir='rtl' style='text-align: center; padding: 20px;'>محتوى البورتفوليو والمشاريع (قريباً...)</div>", unsafe_allow_html=True)
 
 # --- Tab 1: Roadmap (9 Phases with In-App Reading) ---
 with tab1:
