@@ -15,37 +15,44 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 3. حقن التنسيقات المخصصة بأسلوب موجه وعزل الأخطاء البصرية
+# 3. حقن التنسيقات الاحترافية
 st.markdown("""
     <style>
-    /* إلغاء التنسيق الإجباري الشامل لمنع ظهور الخطوط الطويلة الرأسية */
-    
-    /* تنسيق الهيدر والصفحة الرئيسية */
-    .main-header { font-size: 32px; font-weight: 800; color: #4A90E2; text-align: center; }
-    .sub-header { font-size: 15px; opacity: 0.85; text-align: center; margin-bottom: 25px; line-height: 1.6; }
+    .main-header { font-size: 34px; font-weight: 800; color: #4A90E2; text-align: center; }
+    .sub-header { font-size: 16px; opacity: 0.85; text-align: center; margin-bottom: 25px; line-height: 1.6; }
 
-    /* ضبط اتجاه عناوين الـ Expanders لتكون من اليسار لليمين LTR بدقة */
+    /* عناوين الفولدرات إنجليزي على الشمال */
     .stStreamlitExpander details summary {
         direction: ltr !important;
         text-align: left !important;
         background-color: #0E1117 !important;
-        border-radius: 8px !important;
+        font-size: 16px !important;
+        font-weight: bold !important;
     }
 
-    /* جعل الـ Expander كارت أنيق محدد */
     .stStreamlitExpander {
         border: 1px solid #262730 !important;
         border-radius: 8px !important;
-        margin-bottom: 10px !important;
+        margin-bottom: 12px !important;
     }
 
-    /* محاذاة المحتوى الداخلي العربي فقط من اليمين لليسامر RTL */
-    .arabic-content {
+    /* المحتوى العربي جوة المنشور: يمين + خط كبير + تنسيق مريح */
+    .arabic-article {
         direction: rtl !important;
         text-align: right !important;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding: 10px;
-        line-height: 1.8;
+        font-size: 18px !important;
+        line-height: 2 !important;
+        color: #E0E0E0 !important;
+        padding: 15px;
+        background-color: #0D1117;
+        border-radius: 8px;
+    }
+
+    .arabic-article h1, .arabic-article h2, .arabic-article h3 {
+        color: #FF4B4B !important;
+        margin-top: 15px !important;
+        margin-bottom: 10px !important;
     }
 
     /* زر تشغيل الكود */
@@ -83,10 +90,7 @@ menu_choice = st.sidebar.radio(
 st.sidebar.markdown("---")
 st.sidebar.info("💡 **تلميحة اليوم:** التطبيق العملي اليومي هو السلاح الحقيقي للوصول لسوق العمل.")
 
-# ---------------------------------------------------------
 # 6. عرض المحتوى والـ 10 منشورات
-# ---------------------------------------------------------
-
 if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
     st.subheader("🗺️ مسار التعلم الشامل لعلوم البيانات")
     st.write("اضغط على أي مرحلة لفتح الشرح المباشر وتتبع باقي المحطات خطوة بخطوة:")
@@ -114,18 +118,18 @@ if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
                 ("Phase 03: Read: Think Like a Data Analyst 📁", getattr(roadmap_module, "render_phase_3", None)),
                 ("Phase 04: Read: Data Ecosystem 📁", getattr(roadmap_module, "render_phase_4", None)),
                 ("Phase 05: Read: Data Analytics Toolbox 📁", getattr(roadmap_module, "render_phase_5", None)),
-                ("Phase 06: Big Data Basics 📁", getattr(roadmap_module, "render_phase_6", None)),
-                ("Phase 07: Data Visualization & Storytelling 📁", getattr(roadmap_module, "render_phase_7", None)),
-                ("Phase 08: Machine Learning Fundamentals 📁", getattr(roadmap_module, "render_phase_8", None)),
-                ("Phase 09: Data Career Roadmap 📁", getattr(roadmap_module, "render_phase_9", None)),
-                ("Phase 10: Advanced Insights & Data Ethics 📁", getattr(roadmap_module, "render_phase_10", None)),
+                ("Phase 06: Read: Big Data Basics 📁", getattr(roadmap_module, "render_phase_6", None)),
+                ("Phase 07: Read: Data Visualization & Storytelling 📁", getattr(roadmap_module, "render_phase_7", None)),
+                ("Phase 08: Read: Machine Learning Fundamentals 📁", getattr(roadmap_module, "render_phase_8", None)),
+                ("Phase 09: Read: Data Career Roadmap 📁", getattr(roadmap_module, "render_phase_9", None)),
+                ("Phase 10: Read: Advanced Insights & Data Ethics 📁", getattr(roadmap_module, "render_phase_10", None)),
             ]
 
             for title, render_func in phases:
                 with st.expander(title, expanded=False):
                     if render_func:
-                        # عزل النص العربي في حاوية RTL فقط
-                        st.markdown('<div class="arabic-content">', unsafe_allow_html=True)
+                        # احتواء المحتوى داخل Class عربي مخصص لتكبير الخط والتلوين
+                        st.markdown('<div class="arabic-article">', unsafe_allow_html=True)
                         render_func()
                         st.markdown('</div>', unsafe_allow_html=True)
                     else:
@@ -135,7 +139,6 @@ if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
 
     except Exception as e:
         st.error(f"حدث خطأ أثناء تحميل المنشورات: {e}")
-
 
 elif menu_choice == "🐍 محرك بايثون التفاعلي (Python Engine)":
     st.subheader("🐍 محرك تطبيق Python التفاعلي")
@@ -153,12 +156,10 @@ elif menu_choice == "🐍 محرك بايثون التفاعلي (Python Engine)
         except Exception as e:
             st.error(f"خطأ في الكود: {e}")
 
-
 elif menu_choice == "📚 مكتبة المراجع والكتب (Resources)":
     st.subheader("📚 مكتبة المراجع والكتب")
     st.write("* **Python for Data Analysis** - Wes McKinney")
     st.write("* **Hands-On Machine Learning** - Aurélien Géron")
-
 
 elif menu_choice == "🔒 معرض المشاريع الاحترافية (Portfolio Pro)":
     st.subheader("💼 معرض المشاريع والتطبيقات العملية")
