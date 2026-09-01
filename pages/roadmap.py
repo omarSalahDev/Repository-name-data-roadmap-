@@ -1,6 +1,26 @@
 import streamlit as st
 from data.roadmap import render_phase_1
 
+import sys
+from pathlib import Path
+
+# إضافة المجلد الرئيسي للمشروع إلى مسارات بايثون
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+# الآن يمكنك استدعاء الدوال بشكل طبيعي
+from data.roadmap import (
+    render_phase_1,
+    render_phase_2,
+    render_phase_3,
+    render_phase_4,
+    render_phase_5,
+    render_phase_6,
+    render_phase_7,
+    render_phase_8,
+    render_phase_9,
+    render_phase_10
+) 
+
 def render_roadmap_page():
     """صفحة مسار التعلم الشاملة"""
     st.title("🗺️ مسار التعلم الشامل للبيانات")
