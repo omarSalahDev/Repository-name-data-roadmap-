@@ -1,57 +1,45 @@
 import streamlit as st
-from python_tools import render_python_tab
-# 1. إعدادات الصفحة (Apple & Notion Minimalist Style)
+from components.cards import render_header
+
+# 1. إعدادات الصفحة الرئيسية
 st.set_page_config(
     page_title="DataLab | by Omar Saleh", 
     page_icon="🧭",
-    layout="centered",
-    initial_sidebar_state="collapsed"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
-# 2. بعض اللمسات الجمالية للتنسيق
-st.markdown("""
-    <style>
-    .stButton>button { width: 100%; border-radius: 8px; height: 2.8em; font-weight: 600; }
-    </style>
-    """, unsafe_allow_html=True)
+# 2. عرض الهيدر والوصف الرئيسي
+render_header()
 
-# 3. الهيدر والعنوان الرئيسي
-st.markdown("""
-    <div style="text-align: center; padding: 5px 0;">
-        <h1 style="font-size: 36px; font-weight: 800; letter-spacing: -0.5px;">
-            ⚡ DataLab <span style="font-weight: 300; opacity: 0.6;">| by Omar Saleh</span>
-        </h1>
-    </div>
-    """, unsafe_allow_html=True)
+# 3. شريط التنقل الجانبي (Sidebar)
+st.sidebar.title("🚀 DataLab")
+st.sidebar.caption("منصتك التفاعلية لاحتراف بيانات المستقبل")
 
-# 4. الوصف التفصيلي (بعد تنظيف التاجات الزائدة)
-st.markdown("""
-    <div dir="rtl" style="text-align: center; font-size: 15.5px; font-weight: 500; line-height: 1.8; max-width: 820px; margin: 0 auto; padding: 0 10px;">
-    بوابتك المرجعية المتكاملة لعالم الـ <span dir="ltr">Data</span> 🧭 
-    <br>مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ <span dir="ltr">Data Analysis</span>، مروراً بمكتبات الـ <span dir="ltr">Python</span> والرياضة، وصولاً لخوارزميات الـ <span dir="ltr">Machine Learning</span>.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى <span dir="ltr">Portfolio</span> و <span dir="ltr">CV</span> ينافس في السوق ✨
-    </div>
-    """, unsafe_allow_html=True)
+page_selection = st.sidebar.radio(
+    "انتقل إلى:",
+    [
+        "🗺️ مسار التعلم (Roadmap)",
+        "🐍 تعلم Python (Lessons)",
+        "💼 معرض المشاريع (Portfolio)"
+    ]
+)
 
-# 5. نظام الأبواب (Tabs) وتوزيع المحتوى داخلها
-tab1, tab2, tab3 = st.tabs(["🧭 Data Roadmap", "🐍 Python & Tools", "💼 Portfolio & Projects"])
+st.sidebar.markdown("---")
+st.sidebar.info("💡 **تلميذه اليوم:** التطبيق العملي اليومي هو السلاح الحقيقي للوصول لسوق العمل.")
 
-with tab1:
-    st.markdown("<div dir='rtl' style='text-align: center; padding: 20px;'>محتوى مسار البيانات (قريباً...)</div>", unsafe_allow_html=True)
+# 4. توجيه الصفحات
+if page_selection == "🗺️ مسار التعلم (Roadmap)":
+    st.subheader("🗺️ مسار التعلم الشامل للبيانات")
+    st.write("اختر المسار المناسب لك للبدء في التطبيق.")
 
-with tab2:
-    # هنا بقى الشغل كله! استدعاء دوال بايثون اللي في الملف الخارجي
-    render_python_tab()
+elif page_selection == "🐍 تعلم Python (Lessons)":
+    st.subheader("🐍 محرك تعلم Python التفاعلي")
+    st.write("دروس وتحديات تفاعلية مصممة خصيصاً لتطوير مهاراتك البرمجية.")
 
-with tab3:
-    st.markdown("<div dir='rtl' style='text-align: center; padding: 20px;'>محتوى البورتفوليو والمشاريع (قريباً...)</div>", unsafe_allow_html=True)
-
-# --- Tab 1: Roadmap (9 Phases with In-App Reading) ---
-with tab1:
-    st.markdown("""
-        <div dir="rtl" style="text-align: center; direction: rtl; font-size: 14px; margin-top: 15px; margin-bottom: 25px; opacity: 0.8;">
-        ✨ اختر المرحلة المطلوبة واستمتع بقراءة الشرح والدروس المبسطة مباشرة داخل منصة DataLab
-        </div>
-        """, unsafe_allow_html=True)
+elif page_selection == "💼 معرض المشاريع (Portfolio)":
+    st.subheader("💼 بناء معرَض أعمالك (Portfolio Builder)")
+    st.write("طبق ما تعلمته في مشاريع حقيقية وشاركها مباشرة.")
 
     # --- Phase 01: Understanding Data ---
     with st.expander("📁 Phase 01: Read: Understanding Data (اضغط للقراءة الكاملة)", expanded=False):
