@@ -1,9 +1,15 @@
 import os
 import sys
+import pathlib
 import streamlit as st
 
-# إجبار بايثون على قراءة المجلد الحالي كـ Root Directory
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+# إضافة المجلد الحالي ومجلد المشروع الرئيسي إلى مسارات بايثون
+current_dir = pathlib.Path(__file__).parent.resolve()
+sys.path.append(str(current_dir))
+sys.path.append(str(current_dir.parent))
+
+# تأكيد مسار العمل الرئيسي
+os.chdir(current_dir)
 
 from components.cards import render_header
 
