@@ -15,41 +15,32 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 3. تحسينات بسيطة بدون إخفاء أو كسر عناصر Streamlit
+# 3. CSS مخصص ومضبوط لعزل الاتجاهات
 st.markdown("""
     <style>
-    /* تحسين شكل الهيدر */
-    .main-title {
-        font-size: 36px;
-        font-weight: 800;
-        color: #4A90E2;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-    .sub-title {
-        font-size: 16px;
-        color: #A0AAB5;
-        text-align: center;
-        margin-bottom: 30px;
-        line-height: 1.6;
-    }
-    /* جعل العناوين الخاصة بالـ Expander واضحة وبحجم مريح */
+    /* جعل عنوان الفولدر وسهم الفتح ناحيه الشمال LTR */
     .stStreamlitExpander > details > summary {
-        font-size: 17px !important;
+        direction: ltr !important;
+        text-align: left !important;
+        font-size: 16px !important;
         font-weight: 600 !important;
-        color: #FFFFFF !important;
+    }
+
+    /* ضبط حاوية المنشور العربي من الداخل لتكون يمين RTL بنسبة 100% */
+    .post-container {
+        direction: rtl !important;
+        text-align: right !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px !important;
+        line-height: 1.8 !important;
+        padding: 10px;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# 4. الهيدر الرئيسي للمنصة
-st.markdown('<div class="main-title">⚡ DataLab | by Omar Saleh</div>', unsafe_allow_html=True)
-st.markdown("""
-    <div class="sub-title" dir="rtl">
-    <b>بوابتك المرجعية المتكاملة لمجال الـ Data Science (مفتوحة ومجانية بالكامل) 🎯</b><br>
-    رحلة بناء حقيقية تبدأ من أدوات الـ Data Analysis، مروراً بمكتبات الـ Python والرياضة، وصولاً لخوارزميات الـ Machine Learning.
-    </div>
-""", unsafe_allow_html=True)
+# 4. الهيدر الرئيسي
+st.markdown('<h1 style="text-align: center; color: #4A90E2;">⚡ DataLab | by Omar Saleh</h1>', unsafe_allow_html=True)
+st.markdown('<p style="text-align: center; color: #888;" dir="rtl">بوابتك المرجعية المتكاملة لمجال الـ Data Science 🎯</p>', unsafe_allow_html=True)
 
 # 5. القائمة الجانبية (Sidebar)
 st.sidebar.title("🧭 القائمة الرئيسية")
@@ -63,13 +54,9 @@ menu_choice = st.sidebar.radio(
     ]
 )
 
-st.sidebar.markdown("---")
-st.sidebar.info("💡 **تلميحة:** التطبيق العملي هو السلاح الحقيقي للوصول لسوق العمل.")
-
 # 6. عرض المحتوى والمنشورات
 if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
     st.markdown("<h3 style='text-align: right; color: #4A90E2;'>🗺️ مسار التعلم الشامل لعلوم البيانات</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: right; color: #888;'>اضغط على أي مرحلة لفتح الشرح المباشر وتتبع باقي المحطات:</p>", unsafe_allow_html=True)
 
     try:
         import importlib.util
@@ -104,7 +91,10 @@ if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
             for title, render_func in phases:
                 with st.expander(title, expanded=False):
                     if render_func:
+                        # غلاف محلي يجبر النص الداخلي على اليمين 100%
+                        st.markdown('<div class="post-container">', unsafe_allow_html=True)
                         render_func()
+                        st.markdown('</div>', unsafe_allow_html=True)
                     else:
                         st.warning("جاري إعداد محتوى هذه المرحلة...")
         else:
@@ -112,31 +102,3 @@ if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
 
     except Exception as e:
         st.error(f"حدث خطأ أثناء تحميل المنشورات: {e}")
-
-elif menu_choice == "🐍 محرك بايثون التفاعلي (Python Engine)":
-    st.subheader("🐍 محرك تطبيق Python التفاعلي")
-    default_code = "# اكتب كود بايثون هنا\nprint('Welcome to DataLab Engine by Omar Saleh!')"
-    user_code = st.text_area("محرر الأكواد:", value=default_code, height=180)
-    
-    if st.button("▶️ تشغيل الكود"):
-        try:
-            import sys, io
-            buffer = io.StringIO()
-            sys.stdout = buffer
-            exec(user_code)
-            sys.stdout = sys.__stdout__
-            st.code(buffer.getvalue(), language="text")
-        except Exception as e:
-            st.error(f"خطأ في الكود: {e}")
-
-elif menu_choice == "📚 مكتبة المراجع والكتب (Resources)":
-    st.subheader("📚 مكتبة المراجع والكتب")
-    st.write("* **Python for Data Analysis** - Wes McKinney")
-    st.write("* **Hands-On Machine Learning** - Aurélien Géron")
-
-elif menu_choice == "🔒 معرض المشاريع الاحترافية (Portfolio Pro)":
-    st.subheader("💼 معرض المشاريع والتطبيقات العملية")
-    passcode = st.text_input("أدخل رمز الاشتراك لفتح مشاريع VIP:", type="password")
-    if passcode == "omar2026":
-        st.success("تم تفعيل اشتراكك بنجاح!")
-        st.write("🚀 **Project Pro 1:** بناء نموذج ذكاء اصطناعي للتنبؤ بأسعار العقارات.")
