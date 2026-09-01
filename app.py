@@ -47,31 +47,48 @@ if page_selection == "🗺️ مسار التعلم (Roadmap)":
     
     try:
         import importlib.util
+        from pathlib import Path
         
-        # تحديد المسار المباشر لملف roadmap.py
-        roadmap_path = current_dir / "data" / "roadmap.py"
-        
-        spec = importlib.util.spec_from_file_location("roadmap_module", roadmap_path)
-        roadmap_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(roadmap_module)
-        
-        phases = [
-            ("Phase 01: Introduction & Mindset", roadmap_module.render_phase_1),
-            ("Phase 02: Data Gathering & Sources", roadmap_module.render_phase_2),
-            ("Phase 03: Data Cleaning & Preprocessing", roadmap_module.render_phase_3),
-            ("Phase 04: Exploratory Data Analysis (EDA)", roadmap_module.render_phase_4),
-            ("Phase 05: SQL & Relational Databases", roadmap_module.render_phase_5),
-            ("Phase 06: Big Data Basics", roadmap_module.render_phase_6),
-            ("Phase 07: Data Visualization & Storytelling", roadmap_module.render_phase_7),
-            ("Phase 08: Machine Learning Fundamentals", roadmap_module.render_phase_8),
-            ("Phase 09: Data Career Roadmap", roadmap_module.render_phase_9),
-            ("Phase 10: Advanced Insights & Data Ethics (Bonus)", roadmap_module.render_phase_10)
+        # البحث عن مكان ملف roadmap.py تلقائياً أينما كان
+        root_dir = Path(__file__).parent.resolve()
+        possible_paths = [
+            root_dir / "data" / "roadmap.py",
+            root_dir / "Data" / "roadmap.py",
+            root_dir / "views" / "roadmap.py",
+            root_dir / "pages" / "roadmap.py",
+            root_dir / "roadmap.py"
         ]
         
-        for title, render_func in phases:
-            with st.expander(f"📁 {title} (اضغط للقراءة الكاملة)", expanded=False):
-                render_func()
-                
+        roadmap_path = None
+        for p in possible_paths:
+            if p.exists():
+                roadmap_path = p
+                break
+        
+        if roadmap_path is None:
+            st.error("لم يتم العثور على ملف roadmap.py! تأكد من وجوده داخل المستودع.")
+        else:
+            spec = importlib.util.spec_from_file_location("roadmap_module", roadmap_path)
+            roadmap_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(roadmap_module)
+            
+            phases = [
+                ("Phase 01: Introduction & Mindset", roadmap_module.render_phase_1),
+                ("Phase 02: Data Gathering & Sources", roadmap_module.render_phase_2),
+                ("Phase 03: Data Cleaning & Preprocessing", roadmap_module.render_phase_3),
+                ("Phase 04: Exploratory Data Analysis (EDA)", roadmap_module.render_phase_4),
+                ("Phase 05: SQL & Relational Databases", roadmap_module.render_phase_5),
+                ("Phase 06: Big Data Basics", roadmap_module.render_phase_6),
+                ("Phase 07: Data Visualization & Storytelling", roadmap_module.render_phase_7),
+                ("Phase 08: Machine Learning Fundamentals", roadmap_module.render_phase_8),
+                ("Phase 09: Data Career Roadmap", roadmap_module.render_phase_9),
+                ("Phase 10: Advanced Insights & Data Ethics (Bonus)", roadmap_module.render_phase_10)
+            ]
+            
+            for title, render_func in phases:
+                with st.expander(f"📁 {title} (اضغط للقراءة الكاملة)", expanded=False):
+                    render_func()
+                    
     except Exception as e:
         st.error(f"حدث خطأ أثناء تحميل المراحل: {e}")
 
