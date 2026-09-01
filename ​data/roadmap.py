@@ -1,81 +1,157 @@
 import streamlit as st
 
 def render_phase_1():
-    """عرض محتوى المنشور الأول: Phase 01 - Understanding Data (تنسيق VIP احترافي)"""
+    """عرض محتوى المنشور الأول بتصميم عالمي فاخر (Next-Gen SaaS UI)"""
     st.markdown("""
-    <div dir="rtl" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #E6EDF3; text-align: right; line-height: 1.9;">
+    <!-- استدعاء خط "Tajawal" الاحترافي المريح للعين -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <div dir="rtl" style="
+        font-family: 'Tajawal', sans-serif !important; 
+        color: #F3F4F6; 
+        text-align: right; 
+        line-height: 2.2; 
+        background-color: #0B0F17; 
+        padding: 30px; 
+        border-radius: 16px; 
+        border: 1px solid #1E293B;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
         
-        <!-- الهيدر الرئيسي للمنشور -->
-        <div style="background: linear-gradient(135deg, #1F2937 0%, #111827 100%); padding: 25px; border-radius: 12px; border-right: 6px solid #FF4B4B; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-            <h1 style="color: #FFFFFF; font-size: 26px; font-weight: 800; margin: 0 0 10px 0; text-align: right;">
+        <!-- 1. كارت الهيدر الرئيسي الاحترافي -->
+        <div style="
+            background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4338CA 100%); 
+            padding: 35px 25px; 
+            border-radius: 14px; 
+            border-right: 8px solid #6366F1; 
+            margin-bottom: 35px; 
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);">
+            <h1 style="color: #FFFFFF; font-size: 32px; font-weight: 900; margin: 0 0 12px 0; text-align: right; line-height: 1.4;">
                 🪑 قصة كرسي قديم.. أظهرت سر أغلى مجال في العالم!
             </h1>
-            <p style="color: #9CA3AF; font-size: 15px; margin: 0; text-align: right;">
-                المرحلة الأولى • فهم فلسفة البيانات والفرق بين تحليل البيانات وعلم البيانات
-            </p>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <span style="background-color: rgba(255,255,255,0.15); color: #E0E7FF; font-size: 15px; font-weight: 700; padding: 4px 12px; border-radius: 20px;">المرحلة 01</span>
+                <span style="color: #C7D2FE; font-size: 16px; font-weight: 500;">فلسفة البيانات والفرق بين تحليل البيانات وعلم البيانات</span>
+            </div>
         </div>
 
-        <!-- القصة الرئيسية -->
-        <p style="font-size: 18px; color: #D1D5DB; margin-bottom: 20px; text-align: right;">
+        <!-- 2. القصة الرئيسية بخط عريض وكبير -->
+        <p style="font-size: 21px; font-weight: 500; color: #E2E8F0; margin-bottom: 25px; text-align: right;">
             تخيل معايا إنك شفت كرسي خشب قديم ومكسور في الشارع، غالباً مش هتدفع فيه جنيه..  
             لكن لو حد جه وحكى لك قصة الكرسي ده وقال لك إن ده الكرسي اللي كان بيقعد عليه عالم مشهور وهو بيكتب أفكاره، قيمته في لحظة هتنط لآلاف الدولارات!
         </p>
 
-        <!-- كارت السؤال الجوهري -->
-        <div style="background-color: #1E293B; padding: 18px; border-radius: 10px; border-right: 5px solid #38BDF8; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-            <h3 style="color: #38BDF8; font-size: 19px; margin: 0 0 8px 0; text-align: right;">❓ السؤال هنا: هل الكرسي اتغير؟</h3>
-            <p style="color: #F1F5F9; font-size: 17px; margin: 0; text-align: right;">
-                لأ، الكرسي هو هو.. اللي اتغير هو <span style="color: #FACC15; font-weight: bold;">"المعلومة"</span> اللي ارتبطت بيه!
+        <!-- 3. كارت السؤال الجوهري المضيء -->
+        <div style="
+            background-color: #0F172A; 
+            padding: 22px 25px; 
+            border-radius: 12px; 
+            border-right: 6px solid #38BDF8; 
+            border-left: 1px solid #1E293B;
+            border-top: 1px solid #1E293B;
+            border-bottom: 1px solid #1E293B;
+            margin: 30px 0; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+            <h3 style="color: #38BDF8; font-size: 22px; font-weight: 800; margin: 0 0 10px 0; text-align: right;">❓ السؤال هنا: هل الكرسي اتغير؟</h3>
+            <p style="color: #F8FAFC; font-size: 20px; font-weight: 500; margin: 0; text-align: right;">
+                لأ، الكرسي هو هو.. اللي اتغير هو <span style="color: #FACC15; font-weight: 800; font-size: 22px; background: rgba(250, 204, 21, 0.1); padding: 2px 8px; border-radius: 4px;">"المعلومة"</span> اللي ارتبطت بيه!
             </p>
         </div>
 
-        <p style="font-size: 18px; color: #D1D5DB; margin-bottom: 25px; text-align: right;">
-            وده بالصدفة أول وأهم درس في عالم البيانات: البيانات (<b style="color: #60A5FA;">Data</b>) لوحدها زي الكرسي القديم مالهاش قيمة.. لكن لما نفهمها ونحطها في السياق الصح، تتحول لـ (<b style="color: #34D399;">Information</b>) ومنها بناخد قرار (<b style="color: #F87171;">Decision</b>) بيساوي ملايين!
+        <p style="font-size: 21px; font-weight: 500; color: #E2E8F0; margin-bottom: 35px; text-align: right;">
+            وده بالصدفة أول وأهم درس في عالم البيانات:  
+            البيانات (<b style="color: #60A5FA; font-weight: 800;">Data</b>) لوحدها زي الكرسي القديم مالهاش قيمة.. لكن لما نفهمها ونحطها في السياق الصح، تتحول لـ (<b style="color: #34D399; font-weight: 800;">Information</b>) ومنها بناخد قرار (<b style="color: #F87171; font-weight: 800;">Decision</b>) بيساوي ملايين!
         </p>
 
-        <!-- قسم التطببقات العملية -->
-        <div style="background-color: #161B22; padding: 20px; border-radius: 10px; border: 1px solid #30363D; margin-bottom: 25px;">
-            <h2 style="color: #F43F5E; font-size: 21px; font-weight: 700; margin-top: 0; text-align: right;">📺 هو الموضوع ده قريب مننا للدرجادي؟</h2>
-            <p style="font-size: 17px; color: #C9D1D9; margin: 0; text-align: right;">
-                أكيد! يعني لما تفتح يوتيوب أو نتفليكس أو أمازون وتلاقيه بيقولك <i>"مقترح لك بناءً على اهتمامك"</i>.. هو مش بيخمن ولا بيقرأ الفنجان!  
+        <!-- 4. كارت التطبيقات العملية -->
+        <div style="
+            background: linear-gradient(180deg, #111827 0%, #0D1117 100%); 
+            padding: 25px; 
+            border-radius: 14px; 
+            border: 1px solid #1F2937; 
+            margin-bottom: 35px;">
+            <h2 style="color: #F43F5E; font-size: 24px; font-weight: 800; margin-top: 0; margin-bottom: 15px; text-align: right;">
+                📺 هو الموضوع ده قريب مننا للدرجادي؟
+            </h2>
+            <p style="font-size: 19px; color: #CBD5E1; margin: 0; text-align: right; line-height: 2;">
+                أكيد! يعني لما تفتح يوتيوب أو نتفليكس أو أمازون وتلاقيه بيقولك <i style="color: #FACC15;">"مقترح لك بناءً على اهتمامك"</i>.. هو مش بيخمن ولا بيقرأ الفنجان!  
                 هو بيشوف بيانات ملايين المستخدمين، يدرس سلوكهم ويتوقع إيه اللي هيعجبك.. سواء في ترتيب منشورات فيسبوك، كشف المعاملات البنكية المشبوهة، أو التنبؤ بأسعار العقارات. البيانات هي المحرك الأساسي لكل ده.
             </p>
         </div>
 
-        <!-- قسم المقارنة بين المجالين -->
-        <h2 style="color: #38BDF8; font-size: 22px; font-weight: 700; margin-bottom: 15px; text-align: right;">🔍 إيه الفرق بين Data Analysis و Data Science؟</h2>
-        <p style="font-size: 17px; color: #9CA3AF; margin-bottom: 15px; text-align: right;">تخيل شركة باعت مليون منتج الشهر اللي فات:</p>
+        <!-- 5. قسم المقارنة بين المجالين (Data Analysis vs Data Science) -->
+        <h2 style="color: #38BDF8; font-size: 26px; font-weight: 800; margin-bottom: 20px; text-align: right;">
+            🔍 إيه الفرق بين Data Analysis و Data Science؟
+        </h2>
+        <p style="font-size: 19px; color: #94A3B8; margin-bottom: 20px; text-align: right;">تخيل شركة باعت مليون منتج الشهر اللي فات:</p>
 
-        <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
-            <div style="background-color: #0D1117; padding: 18px; border-radius: 8px; border-right: 4px solid #A855F7;">
-                <h3 style="color: #C084FC; font-size: 18px; margin: 0 0 8px 0; text-align: right;">1️⃣ تحليل البيانات (Data Analysis)</h3>
-                <p style="font-size: 16px; color: #D1D5DB; margin: 0; text-align: right;">
-                    هنا المدير بيدخل يسألك: <i>"إيه أكثر منتج اتباع؟ وليه المبيعات وقعت في فرع القاهرة؟"</i> دورك هنا بتحلل اللي حصل في الماضي (بيانات ➔ تحليل ➔ استنتاجات ➔ قرار).<br>
-                    <b style="color: #E2E8F0;">🛠️ الأدوات الأساسية:</b> <code style="color: #FACC15; background-color: #1E293B; padding: 2px 6px; border-radius: 4px;">Excel</code> <code style="color: #FACC15; background-color: #1E293B; padding: 2px 6px; border-radius: 4px;">SQL</code> <code style="color: #FACC15; background-color: #1E293B; padding: 2px 6px; border-radius: 4px;">Power BI</code> <code style="color: #FACC15; background-color: #1E293B; padding: 2px 6px; border-radius: 4px;">Python</code>
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 35px;">
+            <!-- تحليل البيانات -->
+            <div style="
+                background-color: #0F172A; 
+                padding: 22px; 
+                border-radius: 12px; 
+                border-right: 5px solid #A855F7; 
+                border-left: 1px solid #1E293B;
+                border-top: 1px solid #1E293B;
+                border-bottom: 1px solid #1E293B;">
+                <h3 style="color: #C084FC; font-size: 22px; font-weight: 800; margin: 0 0 10px 0; text-align: right;">
+                    1️⃣ تحليل البيانات (Data Analysis)
+                </h3>
+                <p style="font-size: 18px; color: #E2E8F0; margin: 0 0 12px 0; text-align: right; line-height: 1.9;">
+                    هنا المدير بيدخل يسألك: <i>"إيه أكثر منتج اتباع؟ وليه المبيعات وقعت في فرع القاهرة؟"</i> دورك هنا بتحلل اللي حصل في الماضي (بيانات ➔ تحليل ➔ استنتاجات ➔ قرار).
                 </p>
+                <div style="font-size: 17px; color: #CBD5E1; text-align: right;">
+                    <b style="color: #FACC15;">🛠️ الأدوات الأساسية:</b> 
+                    <span style="background-color: #1E293B; color: #38BDF8; padding: 4px 10px; border-radius: 6px; font-weight: 700; margin: 0 4px; font-size: 15px;">Excel</span>
+                    <span style="background-color: #1E293B; color: #38BDF8; padding: 4px 10px; border-radius: 6px; font-weight: 700; margin: 0 4px; font-size: 15px;">SQL</span>
+                    <span style="background-color: #1E293B; color: #38BDF8; padding: 4px 10px; border-radius: 6px; font-weight: 700; margin: 0 4px; font-size: 15px;">Power BI</span>
+                    <span style="background-color: #1E293B; color: #38BDF8; padding: 4px 10px; border-radius: 6px; font-weight: 700; margin: 0 4px; font-size: 15px;">Python</span>
+                </div>
             </div>
 
-            <div style="background-color: #0D1117; padding: 18px; border-radius: 8px; border-right: 4px solid #EC4899;">
-                <h3 style="color: #F472B6; font-size: 18px; margin: 0 0 8px 0; text-align: right;">2️⃣ علم البيانات (Data Science)</h3>
-                <p style="font-size: 16px; color: #D1D5DB; margin: 0; text-align: right;">
+            <!-- علم البيانات -->
+            <div style="
+                background-color: #0F172A; 
+                padding: 22px; 
+                border-radius: 12px; 
+                border-right: 5px solid #EC4899; 
+                border-left: 1px solid #1E293B;
+                border-top: 1px solid #1E293B;
+                border-bottom: 1px solid #1E293B;">
+                <h3 style="color: #F472B6; font-size: 22px; font-weight: 800; margin: 0 0 10px 0; text-align: right;">
+                    2️⃣ علم البيانات (Data Science)
+                </h3>
+                <p style="font-size: 18px; color: #E2E8F0; margin: 0; text-align: right; line-height: 1.9;">
                     هنا الدور أكبر.. أنت مش بس بتشوف الماضي، أنت بتبني نموذج (<b style="color: #F472B6;">Model</b>) يتعلم من بيانات الماضي علشان يتوقع المستقبل ويقولك ننتج إيه السنة الجاية! وعشان كده بيسموه "الخلاط" لأنه مزيج بين البرمجة، الإحصاء، الرياضيات، والـ Machine Learning.
                 </p>
             </div>
         </div>
 
-        <!-- قسم المنصات والمصادر -->
-        <div style="background-color: #1E293B; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-            <h2 style="color: #22C55E; font-size: 20px; font-weight: 700; margin-top: 0; text-align: right;">🚀 ابدأ منين لو تايه بين المنصات؟</h2>
-            <ul style="font-size: 16px; color: #E2E8F0; padding-right: 20px; margin-bottom: 0; text-align: right;">
-                <li style="margin-bottom: 8px;"><b style="color: #22C55E;">Kaggle:</b> الأفضل للتطبيق العملي والمسابقات التنافسية.</li>
-                <li style="margin-bottom: 8px;"><b style="color: #22C55E;">DataCamp & Dataquest:</b> ممتازان لتعلم SQL و Python بالتطبيق المباشر والكود.</li>
-                <li style="margin-bottom: 0;"><b style="color: #22C55E;">365 Data Science:</b> منهج منظم بيبدأ معاك خطوة بخطوة من الصفر.</li>
+        <!-- 6. قسم المنصات والمصادر -->
+        <div style="
+            background-color: #1E293B; 
+            padding: 25px; 
+            border-radius: 14px; 
+            border: 1px solid #334155; 
+            margin-bottom: 25px;">
+            <h2 style="color: #22C55E; font-size: 23px; font-weight: 800; margin-top: 0; margin-bottom: 15px; text-align: right;">
+                🚀 ابدأ منين لو تايه بين المنصات؟
+            </h2>
+            <ul style="font-size: 18px; color: #F1F5F9; padding-right: 25px; margin-bottom: 0; text-align: right; line-height: 2;">
+                <li style="margin-bottom: 10px;"><b style="color: #4ADE80; font-size: 19px;">Kaggle:</b> الأفضل للتطبيق العملي والمسابقات التنافسية.</li>
+                <li style="margin-bottom: 10px;"><b style="color: #4ADE80; font-size: 19px;">DataCamp & Dataquest:</b> ممتازان لتعلم SQL و Python بالتطبيق المباشر والكود.</li>
+                <li style="margin-bottom: 0;"><b style="color: #4ADE80; font-size: 19px;">365 Data Science:</b> منهج منظم بيبدأ معاك خطوة بخطوة من الصفر.</li>
             </ul>
         </div>
 
-        <!-- النصيحة الذهبية -->
-        <div style="background: linear-gradient(90deg, #854D0E 0%, #713F12 100%); padding: 15px; border-radius: 8px; text-align: right; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-            <p style="color: #FEF08A; font-size: 16px; font-weight: bold; margin: 0; text-align: right;">
+        <!-- 7. النصيحة الذهبية المضيئة -->
+        <div style="
+            background: linear-gradient(90deg, #713F12 0%, #854D0E 100%); 
+            padding: 18px 22px; 
+            border-radius: 12px; 
+            border-right: 6px solid #EAB308;
+            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.2);">
+            <p style="color: #FEF08A; font-size: 19px; font-weight: 800; margin: 0; text-align: right;">
                 💡 نصيحة ذهبية: ما تشتتش نفسك، اختار منصة واحدة وركز عليها ولا تشتت انتباهك بكثرة المصادر!
             </p>
         </div>
