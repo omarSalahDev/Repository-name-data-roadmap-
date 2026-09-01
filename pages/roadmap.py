@@ -10,3 +10,8 @@ def render_roadmap_page():
     # --- Phase 01 ---
     with st.expander("📁 Phase 01: Read: Understanding Data (اضغط للقراءة الكاملة)", expanded=False):
         render_phase_1()
+
+# --- Phase 02 ---
+    with st.expander("📁 Phase 02: Read: Data Science Fundamentals (اضغط للقراءة الكاملة)", expanded=False):
+        from data.roadmap import render_phase_2
+        render_phase_2()
