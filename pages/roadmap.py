@@ -15,3 +15,18 @@ def render_roadmap_page():
     with st.expander("📁 Phase 02: Read: Data Science Fundamentals (اضغط للقراءة الكاملة)", expanded=False):
         from data.roadmap import render_phase_2
         render_phase_2()
+
+# --- Phase 03 ---
+    with st.expander("📁 Phase 03: Read: Think Like a Data Analyst (اضغط للقراءة الكاملة)", expanded=False):
+        from data.roadmap import render_phase_3
+        render_phase_3()
+
+# --- Phase 04 ---
+    with st.expander("📁 Phase 04: Read: Data Ecosystem (اضغط للقراءة الكاملة)", expanded=False):
+        from data.roadmap import render_phase_4
+        render_phase_4()
+
+# --- Phase 05 ---
+    with st.expander("📁 Phase 05: Read: Data Analytics Toolbox (اضغط للقراءة الكاملة)", expanded=False):
+        from data.roadmap import render_phase_5
+        render_phase_5()
