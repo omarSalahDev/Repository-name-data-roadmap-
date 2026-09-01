@@ -72,7 +72,7 @@ st.markdown("""
 st.markdown('<div class="main-header">⚡ DataLab | by Omar Saleh</div>', unsafe_allow_html=True)
 st.markdown("""
     <div class="sub-header" dir="rtl">
-    <b>بوابتك المرجعية المتكاملة لمجال الـ Data Scientist (مفتوحة ومجانية بالكامل 100%) 🎯</b><br>
+    <b>بوابتك المرجعية المتكاملة لمجال الـ Data Scientist ( مفتوحة ومجانية بالكامل ) </b><br>
     مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ Data Analysis، مروراً بمكتبات الـ Python والرياضة، وصولاً لخوارزميات الـ Machine Learning.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى Portfolio و CV ينافس في السوق ✨
     </div>
 """, unsafe_allow_html=True)
