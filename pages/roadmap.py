@@ -1,77 +1,32 @@
 import streamlit as st
-from data.roadmap import render_phase_1
-
 import sys
 from pathlib import Path
 
-# إضافة المجلد الرئيسي للمشروع إلى مسارات بايثون
+# إضافة المسار الرئيسي للمشروع
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# الآن يمكنك استدعاء الدوال بشكل طبيعي
 from data.roadmap import (
-    render_phase_1,
-    render_phase_2,
-    render_phase_3,
-    render_phase_4,
-    render_phase_5,
-    render_phase_6,
-    render_phase_7,
-    render_phase_8,
-    render_phase_9,
-    render_phase_10
-) 
+    render_phase_1, render_phase_2, render_phase_3, render_phase_4, render_phase_5,
+    render_phase_6, render_phase_7, render_phase_8, render_phase_9, render_phase_10
+)
 
 def render_roadmap_page():
-    """صفحة مسار التعلم الشاملة"""
-    st.title("🗺️ مسار التعلم الشامل للبيانات")
-    st.caption("تعرف على المفاهيم والخطوات الأساسية لبناء مسارك المهني في عالم البيانات.")
-    st.markdown("---")
+    st.subheader("🗺️ مسار التعلم الشامل للبيانات")
+    st.write("اختر المرحلة التي تريد قراءتها وتطبيقها:")
     
-    # --- Phase 01 ---
-    with st.expander("📁 Phase 01: Read: Understanding Data (اضغط للقراءة الكاملة)", expanded=False):
-        render_phase_1()
-
-# --- Phase 02 ---
-    with st.expander("📁 Phase 02: Read: Data Science Fundamentals (اضغط للقراءة الكاملة)", expanded=False):
-        from data.roadmap import render_phase_2
-        render_phase_2()
-
-# --- Phase 03 ---
-    with st.expander("📁 Phase 03: Read: Think Like a Data Analyst (اضغط للقراءة الكاملة)", expanded=False):
-        from data.roadmap import render_phase_3
-        render_phase_3()
-
-# --- Phase 04 ---
-    with st.expander("📁 Phase 04: Read: Data Ecosystem (اضغط للقراءة الكاملة)", expanded=False):
-        from data.roadmap import render_phase_4
-        render_phase_4()
-
-# --- Phase 05 ---
-    with st.expander("📁 Phase 05: Read: Data Analytics Toolbox (اضغط للقراءة الكاملة)", expanded=False):
-        from data.roadmap import render_phase_5
-        render_phase_5()
-
-# --- Phase 06 ---
-    with st.expander("📁 Phase 06: Read: Big Data (اضغط للقراءة الكاملة)", expanded=False):
-        from data.roadmap import render_phase_6
-        render_phase_6()
-
-# --- Phase 07 ---
-    with st.expander("📁 Phase 07: Read: Data Visualization (اضغط للقراءة الكاملة)", expanded=False):
-        from data.roadmap import render_phase_7
-        render_phase_7()
-
-# --- Phase 08 ---
-    with st.expander("📁 Phase 08: Read: Machine Learning Basics (اضغط للقراءة الكاملة)", expanded=False):
-        from data.roadmap import render_phase_8
-        render_phase_8()
-
-# --- Phase 09 ---
-    with st.expander("📁 Phase 09: Read: Data Career Roadmap (اضغط للقراءة الكاملة)", expanded=False):
-        from data.roadmap import render_phase_9
-        render_phase_9()
-
-# --- Phase 10 ---
-    with st.expander("📁 Phase 10: Read: Advanced Insights & Data Ethics (اضغط للقراءة الكاملة)", expanded=False):
-        from data.roadmap import render_phase_10
-        render_phase_10()
+    phases = [
+        ("Phase 01: Introduction & Mindset", render_phase_1),
+        ("Phase 02: Data Gathering & Sources", render_phase_2),
+        ("Phase 03: Data Cleaning & Preprocessing", render_phase_3),
+        ("Phase 04: Exploratory Data Analysis (EDA)", render_phase_4),
+        ("Phase 05: SQL & Relational Databases", render_phase_5),
+        ("Phase 06: Big Data Basics", render_phase_6),
+        ("Phase 07: Data Visualization & Storytelling", render_phase_7),
+        ("Phase 08: Machine Learning Fundamentals", render_phase_8),
+        ("Phase 09: Data Career Roadmap", render_phase_9),
+        ("Phase 10: Advanced Insights & Data Ethics (Bonus)", render_phase_10)
+    ]
+    
+    for title, render_func in phases:
+        with st.expander(f"📁 {title} (اضغط للقراءة الكاملة)", expanded=False):
+            render_func()
