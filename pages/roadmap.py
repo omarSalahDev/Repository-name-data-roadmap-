@@ -10,18 +10,6 @@ def render_roadmap_page():
     
     phase_1 = get_roadmap_phases()
     
-    # 1. عرض المرحلة الأولى داخل Expander شيك
+    # 1. عرض المرحلة الأولى
     with st.expander(f"📁 {phase_1['title']} (اضغط للقراءة الكاملة)", expanded=False):
-        
-        # عرض محتوى المرحلة
         render_phase_1_content()
-        
-        # زر مشاركة لينكد إن
-        st.markdown("<br>", unsafe_allow_html=True)
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            st.link_button(
-                "💬 ناقش هذا الدرس على لينكد إن", 
-                phase_1["linkedin_url"],
-                use_container_width=True
-            )
