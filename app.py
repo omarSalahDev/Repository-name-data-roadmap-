@@ -15,36 +15,49 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 3. حقن تنسيقات CSS الاحترافية للغة العربية والـ RTL والكروت السوداء
+# 3. حقن التنسيقات الذكية لعزل المشاكل
 st.markdown("""
     <style>
-    /* محاذاة الصفحة بالكامل لليمين (RTL) */
-    html, body, [class*="css"], .stMarkdown, p, div, h1, h2, h3, h4, h5, h6, span {
-        direction: rtl !important;
-        text-align: right !important;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    /* الهيدر الرئيسي */
-    .main-header { font-size: 34px; font-weight: 800; color: #4A90E2; text-align: center !important; margin-top: -10px; }
-    .sub-header { font-size: 15px; opacity: 0.85; text-align: center !important; margin-bottom: 25px; line-height: 1.6; }
-    
-    /* تصميم الـ Expanders لتكون كروت سوداء أنيقة */
-    .stStreamlitExpander {
+    /* 1. ضبط هيدر المنصة */
+    .main-header { font-size: 34px; font-weight: 800; color: #4A90E2; text-align: center; }
+    .sub-header { font-size: 15px; opacity: 0.85; text-align: center; margin-bottom: 25px; line-height: 1.6; }
+
+    /* 2. جعل الفولدرات وسهم الفتح LTR على الشمال بدون خطوط مشوهة */
+    .stStreamlitExpander > details > summary {
+        direction: ltr !important;
+        text-align: left !important;
         background-color: #0E1117 !important;
-        border: 1px solid #262730 !important;
-        border-radius: 10px !important;
-        margin-bottom: 12px !important;
-        box-shadow: 0px 4px 10px rgba(0,0,0,0.3) !important;
+        border-radius: 8px !important;
+        font-size: 16px !important;
+        font-weight: bold !important;
     }
-    
-    /* محاذاة عناصر القائمة الجانبية */
-    .css-1d35e22, [data-testid="stSidebar"] {
+
+    .stStreamlitExpander {
+        border: 1px solid #262730 !important;
+        border-radius: 8px !important;
+        margin-bottom: 12px !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    /* 3. إجبار كافة النصوص والفقرات والعناوين داخل المنشور على الاتجاه الأيمن (RTL) */
+    [data-testid="stExpanderDetails"] {
         direction: rtl !important;
         text-align: right !important;
     }
-    
-    /* زر تشغيل الكود في بايثون */
+
+    [data-testid="stExpanderDetails"] *, 
+    .arabic-content, 
+    .arabic-content p, 
+    .arabic-content h1, 
+    .arabic-content h2, 
+    .arabic-content h3, 
+    .arabic-content div {
+        direction: rtl !important;
+        text-align: right !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    /* 4. زر تشغيل الكود */
     .stButton>button {
         width: 100%;
         background-color: #FF4B4B;
@@ -58,7 +71,7 @@ st.markdown("""
 # 4. الهيدر الرئيسي للمنصة
 st.markdown('<div class="main-header">⚡ DataLab | by Omar Saleh</div>', unsafe_allow_html=True)
 st.markdown("""
-    <div class="sub-header">
+    <div class="sub-header" dir="rtl">
     <b>بوابتك المرجعية المتكاملة لمجال الـ Data Scientist (مفتوحة ومجانية بالكامل 100%) 🎯</b><br>
     مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ Data Analysis، مروراً بمكتبات الـ Python والرياضة، وصولاً لخوارزميات الـ Machine Learning.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى Portfolio و CV ينافس في السوق ✨
     </div>
@@ -84,13 +97,12 @@ st.sidebar.info("💡 **تلميحة اليوم:** التطبيق العملي �
 # ---------------------------------------------------------
 
 if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
-    st.subheader("🗺️ مسار التعلم الشامل لعلوم البيانات")
-    st.write("اضغط على أي مرحلة لفتح الشرح المباشر وتتبع بافي المحطات خطوة بخطوة:")
+    st.markdown("<h3 style='text-align: right; color: #4A90E2;' dir='rtl'>🗺️ مسار التعلم الشامل لعلوم البيانات</h3>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: right; color: #888;' dir='rtl'>اضغط على أي مرحلة لفتح الشرح المباشر وتتبع باقي المحطات خطوة بخطوة:</p>", unsafe_allow_html=True)
 
     try:
         import importlib.util
 
-        # التفتيش الذكي عن مكان ملف roadmap.py
         roadmap_path = None
         for root, dirs, files in os.walk(str(current_dir)):
             for file in files:
@@ -106,23 +118,22 @@ if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
             spec.loader.exec_module(roadmap_module)
 
             phases = [
-                ("Phase 01: Read: Understanding Data", getattr(roadmap_module, "render_phase_1", None)),
-                ("Phase 02: Read: Data Science Fundamentals", getattr(roadmap_module, "render_phase_2", None)),
-                ("Phase 03: Read: Think Like a Data Analyst", getattr(roadmap_module, "render_phase_3", None)),
-                ("Phase 04: Data Ecosystem", getattr(roadmap_module, "render_phase_4", None)),
-                ("Phase 05: Read: Data Analytics Toolbox", getattr(roadmap_module, "render_phase_5", None)),
-                ("Phase 06: Big Data Basics", getattr(roadmap_module, "render_phase_6", None)),
-                ("Phase 07: Data Visualization & Storytelling", getattr(roadmap_module, "render_phase_7", None)),
-                ("Phase 08: Machine Learning Fundamentals", getattr(roadmap_module, "render_phase_8", None)),
-                ("Phase 09: Data Career Roadmap", getattr(roadmap_module, "render_phase_9", None)),
-                ("Phase 10: Advanced Insights & Data Ethics", getattr(roadmap_module, "render_phase_10", None)),
+                ("Phase 01: Read: Understanding Data 📁", getattr(roadmap_module, "render_phase_1", None)),
+                ("Phase 02: Read: Data Science Fundamentals 📁", getattr(roadmap_module, "render_phase_2", None)),
+                ("Phase 03: Read: Think Like a Data Analyst 📁", getattr(roadmap_module, "render_phase_3", None)),
+                ("Phase 04: Read: Data Ecosystem 📁", getattr(roadmap_module, "render_phase_4", None)),
+                ("Phase 05: Read: Data Analytics Toolbox 📁", getattr(roadmap_module, "render_phase_5", None)),
+                ("Phase 06: Read: Big Data Basics 📁", getattr(roadmap_module, "render_phase_6", None)),
+                ("Phase 07: Read: Data Visualization & Storytelling 📁", getattr(roadmap_module, "render_phase_7", None)),
+                ("Phase 08: Read: Machine Learning Fundamentals 📁", getattr(roadmap_module, "render_phase_8", None)),
+                ("Phase 09: Read: Data Career Roadmap 📁", getattr(roadmap_module, "render_phase_9", None)),
+                ("Phase 10: Read: Advanced Insights & Data Ethics 📁", getattr(roadmap_module, "render_phase_10", None)),
             ]
 
             for title, render_func in phases:
-                with st.expander(f"📁 {title}", expanded=False):
+                with st.expander(title, expanded=False):
                     if render_func:
-                        # تغليف المحتوى بديف RTL لتطبيق المحاذاة الفخمة
-                        st.markdown('<div dir="rtl" style="text-align: right;">', unsafe_allow_html=True)
+                        st.markdown('<div class="arabic-content" dir="rtl">', unsafe_allow_html=True)
                         render_func()
                         st.markdown('</div>', unsafe_allow_html=True)
                     else:
@@ -132,7 +143,6 @@ if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
 
     except Exception as e:
         st.error(f"حدث خطأ أثناء تحميل المنشورات: {e}")
-
 
 elif menu_choice == "🐍 محرك بايثون التفاعلي (Python Engine)":
     st.subheader("🐍 محرك تطبيق Python التفاعلي")
@@ -150,12 +160,10 @@ elif menu_choice == "🐍 محرك بايثون التفاعلي (Python Engine)
         except Exception as e:
             st.error(f"خطأ في الكود: {e}")
 
-
 elif menu_choice == "📚 مكتبة المراجع والكتب (Resources)":
     st.subheader("📚 مكتبة المراجع والكتب")
     st.write("* **Python for Data Analysis** - Wes McKinney")
     st.write("* **Hands-On Machine Learning** - Aurélien Géron")
-
 
 elif menu_choice == "🔒 معرض المشاريع الاحترافية (Portfolio Pro)":
     st.subheader("💼 معرض المشاريع والتطبيقات العملية")
