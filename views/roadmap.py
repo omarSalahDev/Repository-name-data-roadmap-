@@ -1,13 +1,21 @@
-import streamlit as st
 import sys
 from pathlib import Path
 
-# إضافة المسار الرئيسي للمشروع
+# إضافة مجلد المشروع الرئيسي لـ Python Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
+import streamlit as st
 from data.roadmap import (
-    render_phase_1, render_phase_2, render_phase_3, render_phase_4, render_phase_5,
-    render_phase_6, render_phase_7, render_phase_8, render_phase_9, render_phase_10
+    render_phase_1,
+    render_phase_2,
+    render_phase_3,
+    render_phase_4,
+    render_phase_5,
+    render_phase_6,
+    render_phase_7,
+    render_phase_8,
+    render_phase_9,
+    render_phase_10
 )
 
 def render_roadmap_page():
