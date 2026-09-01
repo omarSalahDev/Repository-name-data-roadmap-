@@ -1,7 +1,13 @@
 import streamlit as st
+import sys
+from pathlib import Path
+
+# ضبط المسار الرئيسي للمشروع لمنع أخطاء الـ Imports
+sys.path.append(str(Path(__file__).resolve().parent))
+
 from components.cards import render_header
 
-# 1. إعدادات الصفحة الرئيسية
+# 1. إعدادات الصفحة
 st.set_page_config(
     page_title="DataLab | by Omar Saleh", 
     page_icon="🧭",
@@ -9,10 +15,10 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. عرض الهيدر والوصف الرئيسي
+# 2. عرض الهيدر
 render_header()
 
-# 3. شريط التنقل الجانبي (Sidebar)
+# 3. شريط التنقل الجانبي
 st.sidebar.title("🚀 DataLab")
 st.sidebar.caption("منصتك التفاعلية لاحتراف بيانات المستقبل")
 
@@ -28,24 +34,14 @@ page_selection = st.sidebar.radio(
 st.sidebar.markdown("---")
 st.sidebar.info("💡 **تلميحة اليوم:** التطبيق العملي اليومي هو السلاح الحقيقي للوصول لسوق العمل.")
 
-# 4. توجيه الصفحات بأسلوب نظيف (Page Routing)
+# 4. توجيه الصفحات بأسلوب نظيف وحقيقي
 if page_selection == "🗺️ مسار التعلم (Roadmap)":
-    # استدعاء صفحة الـ Roadmap
-    try:
-        from pages.roadmap import render_roadmap_page
-        render_roadmap_page()
-    except ImportError:
-        st.subheader("🗺️ مسار التعلم الشامل للبيانات")
-        st.info("صفحة المسار قيد الربط بالتطبيقات.")
+    from views.roadmap import render_roadmap_page
+    render_roadmap_page()
 
 elif page_selection == "🐍 تعلم Python (Lessons)":
-    # استدعاء صفحة دروس بايثون
-    try:
-        from pages.python_lessons import render_python_tab
-        render_python_tab()
-    except ImportError:
-        st.subheader("🐍 محرك تعلم Python التفاعلي")
-        st.write("دروس وتحديات تفاعلية مصممة خصيصاً لتطوير مهاراتك البرمجية.")
+    from views.python_lessons import render_python_tab
+    render_python_tab()
 
 elif page_selection == "💼 معرض المشاريع (Portfolio)":
     st.subheader("💼 بناء معرَض أعمالك (Portfolio Builder)")
