@@ -15,63 +15,39 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 3. حقن التنسيقات الاحترافية
+# 3. تحسينات بسيطة بدون إخفاء أو كسر عناصر Streamlit
 st.markdown("""
     <style>
-    .main-header { font-size: 34px; font-weight: 800; color: #4A90E2; text-align: center; }
-    .sub-header { font-size: 16px; opacity: 0.85; text-align: center; margin-bottom: 25px; line-height: 1.6; }
-
-    /* عناوين الفولدرات إنجليزي على الشمال */
-    .stStreamlitExpander details summary {
-        direction: ltr !important;
-        text-align: left !important;
-        background-color: #0E1117 !important;
-        font-size: 16px !important;
-        font-weight: bold !important;
+    /* تحسين شكل الهيدر */
+    .main-title {
+        font-size: 36px;
+        font-weight: 800;
+        color: #4A90E2;
+        text-align: center;
+        margin-bottom: 5px;
     }
-
-    .stStreamlitExpander {
-        border: 1px solid #262730 !important;
-        border-radius: 8px !important;
-        margin-bottom: 12px !important;
+    .sub-title {
+        font-size: 16px;
+        color: #A0AAB5;
+        text-align: center;
+        margin-bottom: 30px;
+        line-height: 1.6;
     }
-
-    /* المحتوى العربي جوة المنشور: يمين + خط كبير + تنسيق مريح */
-    .arabic-article {
-        direction: rtl !important;
-        text-align: right !important;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 18px !important;
-        line-height: 2 !important;
-        color: #E0E0E0 !important;
-        padding: 15px;
-        background-color: #0D1117;
-        border-radius: 8px;
-    }
-
-    .arabic-article h1, .arabic-article h2, .arabic-article h3 {
-        color: #FF4B4B !important;
-        margin-top: 15px !important;
-        margin-bottom: 10px !important;
-    }
-
-    /* زر تشغيل الكود */
-    .stButton>button {
-        width: 100%;
-        background-color: #FF4B4B;
-        color: white;
-        border-radius: 8px;
-        font-weight: bold;
+    /* جعل العناوين الخاصة بالـ Expander واضحة وبحجم مريح */
+    .stStreamlitExpander > details > summary {
+        font-size: 17px !important;
+        font-weight: 600 !important;
+        color: #FFFFFF !important;
     }
     </style>
 """, unsafe_allow_html=True)
 
 # 4. الهيدر الرئيسي للمنصة
-st.markdown('<div class="main-header">⚡ DataLab | by Omar Saleh</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">⚡ DataLab | by Omar Saleh</div>', unsafe_allow_html=True)
 st.markdown("""
-    <div class="sub-header" dir="rtl">
-    <b>بوابتك المرجعية المتكاملة لمجال الـ Data Scientist (مفتوحة ومجانية بالكامل 100%) 🎯</b><br>
-    مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ Data Analysis، مروراً بمكتبات الـ Python والرياضة، وصولاً لخوارزميات الـ Machine Learning.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى Portfolio و CV ينافس في السوق ✨
+    <div class="sub-title" dir="rtl">
+    <b>بوابتك المرجعية المتكاملة لمجال الـ Data Science (مفتوحة ومجانية بالكامل) 🎯</b><br>
+    رحلة بناء حقيقية تبدأ من أدوات الـ Data Analysis، مروراً بمكتبات الـ Python والرياضة، وصولاً لخوارزميات الـ Machine Learning.
     </div>
 """, unsafe_allow_html=True)
 
@@ -88,12 +64,12 @@ menu_choice = st.sidebar.radio(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.info("💡 **تلميحة اليوم:** التطبيق العملي اليومي هو السلاح الحقيقي للوصول لسوق العمل.")
+st.sidebar.info("💡 **تلميحة:** التطبيق العملي هو السلاح الحقيقي للوصول لسوق العمل.")
 
-# 6. عرض المحتوى والـ 10 منشورات
+# 6. عرض المحتوى والمنشورات
 if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
-    st.subheader("🗺️ مسار التعلم الشامل لعلوم البيانات")
-    st.write("اضغط على أي مرحلة لفتح الشرح المباشر وتتبع باقي المحطات خطوة بخطوة:")
+    st.markdown("<h3 style='text-align: right; color: #4A90E2;'>🗺️ مسار التعلم الشامل لعلوم البيانات</h3>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: right; color: #888;'>اضغط على أي مرحلة لفتح الشرح المباشر وتتبع باقي المحطات:</p>", unsafe_allow_html=True)
 
     try:
         import importlib.util
@@ -122,16 +98,13 @@ if menu_choice == "🗺️ مسار التعلم الشامل (Roadmap)":
                 ("Phase 07: Read: Data Visualization & Storytelling 📁", getattr(roadmap_module, "render_phase_7", None)),
                 ("Phase 08: Read: Machine Learning Fundamentals 📁", getattr(roadmap_module, "render_phase_8", None)),
                 ("Phase 09: Read: Data Career Roadmap 📁", getattr(roadmap_module, "render_phase_9", None)),
-                ("Phase 10: Read: Advanced Insights & Data Ethics 📁", getattr(roadmap_module, "render_phase_10", None)),
+                ("Phase 10: Read: Advanced Insights & Ethics 📁", getattr(roadmap_module, "render_phase_10", None)),
             ]
 
             for title, render_func in phases:
                 with st.expander(title, expanded=False):
                     if render_func:
-                        # احتواء المحتوى داخل Class عربي مخصص لتكبير الخط والتلوين
-                        st.markdown('<div class="arabic-article">', unsafe_allow_html=True)
                         render_func()
-                        st.markdown('</div>', unsafe_allow_html=True)
                     else:
                         st.warning("جاري إعداد محتوى هذه المرحلة...")
         else:
