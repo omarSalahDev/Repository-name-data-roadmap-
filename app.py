@@ -1,13 +1,13 @@
-import streamlit as st
+import os
 import sys
-from pathlib import Path
+import streamlit as st
 
-# ضبط المسار الرئيسي للمشروع لمنع أخطاء الـ Imports
-sys.path.append(str(Path(__file__).resolve().parent))
+# إجبار بايثون على قراءة المجلد الحالي كـ Root Directory
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from components.cards import render_header
 
-# 1. إعدادات الصفحة
+# 1. إعدادات الصفحة الرئيسية
 st.set_page_config(
     page_title="DataLab | by Omar Saleh", 
     page_icon="🧭",
@@ -15,10 +15,10 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. عرض الهيدر
+# 2. عرض الهيدر والوصف الرئيسي
 render_header()
 
-# 3. شريط التنقل الجانبي
+# 3. شريط التنقل الجانبي (Sidebar)
 st.sidebar.title("🚀 DataLab")
 st.sidebar.caption("منصتك التفاعلية لاحتراف بيانات المستقبل")
 
@@ -34,25 +34,45 @@ page_selection = st.sidebar.radio(
 st.sidebar.markdown("---")
 st.sidebar.info("💡 **تلميحة اليوم:** التطبيق العملي اليومي هو السلاح الحقيقي للوصول لسوق العمل.")
 
-# 4. توجيه الصفحات بأسلوب نظيف وحقيقي
+# 4. توجيه الصفحات
 if page_selection == "🗺️ مسار التعلم (Roadmap)":
-    from views.roadmap import render_roadmap_page
-    render_roadmap_page()
+    st.subheader("🗺️ مسار التعلم الشامل للبيانات")
+    st.write("اختر المرحلة التي تريد قراءتها وتطبيقها:")
+    
+    # استدعاء دالي مباشر من ملف data/roadmap.py
+    try:
+        from data.roadmap import (
+            render_phase_1, render_phase_2, render_phase_3, render_phase_4, render_phase_5,
+            render_phase_6, render_phase_7, render_phase_8, render_phase_9, render_phase_10
+        )
+        
+        phases = [
+            ("Phase 01: Introduction & Mindset", render_phase_1),
+            ("Phase 02: Data Gathering & Sources", render_phase_2),
+            ("Phase 03: Data Cleaning & Preprocessing", render_phase_3),
+            ("Phase 04: Exploratory Data Analysis (EDA)", render_phase_4),
+            ("Phase 05: SQL & Relational Databases", render_phase_5),
+            ("Phase 06: Big Data Basics", render_phase_6),
+            ("Phase 07: Data Visualization & Storytelling", render_phase_7),
+            ("Phase 08: Machine Learning Fundamentals", render_phase_8),
+            ("Phase 09: Data Career Roadmap", render_phase_9),
+            ("Phase 10: Advanced Insights & Data Ethics (Bonus)", render_phase_10)
+        ]
+        
+        for title, render_func in phases:
+            with st.expander(f"📁 {title} (اضغط للقراءة الكاملة)", expanded=False):
+                render_func()
+                
+    except Exception as e:
+        st.error(f"حدث خطأ أثناء تحميل المراحل: {e}")
 
 elif page_selection == "🐍 تعلم Python (Lessons)":
-    from views.python_lessons import render_python_tab
-    render_python_tab()
+    st.subheader("🐍 محرك تعلم Python التفاعلي")
+    st.write("دروس وتحديات تفاعلية مصممة خصيصاً لتطوير مهاراتك البرمجية (قيد التجهيز).")
 
 elif page_selection == "💼 معرض المشاريع (Portfolio)":
     st.subheader("💼 بناء معرَض أعمالك (Portfolio Builder)")
     st.write("طبق ما تعلمته في مشاريع حقيقية وشاركها مباشرة.")
-
-    st.markdown("""
-        <div dir="rtl" style="text-align: center; padding: 20px 10px;">
-        <h3>💼 Featured Projects & Prototypes</h3>
-        <p style="opacity: 0.8; font-size: 14px;">أبرز المشاريع التقنية والحلول اللي ببنيها في رحلتي لعالم البيانات:</p>
-        </div>
-        """, unsafe_allow_html=True)
 
     with st.container():
         st.markdown("""
