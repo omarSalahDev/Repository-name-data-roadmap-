@@ -1,22 +1,11 @@
-
 import streamlit as st
 
-def get_roadmap_phases():
-    """تخزين محتوى مراحل وخريطة طريق البيانات"""
-    
-    phase_1 = {
-        "title": "📁 Phase 01: Understanding Data",
-        "story_title": "𪑑 قصة كرسي قديم.. أظهرت سر أغلى مجال في العالم!",
-        "linkedin_url": "https://www.linkedin.com"
-    }
-    return phase_1
-
-def render_phase_1_content():
-    """عرض محتوى المرحلة الأولى بشكل شيك ومستجيب"""
+def render_phase_1():
+    """عرض محتوى المنشور الأول: Phase 01 - Understanding Data"""
     st.markdown("""
     <div dir="rtl" style="font-size: 16px; line-height: 2.1;">
     
-    ### 𪑑 قصة كرسي قديم.. أظهرت سر أغلى مجال في العالم!
+    ### 🪑 قصة كرسي قديم.. أظهرت سر أغلى مجال في العالم!
     
     تخيل معايا إنك شفت كرسي خشب قديم ومكسور في الشارع، غالباً مش هتدفع فيه جنيه..  
     لكن لو حد جه وحكى لك قصة الكرسي ده وقال لك إن ده الكرسي اللي كان بيقعد عليه عالم مشهور وهو بيكتب أفكاره، قيمته في لحظة هتنط لآلاف الدولارات!
