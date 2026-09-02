@@ -1,46 +1,82 @@
+import os
+import sys
+import pathlib
 import streamlit as st
 
-from core.config import configure_page
-from core.styles import load_global_styles
+# 1. إعدادات المسارات البرمجية
+current_dir = pathlib.Path(__file__).parent.resolve()
+sys.path.insert(0, str(current_dir))
 
-# ============================================================
-# DataLab — Application Entry Point
-# ============================================================
-
-# 1. Configure Streamlit
-configure_page()
-
-# 2. Load global visual system
-load_global_styles()
-
-
-# ============================================================
-# DataLab — Header
-# ============================================================
-
-st.markdown(
-    """
-    <div class="datalab-title">
-        ⚡ DataLab
-    </div>
-    """,
-    unsafe_allow_html=True,
+# 2. إعدادات الصفحة
+st.set_page_config(
+    page_title="DataLab | by Omar Saleh", 
+    page_icon="⚡",
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
-st.markdown(
-    """
-    <div class="datalab-subtitle" dir="rtl">
-        <b>
-            بوابتك المرجعية المتكاملة لعالم الـ Data
-        </b>
-        <br>
-        مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ Data Analysis،
-        مرورًا ببايثون ومكتبات تحليل البيانات، وصولًا إلى الـ Machine Learning،
-        مع تطبيقات ومشاريع عملية تساعدك تبني Portfolio قوي.
+# 3. حقن التنسيقات الذكية لعزل المشاكل
+st.markdown("""
+    <style>
+    /* 1. ضبط هيدر المنصة */
+    .main-header { font-size: 34px; font-weight: 800; color: #4A90E2; text-align: center; }
+    .sub-header { font-size: 15px; opacity: 0.85; text-align: center; margin-bottom: 25px; line-height: 1.6; }
+
+    /* 2. جعل الفولدرات وسهم الفتح LTR على الشمال بدون خطوط مشوهة */
+    .stStreamlitExpander > details > summary {
+        direction: ltr !important;
+        text-align: left !important;
+        background-color: #0E1117 !important;
+        border-radius: 8px !important;
+        font-size: 16px !important;
+        font-weight: bold !important;
+    }
+
+    .stStreamlitExpander {
+        border: 1px solid #262730 !important;
+        border-radius: 8px !important;
+        margin-bottom: 12px !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    /* 3. إجبار كافة النصوص والفقرات والعناوين داخل المنشور على الاتجاه الأيمن (RTL) */
+    [data-testid="stExpanderDetails"] {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+
+    [data-testid="stExpanderDetails"] *, 
+    .arabic-content, 
+    .arabic-content p, 
+    .arabic-content h1, 
+    .arabic-content h2, 
+    .arabic-content h3, 
+    .arabic-content div {
+        direction: rtl !important;
+        text-align: right !important;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+
+    /* 4. زر تشغيل الكود */
+    .stButton>button {
+        width: 100%;
+        background-color: #FF4B4B;
+        color: white;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# 4. الهيدر الرئيسي للمنصة
+st.markdown('<div class="main-header">⚡ DataLab | by Omar Saleh</div>', unsafe_allow_html=True)
+st.markdown("""
+    <div class="sub-header" dir="rtl">
+    <b>بوابتك المرجعية المتكاملة لمجال الـ Data Scientist ( مفتوحة ومجانية بالكامل ) </b><br>
+    مش مجرد مسار، دي رحلة بناء حقيقية بتبدأ من أدوات الـ Data Analysis، مروراً بمكتبات الـ Python والرياضة، وصولاً لخوارزميات الـ Machine Learning.. بمشاريع عملية تتدرج معاك لحد ما تبني أقوى Portfolio و CV ينافس في السوق ✨
     </div>
-    """,
-    unsafe_allow_html=True,
-)
+""", unsafe_allow_html=True)
+
 # 5. القائمة الجانبية (Sidebar)
 st.sidebar.title("🧭 القائمة الرئيسية")
 menu_choice = st.sidebar.radio(
