@@ -1,36 +1,146 @@
-# 🚀 DataLab — From Zero to Job-Ready
+🧭 DataLab
 
-> **DataLab** is an interactive, project-driven learning platform designed to take aspiring Data Engineers, Data Analysts, and Data Scientists from absolute zero to workforce-ready through structured roadmaps, hands-on coding, and real-world portfolio building.
+«Learn Data. Build Skills. Create Real Projects.»
 
----
+DataLab is an interactive educational platform that helps beginners learn Data Analytics, Python, and Machine Learning through a structured roadmap, practical exercises, real-world projects, and beginner-friendly explanations written in simple Arabic.
 
-## 🌟 Key Features
-
-- **🎯 Goal-Oriented Roadmaps:** Clear, step-by-step career tracks for Data Engineering, Data Analysis, and Data Science.
-- **💻 Interactive Learning Engine:** Structured lessons featuring real-world analogies, code playgrounds, common pitfalls, and practical challenges.
-- **🛠️ Portfolio Builder:** Guided real-world projects that automatically update your GitHub portfolio.
-- **🤖 Context-Aware AI Tutor:** An integrated AI assistant that understands your exact lesson context and code errors.
+The goal of DataLab is not just to teach tools—it is to help learners build the skills and portfolio needed for internships and real-world jobs.
 
 ---
 
-## 🏗️ Project Architecture
+✨ Vision
 
-```text
+Learning Data shouldn't feel overwhelming.
+
+DataLab transforms complex technical concepts into practical lessons, visual explanations, hands-on coding exercises, and real portfolio projects that anyone can follow step by step.
+
+---
+
+🚀 Features
+
+🧭 Interactive Learning Roadmap
+
+- Structured learning phases
+- Clear progression from beginner to advanced
+- Career-focused path
+
+🐍 Python Learning Hub
+
+- Practical coding lessons
+- Interactive examples
+- Common mistakes explained
+- Mini challenges after every lesson
+
+📊 Data Analytics Journey
+
+Learn the complete analytics stack:
+
+- Excel
+- SQL
+- Python
+- Statistics
+- Power BI
+- Data Visualization
+- Real Business Case Studies
+
+🤖 Machine Learning Path
+
+From the fundamentals to real predictive models.
+
+Topics include:
+
+- Data Preparation
+- Feature Engineering
+- Regression
+- Classification
+- Clustering
+- Model Evaluation
+
+💼 Portfolio Builder
+
+Build real projects that can be showcased on:
+
+- GitHub
+- LinkedIn
+- CV
+- Job Applications
+
+---
+
+🏗️ Project Structure
+
 DataLab/
-├── .devcontainer/       # Container configuration for cloud development
-├── app.py               # Main Application Shell & Navigation Engine
-├── requirements.txt     # Python Dependencies
-├── README.md            # Project Overview & Documentation
 │
-├── data/                # Data structures, roadmaps, and content indexes
-│   ├── roadmap.py
-│   └── python_lessons.py
+├── .devcontainer/
 │
-├── components/          # Reusable UI components (cards, headers, progress bars)
+├── components/
 │   ├── cards.py
 │   └── navigation.py
 │
-└── pages/               # Main platform views/pages
-    ├── roadmap.py
-    ├── python.py
-    └── portfolio.py
+├── data/
+│   ├── roadmap.py
+│   └── python_lessons.py
+│
+├── views/
+│   ├── roadmap.py
+│   ├── python.py
+│   └── portfolio.py
+│
+├── app.py
+├── python_tools.py
+├── requirements.txt
+└── README.md
+
+---
+
+🎯 Roadmap
+
+Current Modules
+
+- ✅ Data Roadmap
+- ✅ Python Fundamentals
+
+Coming Soon
+
+- Statistics
+- SQL
+- Excel
+- Power BI
+- Pandas
+- NumPy
+- Machine Learning
+- Portfolio Projects
+- Interview Preparation
+
+---
+
+🛠️ Tech Stack
+
+- Python
+- Streamlit
+- Git & GitHub
+
+Future
+
+- Plotly
+- Pandas
+- NumPy
+- Scikit-learn
+- SQLite
+- OpenAI APIs
+
+---
+
+🌍 Mission
+
+To make high-quality Data education accessible through practical learning, simple Arabic explanations, and real-world projects.
+
+---
+
+👨‍💻 Author
+
+Omar Saleh
+
+Computer Science Student
+
+Building educational tools that simplify Data Analytics for Arabic learners.
