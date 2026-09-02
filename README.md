@@ -1,110 +1,186 @@
-🧭 DataLab
-Learn Data. Build Real Skills. Create Your Career.
-An interactive learning platform designed to help Arabic learners master Data Analytics, Python, and Machine Learning through real-world projects, practical roadmaps, and beginner-friendly explanations.
-✨ Why DataLab?
-Learning Data shouldn't feel confusing.
-Most platforms teach isolated courses.
-DataLab teaches an entire journey.
-Instead of watching hundreds of random videos...
-You learn:
-what to study
-why you're studying it
-how it connects together
-where you'll use it
-then build a real project.
-🚀 Current Features
-🧭 Interactive Roadmap
-Structured learning path from absolute beginner to professional.
-🐍 Python Learning Hub
-Interactive lessons
-Real examples
-Mini challenges
-Common mistakes
-Professional notes
-Hands-on practice
-📊 Data Analytics Path
+<div align="center">
+
+# 🚀 DataLab
+
+### Learn Data. Build Projects. Become Job-Ready.
+
+<p>
+An interactive platform that transforms complex Data Analytics concepts into simple Arabic lessons, practical coding, and real-world portfolio projects.
+</p>
+
+<br>
+
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red?style=for-the-badge&logo=streamlit)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+![License](https://img.shields.io/badge/Open%20Source-Yes-orange?style=for-the-badge)
+
+</div>
+
+---
+
+# ✨ About DataLab
+
+DataLab is a modern educational platform designed to help beginners become professional Data Analysts and Data Scientists through:
+
+- Interactive Roadmaps
+- Beginner-friendly Arabic explanations
+- Practical Python lessons
+- Portfolio-ready projects
+- Real business case studies
+
+Unlike traditional courses, DataLab focuses on **learning by building**.
+
+---
+
+# 🎯 Vision
+
+Our vision is simple:
+
+> Make world-class Data Education available in Arabic with practical learning instead of memorization.
+
+---
+
+# 🚀 Features
+
+## 🧭 Interactive Learning Roadmap
+
+- Structured career roadmap
+- Step-by-step learning
+- Beginner friendly
+
+---
+
+## 🐍 Python Learning Hub
+
+- Interactive lessons
+- Code examples
+- Common mistakes
+- Mini challenges
+- Practice questions
+
+---
+
+## 📊 Data Analytics
+
 Learn:
-Excel
-SQL
-Python
-Statistics
-Power BI
-Data Visualization
-using practical business examples.
-🤖 Machine Learning Journey
-Coming soon...
-Regression
-Classification
-Clustering
-Feature Engineering
-Model Evaluation
-Real ML Projects
-💼 Portfolio Builder
-Instead of learning only...
-You'll build projects that can be published on
-GitHub
-LinkedIn
-CV
-Internship Applications
-🏗️ Project Structure
-DataLab/
+
+- Excel
+- SQL
+- Statistics
+- Python
+- Power BI
+- Data Visualization
+
+---
+
+## 🤖 Machine Learning
+
+Learn:
+
+- Regression
+- Classification
+- Clustering
+- Model Evaluation
+- Feature Engineering
+
+---
+
+## 💼 Portfolio Builder
+
+Create projects ready for:
+
+- GitHub
+- LinkedIn
+- Resume
+- Freelancing
+
+---
+
+# 📁 Project Structure
+
+```text
+DataLab
 │
 ├── app.py
 ├── requirements.txt
 ├── README.md
 │
 ├── components/
-│
-├── data/
+│   ├── cards.py
+│   └── navigation.py
 │
 ├── views/
+│   ├── roadmap.py
+│   ├── python.py
+│   └── portfolio.py
 │
-├── assets/
+├── data/
+│   ├── roadmap.py
+│   └── python_lessons.py
 │
 └── .devcontainer/
-🛣️ Learning Roadmap
-✅ Data Fundamentals
+```
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Python | Core Language |
+| Streamlit | Web Application |
+| GitHub | Version Control |
+| VS Code | Development |
+
+---
+
+# 🚧 Current Progress
+
+✅ Data Roadmap
+
 ✅ Python Fundamentals
+
 🚧 Statistics
+
 🚧 SQL
+
 🚧 Excel
+
 🚧 Power BI
+
 🚧 Pandas
-🚧 NumPy
+
 🚧 Machine Learning
+
 🚧 Portfolio Projects
-🚧 Interview Preparation
-⚙️ Tech Stack
-Python
-Streamlit
-Git
-GitHub
-Future
-Pandas
-NumPy
-Plotly
-Scikit-learn
-SQLite
-OpenAI API
-🌍 Vision
-Build one of the best Arabic educational platforms for Data Analytics.
-Simple.
-Interactive.
-Project-Based.
-Career-Oriented.
-🎯 Long-Term Goal
-DataLab is evolving beyond a learning website.
-The vision is to become an ecosystem that includes:
-Interactive courses
-AI Tutor
-Real-world projects
-Portfolio Builder
-Career Roadmaps
-Interview Preparation
-Community Learning
-👨‍💻 Creator
-Omar Saleh
-Computer Science Student
-Building practical educational experiences for Arabic learners.
-⭐ Support
-If you like this project, consider giving it a ⭐ on GitHub.
+
+---
+
+# 🌍 Future Plans
+
+- AI Tutor
+- Interactive Quizzes
+- Progress Tracking
+- Achievement System
+- Portfolio Generator
+- Interview Simulator
+- Community Learning
+
+---
+
+# ❤️ Mission
+
+Helping Arabic learners build real Data skills that lead to internships and professional careers.
+
+---
+
+<div align="center">
+
+### Built with ❤️ by Omar Saleh
+
+**Computer Science Student • Data Analytics • Machine Learning**
+
+⭐ If you like this project, don't forget to star the repository.
+
+</div>
