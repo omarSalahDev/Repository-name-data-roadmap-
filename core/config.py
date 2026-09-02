@@ -1,22 +1,25 @@
-"""
-=========================================
-DataLab Configuration
-Author: Omar Saleh
-=========================================
-"""
+import streamlit as st
+
 
 APP_NAME = "DataLab"
-
-APP_TAGLINE = "Learn Data. Build Skills. Create Real Projects."
 
 AUTHOR = "Omar Saleh"
 
 VERSION = "1.0.0"
 
-LANGUAGE = "ar"
+PAGE_TITLE = "DataLab | Learn • Build • Grow"
 
-THEME = "dark"
+PAGE_ICON = "⚡"
 
-GITHUB_URL = "https://github.com/omarSalahDev"
+LAYOUT = "wide"
 
-PORTFOLIO_URL = "https://omarsalahdev.github.io/portfolio/"
+SIDEBAR = "expanded"
+
+
+def configure_page():
+    st.set_page_config(
+        page_title=PAGE_TITLE,
+        page_icon=PAGE_ICON,
+        layout=LAYOUT,
+        initial_sidebar_state=SIDEBAR,
+    )
